@@ -1,0 +1,5 @@
+site_name: JS Doc
+pages:
+    - Home: index.md
+    - Peer: peer.md
+theme: readthedocs
