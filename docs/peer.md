@@ -1,7 +1,46 @@
 P2P接続およびルーム接続機能を操作するためのクラスです。
 
-## コンストラクタ
+## Constructor
 
+### Parameter
+
+|Name|Type|Optional|Default|Description|
+|----|----|----|----|----|
+|id|string|✔||ユーザのPeer IDです。|
+|options|[options object](options-object)|||接続に関するパラメータを指定するオプションです。|
+
+#### options object
+
+|Name|Type|Optional|Default|Description|
+|----|----|----|----|----|
+|key|string|||SkyWayのAPIキーです。|
+|debug|number|✔||ログレベル： NONE:0、 ERROR:1、 WARN:2、 FULL:3 から選択できます。|
+|turn|boolean|✔||Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。|
+|credential|[credential object](#credential-object)|✔||Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。|
+|config|RTCConfiguration object|✔|[RTCConfiguration object](#rtcconfiguration-object)|[応用] [RTCPeerConnectionに渡されるオブジェクト](https://w3c.github.io/webrtc-pc/#rtcconfiguration-dictionary)です。|
+
+
+#### credential object
+
+|Name|Type|Optional|Default|Description|
+|----|----|----|----|----|
+|timestamp|number|✔||現在のUNIXタイムスタンプです。|
+|ttl|string|✔||Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。|
+|authToken|string|✔|Default|HMACを利用して生成する認証用トークンです。|
+
+
+#### RTCConfiguration object
+
+```js
+const defaultConfig = {
+  iceServers: [{
+    urls: 'stun:stun.webrtc.ecl.ntt.com:3478',
+    url:  'stun:stun.webrtc.ecl.ntt.com:3478',
+  }],
+  iceTransportPolicy: 'all',
+};
+```
+### Sample
 
 ```js
 const peer = new Peer({
@@ -10,223 +49,10 @@ const peer = new Peer({
 });
 ```
 
-### パラメータ
-
-#### 案1: List表示
-
-- id
-    - Optional: True
-    - Description: ユーザのPeer IDです。
-    - Type: String
-- options
-    - Optional: False
-    - Description 接続に関するパラメータを指定するオプションです。
-    - Type: Object
-        - key
-            - Type: String
-            - Optional: False
-            - Description: SkyWayのAPIキーです。
-        - debug
-            - Type: number
-            - Optional: True
-            - Default: 0
-            - Description: ログレベル： NONE:0、 ERROR:1、 WARN:2、 FULL:3 から選択できます。
-        - config
-            - Type: Object
-            - Optional: True 
-            - Default: config.defaultConfig
-            - Description: RTCPeerConnectionに渡されるオブジェクトです。
-        - turn
-            - Type: boolean
-            - Optional: True
-            - Default: True
-            - Description: SkyWayで提供するTURNを使うかどうかのフラグです。
-        - credential
-            - Description
-            - Optional: True
-            - Type: Object
-                - timestamp
-                    - Optional: True
-                    - Description: 現在のUNIXタイムスタンプです。
-                    - Type: number
-
-#### 案2: Table表示(JSDoc同様、ただし生HTML)
-
-<table class="params">
-   <thead>
-      <tr>
-         <th>Name</th>
-         <th>Type</th>
-         <th>Attributes</th>
-         <th class="last">Description</th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td class="name"><code>id</code></td>
-         <td class="type">
-            <span class="param-type">string</span>
-         </td>
-         <td class="attributes">
-            &lt;optional><br>
-         </td>
-         <td class="description last">
-            <span class="jp">ユーザーのPeer IDです。</span>
-         </td>
-      </tr>
-      <tr>
-         <td class="name"><code>options</code></td>
-         <td class="type">
-            <span class="param-type">Object</span>
-         </td>
-         <td class="attributes">
-         </td>
-         <td class="description last">
-            <span class="jp">接続に関するパラメータを指定するオプションです。</span>
-            <h6>Properties</h6>
-            <table class="params">
-               <thead>
-                  <tr>
-                     <th>Name</th>
-                     <th>Type</th>
-                     <th>Attributes</th>
-                     <th>Default</th>
-                     <th class="last">Description</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td class="name"><code>key</code></td>
-                     <td class="type">
-                        <span class="param-type">string</span>
-                     </td>
-                     <td class="attributes">
-                     </td>
-                     <td class="default">
-                     </td>
-                     <td class="description last">
-                        <span class="jp">SkyWayのAPIキーです。</span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td class="name"><code>debug</code></td>
-                     <td class="type">
-                        <span class="param-type">number</span>
-                     </td>
-                     <td class="attributes">
-                        &lt;optional><br>
-                     </td>
-                     <td class="default">
-                        0
-                     </td>
-                     <td class="description last">
-                        <span class="jp">ログレベル： NONE:0、 ERROR:1、 WARN:2、 FULL:3 から選択できます。</span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td class="name"><code>config</code></td>
-                     <td class="type">
-                        <span class="param-type">object</span>
-                     </td>
-                     <td class="attributes">
-                        &lt;optional><br>
-                     </td>
-                     <td class="default">
-                        config.defaultConfig
-                     </td>
-                     <td class="description last">
-                        <span class="jp">RTCPeerConnectionに渡されるオブジェクトです。</span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td class="name"><code>turn</code></td>
-                     <td class="type">
-                        <span class="param-type">boolean</span>
-                     </td>
-                     <td class="attributes">
-                        &lt;optional><br>
-                     </td>
-                     <td class="default">
-                        true
-                     </td>
-                     <td class="description last">
-                        <span class="jp">SkyWayで提供するTURNを使うかどうかのフラグです。</span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td class="name"><code>credential</code></td>
-                     <td class="type">
-                        <span class="param-type">object</span>
-                     </td>
-                     <td class="attributes">
-                        &lt;optional><br>
-                     </td>
-                     <td class="default">
-                     </td>
-                     <td class="description last">
-                        <span class="jp">Peerを認証するためのクレデンシャルです。次のプロパティを含みます。</span>
-                        <h6>Properties</h6>
-                        <table class="params">
-                           <thead>
-                              <tr>
-                                 <th>Name</th>
-                                 <th>Type</th>
-                                 <th>Attributes</th>
-                                 <th class="last">Description</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td class="name"><code>timestamp</code></td>
-                                 <td class="type">
-                                    <span class="param-type">number</span>
-                                 </td>
-                                 <td class="attributes">
-                                    &lt;optional><br>
-                                 </td>
-                                 <td class="description last">
-                                    <span class="jp">現在のUNIXタイムスタンプです。</span>
-                                 </td>
-                              </tr>
-                              <tr>
-                                 <td class="name"><code>ttl</code></td>
-                                 <td class="type">
-                                    <span class="param-type">number</span>
-                                 </td>
-                                 <td class="attributes">
-                                    &lt;optional><br>
-                                 </td>
-                                 <td class="description last">
-                                    <span class="jp">Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。</span>
-                                 </td>
-                              </tr>
-                              <tr>
-                                 <td class="name"><code>authToken</code></td>
-                                 <td class="type">
-                                    <span class="param-type">string</span>
-                                 </td>
-                                 <td class="attributes">
-                                    &lt;optional><br>
-                                 </td>
-                                 <td class="description last">
-                                    <span class="jp">HMACを利用して生成する認証用トークンです。</span>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-         </td>
-      </tr>
-   </tbody>
-</table>
-
 ## Members
 
 |Name|Type|Description|
-|:---|:---|:---|
+|----|----|----|
 |connections|Object|全てのコネクションを保持するオブジェクトです。|
 |id|string|ユーザーが指定したPeer ID、もしくはサーバが生成したPeer IDです。|
 |open|boolean|シグナリングサーバへの接続状況を保持します。|
@@ -238,142 +64,231 @@ const peer = new Peer({
 
 指定したPeerにメディアチャネルで接続して、MediaConnectionを作成します。 オプションを指定することで、帯域幅・コーデックを指定できます。
 
+
+#### Parameters
+
+| Name | Type | Optional | Default | Description |
+| --- | --- | --- | --- | --- |
+| peerId | string | | | 接続先のPeer IDです。 |
+| stream | MediaStream | ✔ | | リモートのPeerへ送るメディアストリームです。 設定されていない場合は、受信のみモードで発信します。 |
+| options | [call options object](#call-options-object) | ✔ | |発信時に付与するオプションです。帯域幅・コーデックを指定します。 |
+
+
+##### call options object
+
+| Name | Type | Optional | Default | Description |
+| --- | --- | --- | --- | --- |
+| label | string | ✔ | | 接続先のPeer IDを識別するのに利用するラベルです。 |
+| videoBandwidth | number | ✔ | | 映像の最大帯域幅(kbps)です。 |
+| audioBandwidth | number | ✔ | | 音声の最大帯域幅(kbps)です。 |
+| videoCodec | string | ✔ | | 'H264'などの映像コーデックです。 |
+| audioCodec | string | ✔ | | 'PCMU'などの音声コーデックです。 |
+
+#### Return value 
+
+[MediaConnection]()のインスタンス
+
+#### Sample
+
 ```js
 const call = peer.call("DestPeerID", localStream);
 ```
 
-#### パラメータ
-
-<table class="params">
-   <thead>
-      <tr>
-         <th>Name</th>
-         <th>Type</th>
-         <th>Attributes</th>
-         <th class="last">Description</th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td class="name"><code>peerId</code></td>
-         <td class="type">
-            <span class="param-type">string</span>
-         </td>
-         <td class="attributes">
-         </td>
-         <td class="description last">
-            <span class="jp">接続先のPeer IDです。</span>
-         </td>
-      </tr>
-      <tr>
-         <td class="name"><code>stream</code></td>
-         <td class="type">
-            <span class="param-type">MediaStream</span>
-         </td>
-         <td class="attributes">
-            &lt;optional&gt;<br>
-         </td>
-         <td class="description last">
-            <span class="jp">リモートのPeerへ送るメディアストリームです。</span>
-            <span class="jp">設定されていない場合は、受信のみモードで発信します。</span>
-         </td>
-      </tr>
-      <tr>
-         <td class="name"><code>options</code></td>
-         <td class="type">
-            <span class="param-type">object</span>
-         </td>
-         <td class="attributes">
-            &lt;optional&gt;<br>
-         </td>
-         <td class="description last">
-            <span class="jp">発信時に付与するオプションです。帯域幅・コーデックを指定します。</span>
-            <h6>Properties</h6>
-            <table class="params">
-               <thead>
-                  <tr>
-                     <th>Name</th>
-                     <th>Type</th>
-                     <th>Attributes</th>
-                     <th class="last">Description</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td class="name"><code>label</code></td>
-                     <td class="type">
-                        <span class="param-type">string</span>
-                     </td>
-                     <td class="attributes">
-                        &lt;optional&gt;<br>
-                     </td>
-                     <td class="description last">
-                        <span class="jp">接続先のPeer IDを識別するのに利用するラベルです。</span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td class="name"><code>videoBandwidth</code></td>
-                     <td class="type">
-                        <span class="param-type">number</span>
-                     </td>
-                     <td class="attributes">
-                        &lt;optional&gt;<br>
-                     </td>
-                     <td class="description last">
-                            <span class="jp">映像の最大帯域幅(kbps)です。</span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td class="name"><code>audioBandwidth</code></td>
-                     <td class="type">
-                        <span class="param-type">number</span>
-                     </td>
-                     <td class="attributes">
-                        &lt;optional&gt;<br>
-                     </td>
-                     <td class="description last">
-                        <span class="jp">音声の最大帯域幅(kbps)です。</span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td class="name"><code>videoCodec</code></td>
-                     <td class="type">
-                        <span class="param-type">string</span>
-                     </td>
-                     <td class="attributes">
-                        &lt;optional&gt;<br>
-                     </td>
-                     <td class="description last">
-                        <span class="jp">'H264'などの映像コーデックです。</span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td class="name"><code>audioCodec</code></td>
-                     <td class="type">
-                        <span class="param-type">string</span>
-                     </td>
-                     <td class="attributes">
-                        &lt;optional&gt;<br>
-                     </td>
-                     <td class="description last">
-                        <span class="jp">'PCMU'などの音声コーデックです。</span>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-         </td>
-      </tr>
-   </tbody>
-</table>
-
-#### 戻り値
-
-[MediaConnection]()のインスタンス
-
 ### connect
 
-...
+指定したPeerにデータチャネルで接続して、DataConnectionインスタンスを生成します。
 
+#### Parameters
+
+| Name | Type | Attributes | Description |
+| --- | --- | --- | --- |
+| peerId | string | |   接続先のPeer IDです。|
+| options | [connect options object](#connect-options-object) | ✔ | 接続時に付与するオプションです。 |
+
+##### connect options object
+
+| Name | Type | Attributes | Description |
+| --- | --- | --- | --- |
+| label | string | ✔ | 接続先のPeer IDを識別するのに利用するラベルです。 |
+| metadata | string | ✔ | コネクションに関連付けされるメタデータで、コネクションを開始したpeerに渡されます。 |
+| serialization | string | ✔ | 送信時のシリアライズ方法を指定します。'binary'、'json'、'none'のいずれか、となります。 |
+
+#### Return value 
+
+DataConnectionのインスタンス
+
+#### Sample
+
+```js
+TBD
+```
+
+### destroy
+
+全てのコネクションを閉じ、シグナリングサーバへの接続を切断します。
+
+#### Parameters
+
+None
+
+#### Return value 
+
+`undefined`
+
+#### Sample
+
+```js
+TBD
+```
+
+### disconnect
+
+シグナリングサーバへの接続を閉じ、disconnectedイベントを送出します。
+
+#### Parameters
+
+None
+
+#### Return value 
+
+`undefined`
+
+#### Sample
+
+```js
+TBD
+```
+
+### joinRoom
+
+メッシュ接続のルーム、またはSFU接続のルームに参加します。
+
+#### Parameters
+
+| Name | Type | Optional | Default | Description |
+| --- | --- | --- | --- | --- |
+| roomName | string | | | 参加先のルームの名前です。|
+| roomOptions | [roomOptions object](#roomoptions-object) | ✔ | 接続時に選択・付与するオプションです。|
+
+##### roomOptions object
+
+| Name | Type | Optional | Default | Description |
+| --- | --- | --- | --- | --- |
+| mode | string | ✔ | 'mesh' | 'sfu'または'mesh'を指定します。 |
+| stream | MediaStream | ✔ | ユーザーが送信するメディアストリームです。 |
+| videoBandwidth | number | ✔ | 映像の最大帯域幅(kbps)です。 |
+| audioBandwidth | number | ✔ | 音声の最大帯域幅(kbps)です。 |
+| videoCodec | string | ✔ | 'H264'などの映像コーデックです。 |
+| audioCodec | string | ✔ | 'PCMU'などの音声コーデックです。 |
+
+#### Return value 
+
+SFURoomまたはMeshRoomのインスタンス
+
+#### Sample
+
+```js
+// Mesh接続を利用する場合
+const room = peer.joinRoom("roomName", {
+  mode: 'mesh', 
+  stream: localStream,
+});
+```
+
+```js
+// SFU接続を利用する場合
+const room = peer.joinRoom("roomName", {
+  mode: 'sfu', 
+  stream: localStream,
+});
+```
+
+### listAllPeers
+
+REST APIを利用して、APIキーに紐づくPeerID一覧を取得します。
+
+#### Parameters
+
+None
+
+#### Return value 
+
+`undefined`
+
+#### Sample
+
+```js
+TBD
+```
+
+### updateCredential
+
+TTLを延長するための更新リクエストの送付します。
+
+#### Parameters
+
+| Name | Type | Optional | Default | Description |
+| --- | --- | --- | --- | --- |
+| mode | [credential object](#credential-object)| | |   ユーザー側で作成する新しいクレデンシャルです。 |
+
+##### newCredential object
+
+|Name|Type|Optional|Default|Description|
+|----|----|----|----|----|
+|timestamp|number|✔||現在のUNIXタイムスタンプです。|
+|ttl|string|✔||Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。|
+|authToken|string|✔|Default|HMACを利用して生成する認証用トークンです。|
+
+#### Return value 
+
+`undefined`
+
+#### Sample
+
+```js
+TBD
+```
 
 ## Events
+
+### open
+
+シグナリングサーバへ正常に接続できたときのイベントです。
+
+|Type|Description|
+|----|----|
+|string|Peer ID|
+
+#### Sample
+
+```js
+peer.on('open', id => {
+  console.log(id);
+})
+```
+
+### call
+
+接続先のPeerからMediaChannelの接続を受信したときのイベントです。
+
+|Name |Type|Description|
+|----|----|----|
+|id|string|Peer ID|
+
+### close
+
+### connection
+
+### disconnected
+
+### error
+
+|Name|Type|Description|
+|----|----|----|
+|open|MediaConnection|全てのルームを保持するオブジェクトです。|
+|call|Da|全てのコネクションを保持するオブジェクトです。|
+|close|string|ユーザーが指定したPeer ID、もしくはサーバが生成したPeer IDです。|
+|connection|boolean|シグナリングサーバへの接続状況を保持します。|
+|disconnected|object|全てのルームを保持するオブジェクトです。|
+|error|object|全てのルームを保持するオブジェクトです。|
 
