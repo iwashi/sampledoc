@@ -610,9 +610,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#expiresin" title="expiresin" class="md-nav__link">
+    expiresin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#error" title="error" class="md-nav__link">
     error
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_9" title="Sample" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1069,9 +1089,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#expiresin" title="expiresin" class="md-nav__link">
+    expiresin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#error" title="error" class="md-nav__link">
     error
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_9" title="Sample" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1642,64 +1682,103 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 <table>
 <thead>
 <tr>
-<th>Name</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>id</td>
+<td>MediaConnection</td>
+<td>MediaConnectionのインスタンスです。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="close">close</h3>
+<p>Peerに対する全ての接続を終了したときのイベントです。</p>
+<h3 id="connection">connection</h3>
+<p>接続先のPeerからDataChannelの接続を受信したときのイベントです。</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DataConnection</td>
+<td>DataConnectionのインスタンスです。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="disconnected">disconnected</h3>
+<p>シグナリングサーバから切断したときのイベントです。</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>string</td>
 <td>Peer ID</td>
 </tr>
 </tbody>
 </table>
-<h3 id="close">close</h3>
-<h3 id="connection">connection</h3>
-<h3 id="disconnected">disconnected</h3>
+<h3 id="expiresin">expiresin</h3>
 <h3 id="error">error</h3>
+<p>エラーが発生した場合のイベントです。</p>
 <table>
 <thead>
 <tr>
-<th>Name</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>open</td>
-<td>MediaConnection</td>
-<td>全てのルームを保持するオブジェクトです。</td>
+<td>room-error</td>
+<td>ルーム名が指定されていません。</td>
 </tr>
 <tr>
-<td>call</td>
-<td>Da</td>
-<td>全てのコネクションを保持するオブジェクトです。</td>
-</tr>
-<tr>
-<td>close</td>
-<td>string</td>
-<td>ユーザーが指定したPeer ID、もしくはサーバが生成したPeer IDです。</td>
-</tr>
-<tr>
-<td>connection</td>
-<td>boolean</td>
-<td>シグナリングサーバへの接続状況を保持します。</td>
+<td>list-error</td>
+<td>APIキーのREST APIが許可されてません。</td>
 </tr>
 <tr>
 <td>disconnected</td>
-<td>object</td>
-<td>全てのルームを保持するオブジェクトです。</td>
+<td>SkyWayのシグナリングサーバに接続されていません。</td>
 </tr>
 <tr>
-<td>error</td>
-<td>object</td>
-<td>全てのルームを保持するオブジェクトです。</td>
+<td>socket-error</td>
+<td>SkyWayのシグナリングサーバとの接続が失われました。</td>
+</tr>
+<tr>
+<td>invalid-id</td>
+<td>IDが不正です。</td>
+</tr>
+<tr>
+<td>invalid-key</td>
+<td>APIキーが無効です。</td>
+</tr>
+<tr>
+<td>server-error</td>
+<td>SkyWayのシグナリングサーバからPeer一覧を取得できませんでした。</td>
+</tr>
+<tr>
+<td>TBDサーバ側のエラー色々</td>
+<td>TBD(サーバ側のメッセージから起こす必要があるので後で)</td>
 </tr>
 </tbody>
 </table>
+<h4 id="sample_9">Sample</h4>
+<pre><code class="js">// 仮にRoom名を指定せずにjoinRoomを呼んだ場合
+peer.on('error', error =&gt; {
+  console.log(`${error.type}: ${error.message}`);
+  // =&gt; room-error: Room name must be defined.
+});
+</code></pre>
                 
                   
                 
