@@ -1,0 +1,269 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Welcome to\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "title": "Home"
+        },
+        {
+            "location": "/#welcome-to",
+            "text": "For full documentation visit  mkdocs.org .",
+            "title": "Welcome to"
+        },
+        {
+            "location": "/#commands",
+            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.",
+            "title": "Commands"
+        },
+        {
+            "location": "/#project-layout",
+            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "title": "Project layout"
+        },
+        {
+            "location": "/peer/",
+            "text": "P2P\u63a5\u7d9a\u304a\u3088\u3073\u30eb\u30fc\u30e0\u63a5\u7d9a\u6a5f\u80fd\u3092\u64cd\u4f5c\u3059\u308b\u305f\u3081\u306e\u30af\u30e9\u30b9\u3067\u3059\u3002\n\n\nConstructor\n\n\nParameter\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptional\n\n\nDefault\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nid\n\n\nstring\n\n\n\u2714\n\n\n\n\n\u30e6\u30fc\u30b6\u306ePeer ID\u3067\u3059\u3002\n\n\n\n\n\n\noptions\n\n\noptions object\n\n\n\n\n\n\n\u63a5\u7d9a\u306b\u95a2\u3059\u308b\u30d1\u30e9\u30e1\u30fc\u30bf\u3092\u6307\u5b9a\u3059\u308b\u30aa\u30d7\u30b7\u30e7\u30f3\u3067\u3059\u3002\n\n\n\n\n\n\n\n\noptions object\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptional\n\n\nDefault\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nkey\n\n\nstring\n\n\n\n\n\n\nSkyWay\u306eAPI\u30ad\u30fc\u3067\u3059\u3002\n\n\n\n\n\n\ndebug\n\n\nnumber\n\n\n\u2714\n\n\n\n\n\u30ed\u30b0\u30ec\u30d9\u30eb\uff1a NONE:0\u3001 ERROR:1\u3001 WARN:2\u3001 FULL:3 \u304b\u3089\u9078\u629e\u3067\u304d\u307e\u3059\u3002\n\n\n\n\n\n\nturn\n\n\nboolean\n\n\n\u2714\n\n\n\n\nTime to live(ttl)\u3002\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7 + ttl \u306e\u6642\u9593\u3067\u30af\u30ec\u30c7\u30f3\u30b7\u30e3\u30eb\u304c\u5931\u52b9\u3057\u307e\u3059\u3002\n\n\n\n\n\n\ncredential\n\n\ncredential object\n\n\n\u2714\n\n\n\n\nTime to live(ttl)\u3002\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7 + ttl \u306e\u6642\u9593\u3067\u30af\u30ec\u30c7\u30f3\u30b7\u30e3\u30eb\u304c\u5931\u52b9\u3057\u307e\u3059\u3002\n\n\n\n\n\n\nconfig\n\n\nRTCConfiguration object\n\n\n\u2714\n\n\nRTCConfiguration object\n\n\n[\u5fdc\u7528] \nRTCPeerConnection\u306b\u6e21\u3055\u308c\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\n\u3067\u3059\u3002\n\n\n\n\n\n\n\n\ncredential object\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptional\n\n\nDefault\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ntimestamp\n\n\nnumber\n\n\n\u2714\n\n\n\n\n\u73fe\u5728\u306eUNIX\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7\u3067\u3059\u3002\n\n\n\n\n\n\nttl\n\n\nstring\n\n\n\u2714\n\n\n\n\nTime to live(ttl)\u3002\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7 + ttl \u306e\u6642\u9593\u3067\u30af\u30ec\u30c7\u30f3\u30b7\u30e3\u30eb\u304c\u5931\u52b9\u3057\u307e\u3059\u3002\n\n\n\n\n\n\nauthToken\n\n\nstring\n\n\n\u2714\n\n\nDefault\n\n\nHMAC\u3092\u5229\u7528\u3057\u3066\u751f\u6210\u3059\u308b\u8a8d\u8a3c\u7528\u30c8\u30fc\u30af\u30f3\u3067\u3059\u3002\n\n\n\n\n\n\n\n\nRTCConfiguration object\n\n\nconst defaultConfig = {\n  iceServers: [{\n    urls: 'stun:stun.webrtc.ecl.ntt.com:3478',\n    url:  'stun:stun.webrtc.ecl.ntt.com:3478',\n  }],\n  iceTransportPolicy: 'all',\n};\n\n\n\n\nSample\n\n\nconst peer = new Peer({\n    key:   \"<YOUR-API-KEY>\"\n    debug: 3,\n});\n\n\n\n\nMembers\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nconnections\n\n\nObject\n\n\n\u5168\u3066\u306e\u30b3\u30cd\u30af\u30b7\u30e7\u30f3\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002\n\n\n\n\n\n\nid\n\n\nstring\n\n\n\u30e6\u30fc\u30b6\u30fc\u304c\u6307\u5b9a\u3057\u305fPeer ID\u3001\u3082\u3057\u304f\u306f\u30b5\u30fc\u30d0\u304c\u751f\u6210\u3057\u305fPeer ID\u3067\u3059\u3002\n\n\n\n\n\n\nopen\n\n\nboolean\n\n\n\u30b7\u30b0\u30ca\u30ea\u30f3\u30b0\u30b5\u30fc\u30d0\u3078\u306e\u63a5\u7d9a\u72b6\u6cc1\u3092\u4fdd\u6301\u3057\u307e\u3059\u3002\n\n\n\n\n\n\nrooms\n\n\nobject\n\n\n\u5168\u3066\u306e\u30eb\u30fc\u30e0\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002\n\n\n\n\n\n\n\n\nMethods\n\n\ncall\n\n\n\u6307\u5b9a\u3057\u305fPeer\u306b\u30e1\u30c7\u30a3\u30a2\u30c1\u30e3\u30cd\u30eb\u3067\u63a5\u7d9a\u3057\u3066\u3001MediaConnection\u3092\u4f5c\u6210\u3057\u307e\u3059\u3002 \u30aa\u30d7\u30b7\u30e7\u30f3\u3092\u6307\u5b9a\u3059\u308b\u3053\u3068\u3067\u3001\u5e2f\u57df\u5e45\u30fb\u30b3\u30fc\u30c7\u30c3\u30af\u3092\u6307\u5b9a\u3067\u304d\u307e\u3059\u3002\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptional\n\n\nDefault\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\npeerId\n\n\nstring\n\n\n\n\n\n\n\u63a5\u7d9a\u5148\u306ePeer ID\u3067\u3059\u3002\n\n\n\n\n\n\nstream\n\n\nMediaStream\n\n\n\u2714\n\n\n\n\n\u30ea\u30e2\u30fc\u30c8\u306ePeer\u3078\u9001\u308b\u30e1\u30c7\u30a3\u30a2\u30b9\u30c8\u30ea\u30fc\u30e0\u3067\u3059\u3002 \u8a2d\u5b9a\u3055\u308c\u3066\u3044\u306a\u3044\u5834\u5408\u306f\u3001\u53d7\u4fe1\u306e\u307f\u30e2\u30fc\u30c9\u3067\u767a\u4fe1\u3057\u307e\u3059\u3002\n\n\n\n\n\n\noptions\n\n\ncall options object\n\n\n\u2714\n\n\n\n\n\u767a\u4fe1\u6642\u306b\u4ed8\u4e0e\u3059\u308b\u30aa\u30d7\u30b7\u30e7\u30f3\u3067\u3059\u3002\u5e2f\u57df\u5e45\u30fb\u30b3\u30fc\u30c7\u30c3\u30af\u3092\u6307\u5b9a\u3057\u307e\u3059\u3002\n\n\n\n\n\n\n\n\ncall options object\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptional\n\n\nDefault\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nlabel\n\n\nstring\n\n\n\u2714\n\n\n\n\n\u63a5\u7d9a\u5148\u306ePeer ID\u3092\u8b58\u5225\u3059\u308b\u306e\u306b\u5229\u7528\u3059\u308b\u30e9\u30d9\u30eb\u3067\u3059\u3002\n\n\n\n\n\n\nvideoBandwidth\n\n\nnumber\n\n\n\u2714\n\n\n\n\n\u6620\u50cf\u306e\u6700\u5927\u5e2f\u57df\u5e45(kbps)\u3067\u3059\u3002\n\n\n\n\n\n\naudioBandwidth\n\n\nnumber\n\n\n\u2714\n\n\n\n\n\u97f3\u58f0\u306e\u6700\u5927\u5e2f\u57df\u5e45(kbps)\u3067\u3059\u3002\n\n\n\n\n\n\nvideoCodec\n\n\nstring\n\n\n\u2714\n\n\n\n\n'H264'\u306a\u3069\u306e\u6620\u50cf\u30b3\u30fc\u30c7\u30c3\u30af\u3067\u3059\u3002\n\n\n\n\n\n\naudioCodec\n\n\nstring\n\n\n\u2714\n\n\n\n\n'PCMU'\u306a\u3069\u306e\u97f3\u58f0\u30b3\u30fc\u30c7\u30c3\u30af\u3067\u3059\u3002\n\n\n\n\n\n\n\n\nReturn value\n\n\nMediaConnection\n\u306e\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\n\n\nSample\n\n\nconst call = peer.call(\"DestPeerID\", localStream);\n\n\n\n\nconnect\n\n\n\u6307\u5b9a\u3057\u305fPeer\u306b\u30c7\u30fc\u30bf\u30c1\u30e3\u30cd\u30eb\u3067\u63a5\u7d9a\u3057\u3066\u3001DataConnection\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u3092\u751f\u6210\u3057\u307e\u3059\u3002\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nAttributes\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\npeerId\n\n\nstring\n\n\n\n\n\u63a5\u7d9a\u5148\u306ePeer ID\u3067\u3059\u3002\n\n\n\n\n\n\noptions\n\n\nconnect options object\n\n\n\u2714\n\n\n\u63a5\u7d9a\u6642\u306b\u4ed8\u4e0e\u3059\u308b\u30aa\u30d7\u30b7\u30e7\u30f3\u3067\u3059\u3002\n\n\n\n\n\n\n\n\nconnect options object\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nAttributes\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nlabel\n\n\nstring\n\n\n\u2714\n\n\n\u63a5\u7d9a\u5148\u306ePeer ID\u3092\u8b58\u5225\u3059\u308b\u306e\u306b\u5229\u7528\u3059\u308b\u30e9\u30d9\u30eb\u3067\u3059\u3002\n\n\n\n\n\n\nmetadata\n\n\nstring\n\n\n\u2714\n\n\n\u30b3\u30cd\u30af\u30b7\u30e7\u30f3\u306b\u95a2\u9023\u4ed8\u3051\u3055\u308c\u308b\u30e1\u30bf\u30c7\u30fc\u30bf\u3067\u3001\u30b3\u30cd\u30af\u30b7\u30e7\u30f3\u3092\u958b\u59cb\u3057\u305fpeer\u306b\u6e21\u3055\u308c\u307e\u3059\u3002\n\n\n\n\n\n\nserialization\n\n\nstring\n\n\n\u2714\n\n\n\u9001\u4fe1\u6642\u306e\u30b7\u30ea\u30a2\u30e9\u30a4\u30ba\u65b9\u6cd5\u3092\u6307\u5b9a\u3057\u307e\u3059\u3002'binary'\u3001'json'\u3001'none'\u306e\u3044\u305a\u308c\u304b\u3001\u3068\u306a\u308a\u307e\u3059\u3002\n\n\n\n\n\n\n\n\nReturn value\n\n\nDataConnection\u306e\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\n\n\nSample\n\n\nTBD\n\n\n\n\ndestroy\n\n\n\u5168\u3066\u306e\u30b3\u30cd\u30af\u30b7\u30e7\u30f3\u3092\u9589\u3058\u3001\u30b7\u30b0\u30ca\u30ea\u30f3\u30b0\u30b5\u30fc\u30d0\u3078\u306e\u63a5\u7d9a\u3092\u5207\u65ad\u3057\u307e\u3059\u3002\n\n\nParameters\n\n\nNone\n\n\nReturn value\n\n\nundefined\n\n\nSample\n\n\nTBD\n\n\n\n\ndisconnect\n\n\n\u30b7\u30b0\u30ca\u30ea\u30f3\u30b0\u30b5\u30fc\u30d0\u3078\u306e\u63a5\u7d9a\u3092\u9589\u3058\u3001disconnected\u30a4\u30d9\u30f3\u30c8\u3092\u9001\u51fa\u3057\u307e\u3059\u3002\n\n\nParameters\n\n\nNone\n\n\nReturn value\n\n\nundefined\n\n\nSample\n\n\nTBD\n\n\n\n\njoinRoom\n\n\n\u30e1\u30c3\u30b7\u30e5\u63a5\u7d9a\u306e\u30eb\u30fc\u30e0\u3001\u307e\u305f\u306fSFU\u63a5\u7d9a\u306e\u30eb\u30fc\u30e0\u306b\u53c2\u52a0\u3057\u307e\u3059\u3002\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptional\n\n\nDefault\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nroomName\n\n\nstring\n\n\n\n\n\n\n\u53c2\u52a0\u5148\u306e\u30eb\u30fc\u30e0\u306e\u540d\u524d\u3067\u3059\u3002\n\n\n\n\n\n\nroomOptions\n\n\nroomOptions object\n\n\n\u2714\n\n\n\u63a5\u7d9a\u6642\u306b\u9078\u629e\u30fb\u4ed8\u4e0e\u3059\u308b\u30aa\u30d7\u30b7\u30e7\u30f3\u3067\u3059\u3002\n\n\n\n\n\n\n\n\n\n\nroomOptions object\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptional\n\n\nDefault\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nmode\n\n\nstring\n\n\n\u2714\n\n\n'mesh'\n\n\n'sfu'\u307e\u305f\u306f'mesh'\u3092\u6307\u5b9a\u3057\u307e\u3059\u3002\n\n\n\n\n\n\nstream\n\n\nMediaStream\n\n\n\u2714\n\n\n\u30e6\u30fc\u30b6\u30fc\u304c\u9001\u4fe1\u3059\u308b\u30e1\u30c7\u30a3\u30a2\u30b9\u30c8\u30ea\u30fc\u30e0\u3067\u3059\u3002\n\n\n\n\n\n\n\n\nvideoBandwidth\n\n\nnumber\n\n\n\u2714\n\n\n\u6620\u50cf\u306e\u6700\u5927\u5e2f\u57df\u5e45(kbps)\u3067\u3059\u3002\n\n\n\n\n\n\n\n\naudioBandwidth\n\n\nnumber\n\n\n\u2714\n\n\n\u97f3\u58f0\u306e\u6700\u5927\u5e2f\u57df\u5e45(kbps)\u3067\u3059\u3002\n\n\n\n\n\n\n\n\nvideoCodec\n\n\nstring\n\n\n\u2714\n\n\n'H264'\u306a\u3069\u306e\u6620\u50cf\u30b3\u30fc\u30c7\u30c3\u30af\u3067\u3059\u3002\n\n\n\n\n\n\n\n\naudioCodec\n\n\nstring\n\n\n\u2714\n\n\n'PCMU'\u306a\u3069\u306e\u97f3\u58f0\u30b3\u30fc\u30c7\u30c3\u30af\u3067\u3059\u3002\n\n\n\n\n\n\n\n\n\n\nReturn value\n\n\nSFURoom\u307e\u305f\u306fMeshRoom\u306e\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\n\n\nSample\n\n\n// Mesh\u63a5\u7d9a\u3092\u5229\u7528\u3059\u308b\u5834\u5408\nconst room = peer.joinRoom(\"roomName\", {\n  mode: 'mesh', \n  stream: localStream,\n});\n\n\n\n\n// SFU\u63a5\u7d9a\u3092\u5229\u7528\u3059\u308b\u5834\u5408\nconst room = peer.joinRoom(\"roomName\", {\n  mode: 'sfu', \n  stream: localStream,\n});\n\n\n\n\nlistAllPeers\n\n\nREST API\u3092\u5229\u7528\u3057\u3066\u3001API\u30ad\u30fc\u306b\u7d10\u3065\u304fPeerID\u4e00\u89a7\u3092\u53d6\u5f97\u3057\u307e\u3059\u3002\n\n\nParameters\n\n\nNone\n\n\nReturn value\n\n\nundefined\n\n\nSample\n\n\nTBD\n\n\n\n\nupdateCredential\n\n\nTTL\u3092\u5ef6\u9577\u3059\u308b\u305f\u3081\u306e\u66f4\u65b0\u30ea\u30af\u30a8\u30b9\u30c8\u306e\u9001\u4ed8\u3057\u307e\u3059\u3002\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptional\n\n\nDefault\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nmode\n\n\ncredential object\n\n\n\n\n\n\n\u30e6\u30fc\u30b6\u30fc\u5074\u3067\u4f5c\u6210\u3059\u308b\u65b0\u3057\u3044\u30af\u30ec\u30c7\u30f3\u30b7\u30e3\u30eb\u3067\u3059\u3002\n\n\n\n\n\n\n\n\nnewCredential object\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nOptional\n\n\nDefault\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ntimestamp\n\n\nnumber\n\n\n\u2714\n\n\n\n\n\u73fe\u5728\u306eUNIX\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7\u3067\u3059\u3002\n\n\n\n\n\n\nttl\n\n\nstring\n\n\n\u2714\n\n\n\n\nTime to live(ttl)\u3002\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7 + ttl \u306e\u6642\u9593\u3067\u30af\u30ec\u30c7\u30f3\u30b7\u30e3\u30eb\u304c\u5931\u52b9\u3057\u307e\u3059\u3002\n\n\n\n\n\n\nauthToken\n\n\nstring\n\n\n\u2714\n\n\nDefault\n\n\nHMAC\u3092\u5229\u7528\u3057\u3066\u751f\u6210\u3059\u308b\u8a8d\u8a3c\u7528\u30c8\u30fc\u30af\u30f3\u3067\u3059\u3002\n\n\n\n\n\n\n\n\nReturn value\n\n\nundefined\n\n\nSample\n\n\nTBD\n\n\n\n\nEvents\n\n\nopen\n\n\n\u30b7\u30b0\u30ca\u30ea\u30f3\u30b0\u30b5\u30fc\u30d0\u3078\u6b63\u5e38\u306b\u63a5\u7d9a\u3067\u304d\u305f\u3068\u304d\u306e\u30a4\u30d9\u30f3\u30c8\u3067\u3059\u3002\n\n\n\n\n\n\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nstring\n\n\nPeer ID\n\n\n\n\n\n\n\n\nSample\n\n\npeer.on('open', id => {\n  console.log(id);\n})\n\n\n\n\ncall\n\n\n\u63a5\u7d9a\u5148\u306ePeer\u304b\u3089MediaChannel\u306e\u63a5\u7d9a\u3092\u53d7\u4fe1\u3057\u305f\u3068\u304d\u306e\u30a4\u30d9\u30f3\u30c8\u3067\u3059\u3002\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nid\n\n\nstring\n\n\nPeer ID\n\n\n\n\n\n\n\n\nclose\n\n\nconnection\n\n\ndisconnected\n\n\nerror\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nopen\n\n\nMediaConnection\n\n\n\u5168\u3066\u306e\u30eb\u30fc\u30e0\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002\n\n\n\n\n\n\ncall\n\n\nDa\n\n\n\u5168\u3066\u306e\u30b3\u30cd\u30af\u30b7\u30e7\u30f3\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002\n\n\n\n\n\n\nclose\n\n\nstring\n\n\n\u30e6\u30fc\u30b6\u30fc\u304c\u6307\u5b9a\u3057\u305fPeer ID\u3001\u3082\u3057\u304f\u306f\u30b5\u30fc\u30d0\u304c\u751f\u6210\u3057\u305fPeer ID\u3067\u3059\u3002\n\n\n\n\n\n\nconnection\n\n\nboolean\n\n\n\u30b7\u30b0\u30ca\u30ea\u30f3\u30b0\u30b5\u30fc\u30d0\u3078\u306e\u63a5\u7d9a\u72b6\u6cc1\u3092\u4fdd\u6301\u3057\u307e\u3059\u3002\n\n\n\n\n\n\ndisconnected\n\n\nobject\n\n\n\u5168\u3066\u306e\u30eb\u30fc\u30e0\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002\n\n\n\n\n\n\nerror\n\n\nobject\n\n\n\u5168\u3066\u306e\u30eb\u30fc\u30e0\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002",
+            "title": "Peer"
+        },
+        {
+            "location": "/peer/#constructor",
+            "text": "",
+            "title": "Constructor"
+        },
+        {
+            "location": "/peer/#parameter",
+            "text": "Name  Type  Optional  Default  Description      id  string  \u2714   \u30e6\u30fc\u30b6\u306ePeer ID\u3067\u3059\u3002    options  options object    \u63a5\u7d9a\u306b\u95a2\u3059\u308b\u30d1\u30e9\u30e1\u30fc\u30bf\u3092\u6307\u5b9a\u3059\u308b\u30aa\u30d7\u30b7\u30e7\u30f3\u3067\u3059\u3002",
+            "title": "Parameter"
+        },
+        {
+            "location": "/peer/#options-object",
+            "text": "Name  Type  Optional  Default  Description      key  string    SkyWay\u306eAPI\u30ad\u30fc\u3067\u3059\u3002    debug  number  \u2714   \u30ed\u30b0\u30ec\u30d9\u30eb\uff1a NONE:0\u3001 ERROR:1\u3001 WARN:2\u3001 FULL:3 \u304b\u3089\u9078\u629e\u3067\u304d\u307e\u3059\u3002    turn  boolean  \u2714   Time to live(ttl)\u3002\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7 + ttl \u306e\u6642\u9593\u3067\u30af\u30ec\u30c7\u30f3\u30b7\u30e3\u30eb\u304c\u5931\u52b9\u3057\u307e\u3059\u3002    credential  credential object  \u2714   Time to live(ttl)\u3002\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7 + ttl \u306e\u6642\u9593\u3067\u30af\u30ec\u30c7\u30f3\u30b7\u30e3\u30eb\u304c\u5931\u52b9\u3057\u307e\u3059\u3002    config  RTCConfiguration object  \u2714  RTCConfiguration object  [\u5fdc\u7528]  RTCPeerConnection\u306b\u6e21\u3055\u308c\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8 \u3067\u3059\u3002",
+            "title": "options object"
+        },
+        {
+            "location": "/peer/#credential-object",
+            "text": "Name  Type  Optional  Default  Description      timestamp  number  \u2714   \u73fe\u5728\u306eUNIX\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7\u3067\u3059\u3002    ttl  string  \u2714   Time to live(ttl)\u3002\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7 + ttl \u306e\u6642\u9593\u3067\u30af\u30ec\u30c7\u30f3\u30b7\u30e3\u30eb\u304c\u5931\u52b9\u3057\u307e\u3059\u3002    authToken  string  \u2714  Default  HMAC\u3092\u5229\u7528\u3057\u3066\u751f\u6210\u3059\u308b\u8a8d\u8a3c\u7528\u30c8\u30fc\u30af\u30f3\u3067\u3059\u3002",
+            "title": "credential object"
+        },
+        {
+            "location": "/peer/#rtcconfiguration-object",
+            "text": "const defaultConfig = {\n  iceServers: [{\n    urls: 'stun:stun.webrtc.ecl.ntt.com:3478',\n    url:  'stun:stun.webrtc.ecl.ntt.com:3478',\n  }],\n  iceTransportPolicy: 'all',\n};",
+            "title": "RTCConfiguration object"
+        },
+        {
+            "location": "/peer/#sample",
+            "text": "const peer = new Peer({\n    key:   \"<YOUR-API-KEY>\"\n    debug: 3,\n});",
+            "title": "Sample"
+        },
+        {
+            "location": "/peer/#members",
+            "text": "Name  Type  Description      connections  Object  \u5168\u3066\u306e\u30b3\u30cd\u30af\u30b7\u30e7\u30f3\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002    id  string  \u30e6\u30fc\u30b6\u30fc\u304c\u6307\u5b9a\u3057\u305fPeer ID\u3001\u3082\u3057\u304f\u306f\u30b5\u30fc\u30d0\u304c\u751f\u6210\u3057\u305fPeer ID\u3067\u3059\u3002    open  boolean  \u30b7\u30b0\u30ca\u30ea\u30f3\u30b0\u30b5\u30fc\u30d0\u3078\u306e\u63a5\u7d9a\u72b6\u6cc1\u3092\u4fdd\u6301\u3057\u307e\u3059\u3002    rooms  object  \u5168\u3066\u306e\u30eb\u30fc\u30e0\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002",
+            "title": "Members"
+        },
+        {
+            "location": "/peer/#methods",
+            "text": "",
+            "title": "Methods"
+        },
+        {
+            "location": "/peer/#call",
+            "text": "\u6307\u5b9a\u3057\u305fPeer\u306b\u30e1\u30c7\u30a3\u30a2\u30c1\u30e3\u30cd\u30eb\u3067\u63a5\u7d9a\u3057\u3066\u3001MediaConnection\u3092\u4f5c\u6210\u3057\u307e\u3059\u3002 \u30aa\u30d7\u30b7\u30e7\u30f3\u3092\u6307\u5b9a\u3059\u308b\u3053\u3068\u3067\u3001\u5e2f\u57df\u5e45\u30fb\u30b3\u30fc\u30c7\u30c3\u30af\u3092\u6307\u5b9a\u3067\u304d\u307e\u3059\u3002",
+            "title": "call"
+        },
+        {
+            "location": "/peer/#parameters",
+            "text": "Name  Type  Optional  Default  Description      peerId  string    \u63a5\u7d9a\u5148\u306ePeer ID\u3067\u3059\u3002    stream  MediaStream  \u2714   \u30ea\u30e2\u30fc\u30c8\u306ePeer\u3078\u9001\u308b\u30e1\u30c7\u30a3\u30a2\u30b9\u30c8\u30ea\u30fc\u30e0\u3067\u3059\u3002 \u8a2d\u5b9a\u3055\u308c\u3066\u3044\u306a\u3044\u5834\u5408\u306f\u3001\u53d7\u4fe1\u306e\u307f\u30e2\u30fc\u30c9\u3067\u767a\u4fe1\u3057\u307e\u3059\u3002    options  call options object  \u2714   \u767a\u4fe1\u6642\u306b\u4ed8\u4e0e\u3059\u308b\u30aa\u30d7\u30b7\u30e7\u30f3\u3067\u3059\u3002\u5e2f\u57df\u5e45\u30fb\u30b3\u30fc\u30c7\u30c3\u30af\u3092\u6307\u5b9a\u3057\u307e\u3059\u3002",
+            "title": "Parameters"
+        },
+        {
+            "location": "/peer/#call-options-object",
+            "text": "Name  Type  Optional  Default  Description      label  string  \u2714   \u63a5\u7d9a\u5148\u306ePeer ID\u3092\u8b58\u5225\u3059\u308b\u306e\u306b\u5229\u7528\u3059\u308b\u30e9\u30d9\u30eb\u3067\u3059\u3002    videoBandwidth  number  \u2714   \u6620\u50cf\u306e\u6700\u5927\u5e2f\u57df\u5e45(kbps)\u3067\u3059\u3002    audioBandwidth  number  \u2714   \u97f3\u58f0\u306e\u6700\u5927\u5e2f\u57df\u5e45(kbps)\u3067\u3059\u3002    videoCodec  string  \u2714   'H264'\u306a\u3069\u306e\u6620\u50cf\u30b3\u30fc\u30c7\u30c3\u30af\u3067\u3059\u3002    audioCodec  string  \u2714   'PCMU'\u306a\u3069\u306e\u97f3\u58f0\u30b3\u30fc\u30c7\u30c3\u30af\u3067\u3059\u3002",
+            "title": "call options object"
+        },
+        {
+            "location": "/peer/#return-value",
+            "text": "MediaConnection \u306e\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9",
+            "title": "Return value"
+        },
+        {
+            "location": "/peer/#sample_1",
+            "text": "const call = peer.call(\"DestPeerID\", localStream);",
+            "title": "Sample"
+        },
+        {
+            "location": "/peer/#connect",
+            "text": "\u6307\u5b9a\u3057\u305fPeer\u306b\u30c7\u30fc\u30bf\u30c1\u30e3\u30cd\u30eb\u3067\u63a5\u7d9a\u3057\u3066\u3001DataConnection\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u3092\u751f\u6210\u3057\u307e\u3059\u3002",
+            "title": "connect"
+        },
+        {
+            "location": "/peer/#parameters_1",
+            "text": "Name  Type  Attributes  Description      peerId  string   \u63a5\u7d9a\u5148\u306ePeer ID\u3067\u3059\u3002    options  connect options object  \u2714  \u63a5\u7d9a\u6642\u306b\u4ed8\u4e0e\u3059\u308b\u30aa\u30d7\u30b7\u30e7\u30f3\u3067\u3059\u3002",
+            "title": "Parameters"
+        },
+        {
+            "location": "/peer/#connect-options-object",
+            "text": "Name  Type  Attributes  Description      label  string  \u2714  \u63a5\u7d9a\u5148\u306ePeer ID\u3092\u8b58\u5225\u3059\u308b\u306e\u306b\u5229\u7528\u3059\u308b\u30e9\u30d9\u30eb\u3067\u3059\u3002    metadata  string  \u2714  \u30b3\u30cd\u30af\u30b7\u30e7\u30f3\u306b\u95a2\u9023\u4ed8\u3051\u3055\u308c\u308b\u30e1\u30bf\u30c7\u30fc\u30bf\u3067\u3001\u30b3\u30cd\u30af\u30b7\u30e7\u30f3\u3092\u958b\u59cb\u3057\u305fpeer\u306b\u6e21\u3055\u308c\u307e\u3059\u3002    serialization  string  \u2714  \u9001\u4fe1\u6642\u306e\u30b7\u30ea\u30a2\u30e9\u30a4\u30ba\u65b9\u6cd5\u3092\u6307\u5b9a\u3057\u307e\u3059\u3002'binary'\u3001'json'\u3001'none'\u306e\u3044\u305a\u308c\u304b\u3001\u3068\u306a\u308a\u307e\u3059\u3002",
+            "title": "connect options object"
+        },
+        {
+            "location": "/peer/#return-value_1",
+            "text": "DataConnection\u306e\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9",
+            "title": "Return value"
+        },
+        {
+            "location": "/peer/#sample_2",
+            "text": "TBD",
+            "title": "Sample"
+        },
+        {
+            "location": "/peer/#destroy",
+            "text": "\u5168\u3066\u306e\u30b3\u30cd\u30af\u30b7\u30e7\u30f3\u3092\u9589\u3058\u3001\u30b7\u30b0\u30ca\u30ea\u30f3\u30b0\u30b5\u30fc\u30d0\u3078\u306e\u63a5\u7d9a\u3092\u5207\u65ad\u3057\u307e\u3059\u3002",
+            "title": "destroy"
+        },
+        {
+            "location": "/peer/#parameters_2",
+            "text": "None",
+            "title": "Parameters"
+        },
+        {
+            "location": "/peer/#return-value_2",
+            "text": "undefined",
+            "title": "Return value"
+        },
+        {
+            "location": "/peer/#sample_3",
+            "text": "TBD",
+            "title": "Sample"
+        },
+        {
+            "location": "/peer/#disconnect",
+            "text": "\u30b7\u30b0\u30ca\u30ea\u30f3\u30b0\u30b5\u30fc\u30d0\u3078\u306e\u63a5\u7d9a\u3092\u9589\u3058\u3001disconnected\u30a4\u30d9\u30f3\u30c8\u3092\u9001\u51fa\u3057\u307e\u3059\u3002",
+            "title": "disconnect"
+        },
+        {
+            "location": "/peer/#parameters_3",
+            "text": "None",
+            "title": "Parameters"
+        },
+        {
+            "location": "/peer/#return-value_3",
+            "text": "undefined",
+            "title": "Return value"
+        },
+        {
+            "location": "/peer/#sample_4",
+            "text": "TBD",
+            "title": "Sample"
+        },
+        {
+            "location": "/peer/#joinroom",
+            "text": "\u30e1\u30c3\u30b7\u30e5\u63a5\u7d9a\u306e\u30eb\u30fc\u30e0\u3001\u307e\u305f\u306fSFU\u63a5\u7d9a\u306e\u30eb\u30fc\u30e0\u306b\u53c2\u52a0\u3057\u307e\u3059\u3002",
+            "title": "joinRoom"
+        },
+        {
+            "location": "/peer/#parameters_4",
+            "text": "Name  Type  Optional  Default  Description      roomName  string    \u53c2\u52a0\u5148\u306e\u30eb\u30fc\u30e0\u306e\u540d\u524d\u3067\u3059\u3002    roomOptions  roomOptions object  \u2714  \u63a5\u7d9a\u6642\u306b\u9078\u629e\u30fb\u4ed8\u4e0e\u3059\u308b\u30aa\u30d7\u30b7\u30e7\u30f3\u3067\u3059\u3002",
+            "title": "Parameters"
+        },
+        {
+            "location": "/peer/#roomoptions-object",
+            "text": "Name  Type  Optional  Default  Description      mode  string  \u2714  'mesh'  'sfu'\u307e\u305f\u306f'mesh'\u3092\u6307\u5b9a\u3057\u307e\u3059\u3002    stream  MediaStream  \u2714  \u30e6\u30fc\u30b6\u30fc\u304c\u9001\u4fe1\u3059\u308b\u30e1\u30c7\u30a3\u30a2\u30b9\u30c8\u30ea\u30fc\u30e0\u3067\u3059\u3002     videoBandwidth  number  \u2714  \u6620\u50cf\u306e\u6700\u5927\u5e2f\u57df\u5e45(kbps)\u3067\u3059\u3002     audioBandwidth  number  \u2714  \u97f3\u58f0\u306e\u6700\u5927\u5e2f\u57df\u5e45(kbps)\u3067\u3059\u3002     videoCodec  string  \u2714  'H264'\u306a\u3069\u306e\u6620\u50cf\u30b3\u30fc\u30c7\u30c3\u30af\u3067\u3059\u3002     audioCodec  string  \u2714  'PCMU'\u306a\u3069\u306e\u97f3\u58f0\u30b3\u30fc\u30c7\u30c3\u30af\u3067\u3059\u3002",
+            "title": "roomOptions object"
+        },
+        {
+            "location": "/peer/#return-value_4",
+            "text": "SFURoom\u307e\u305f\u306fMeshRoom\u306e\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9",
+            "title": "Return value"
+        },
+        {
+            "location": "/peer/#sample_5",
+            "text": "// Mesh\u63a5\u7d9a\u3092\u5229\u7528\u3059\u308b\u5834\u5408\nconst room = peer.joinRoom(\"roomName\", {\n  mode: 'mesh', \n  stream: localStream,\n});  // SFU\u63a5\u7d9a\u3092\u5229\u7528\u3059\u308b\u5834\u5408\nconst room = peer.joinRoom(\"roomName\", {\n  mode: 'sfu', \n  stream: localStream,\n});",
+            "title": "Sample"
+        },
+        {
+            "location": "/peer/#listallpeers",
+            "text": "REST API\u3092\u5229\u7528\u3057\u3066\u3001API\u30ad\u30fc\u306b\u7d10\u3065\u304fPeerID\u4e00\u89a7\u3092\u53d6\u5f97\u3057\u307e\u3059\u3002",
+            "title": "listAllPeers"
+        },
+        {
+            "location": "/peer/#parameters_5",
+            "text": "None",
+            "title": "Parameters"
+        },
+        {
+            "location": "/peer/#return-value_5",
+            "text": "undefined",
+            "title": "Return value"
+        },
+        {
+            "location": "/peer/#sample_6",
+            "text": "TBD",
+            "title": "Sample"
+        },
+        {
+            "location": "/peer/#updatecredential",
+            "text": "TTL\u3092\u5ef6\u9577\u3059\u308b\u305f\u3081\u306e\u66f4\u65b0\u30ea\u30af\u30a8\u30b9\u30c8\u306e\u9001\u4ed8\u3057\u307e\u3059\u3002",
+            "title": "updateCredential"
+        },
+        {
+            "location": "/peer/#parameters_6",
+            "text": "Name  Type  Optional  Default  Description      mode  credential object    \u30e6\u30fc\u30b6\u30fc\u5074\u3067\u4f5c\u6210\u3059\u308b\u65b0\u3057\u3044\u30af\u30ec\u30c7\u30f3\u30b7\u30e3\u30eb\u3067\u3059\u3002",
+            "title": "Parameters"
+        },
+        {
+            "location": "/peer/#newcredential-object",
+            "text": "Name  Type  Optional  Default  Description      timestamp  number  \u2714   \u73fe\u5728\u306eUNIX\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7\u3067\u3059\u3002    ttl  string  \u2714   Time to live(ttl)\u3002\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7 + ttl \u306e\u6642\u9593\u3067\u30af\u30ec\u30c7\u30f3\u30b7\u30e3\u30eb\u304c\u5931\u52b9\u3057\u307e\u3059\u3002    authToken  string  \u2714  Default  HMAC\u3092\u5229\u7528\u3057\u3066\u751f\u6210\u3059\u308b\u8a8d\u8a3c\u7528\u30c8\u30fc\u30af\u30f3\u3067\u3059\u3002",
+            "title": "newCredential object"
+        },
+        {
+            "location": "/peer/#return-value_6",
+            "text": "undefined",
+            "title": "Return value"
+        },
+        {
+            "location": "/peer/#sample_7",
+            "text": "TBD",
+            "title": "Sample"
+        },
+        {
+            "location": "/peer/#events",
+            "text": "",
+            "title": "Events"
+        },
+        {
+            "location": "/peer/#open",
+            "text": "\u30b7\u30b0\u30ca\u30ea\u30f3\u30b0\u30b5\u30fc\u30d0\u3078\u6b63\u5e38\u306b\u63a5\u7d9a\u3067\u304d\u305f\u3068\u304d\u306e\u30a4\u30d9\u30f3\u30c8\u3067\u3059\u3002     Type  Description      string  Peer ID",
+            "title": "open"
+        },
+        {
+            "location": "/peer/#sample_8",
+            "text": "peer.on('open', id => {\n  console.log(id);\n})",
+            "title": "Sample"
+        },
+        {
+            "location": "/peer/#call_1",
+            "text": "\u63a5\u7d9a\u5148\u306ePeer\u304b\u3089MediaChannel\u306e\u63a5\u7d9a\u3092\u53d7\u4fe1\u3057\u305f\u3068\u304d\u306e\u30a4\u30d9\u30f3\u30c8\u3067\u3059\u3002     Name  Type  Description      id  string  Peer ID",
+            "title": "call"
+        },
+        {
+            "location": "/peer/#close",
+            "text": "",
+            "title": "close"
+        },
+        {
+            "location": "/peer/#connection",
+            "text": "",
+            "title": "connection"
+        },
+        {
+            "location": "/peer/#disconnected",
+            "text": "",
+            "title": "disconnected"
+        },
+        {
+            "location": "/peer/#error",
+            "text": "Name  Type  Description      open  MediaConnection  \u5168\u3066\u306e\u30eb\u30fc\u30e0\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002    call  Da  \u5168\u3066\u306e\u30b3\u30cd\u30af\u30b7\u30e7\u30f3\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002    close  string  \u30e6\u30fc\u30b6\u30fc\u304c\u6307\u5b9a\u3057\u305fPeer ID\u3001\u3082\u3057\u304f\u306f\u30b5\u30fc\u30d0\u304c\u751f\u6210\u3057\u305fPeer ID\u3067\u3059\u3002    connection  boolean  \u30b7\u30b0\u30ca\u30ea\u30f3\u30b0\u30b5\u30fc\u30d0\u3078\u306e\u63a5\u7d9a\u72b6\u6cc1\u3092\u4fdd\u6301\u3057\u307e\u3059\u3002    disconnected  object  \u5168\u3066\u306e\u30eb\u30fc\u30e0\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002    error  object  \u5168\u3066\u306e\u30eb\u30fc\u30e0\u3092\u4fdd\u6301\u3059\u308b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3067\u3059\u3002",
+            "title": "error"
+        }
+    ]
+}
