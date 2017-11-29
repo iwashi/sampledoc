@@ -1,5 +1,10 @@
-site_name: JS Doc
+site_name: SkyWay JS SDK APIリファレンス
 pages:
     - Home: index.md
     - Peer: peer.md
-theme: readthedocs
+theme:
+  name: 'material'
+  language: 'ja'
+extra:
+  search:
+    language: 'jp'
