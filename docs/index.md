@@ -1,17 +1,15 @@
-# Welcome to 
+# はじめに
 
-For full documentation visit [mkdocs.org](http://mkdocs.org).
+本ドキュメントは、SkyWay JavaScript SDKのAPIリファレンスです。
+各種APIは、左側のクラス名を参考にご利用ください。
 
-## Commands
+SkyWayを使った開発が初めての場合は、SkyWayの[通信モデル](#)を先に確認いただいた上で、
+本ドキュメントを参照していただけますと、理解が容易になります。
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+## 参考
 
-## Project layout
+(要議論：ここにスライド入れちゃっても十分わかりやすい気がします)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+JavaScript SDK の使い方の概要を知りたい場合は、以下の資料が参考になります:
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/xuUXu3NGqjETbc" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"></div>

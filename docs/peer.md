@@ -175,11 +175,11 @@ TBD
 | Name | Type | Optional | Default | Description |
 | --- | --- | --- | --- | --- |
 | mode | string | ✔ | 'mesh' | 'sfu'または'mesh'を指定します。 |
-| stream | MediaStream | ✔ | ユーザーが送信するメディアストリームです。 |
-| videoBandwidth | number | ✔ | 映像の最大帯域幅(kbps)です。 |
-| audioBandwidth | number | ✔ | 音声の最大帯域幅(kbps)です。 |
-| videoCodec | string | ✔ | 'H264'などの映像コーデックです。 |
-| audioCodec | string | ✔ | 'PCMU'などの音声コーデックです。 |
+| stream | MediaStream | ✔ | | ユーザーが送信するメディアストリームです。 |
+| videoBandwidth | number | ✔ | | 映像の最大帯域幅(kbps)です。メッシュ接続のみ使用可能です。 |
+| audioBandwidth | number | ✔ | | 音声の最大帯域幅(kbps)です。 メッシュ接続のみ使用可能です。|
+| videoCodec | string | ✔ | | 'H264'などの映像コーデックです。 メッシュ接続のみ使用可能です。|
+| audioCodec | string | ✔ | | 'PCMU'などの音声コーデックです。メッシュ接続のみ使用可能です。 |
 
 #### Return value 
 
@@ -271,24 +271,63 @@ peer.on('open', id => {
 
 接続先のPeerからMediaChannelの接続を受信したときのイベントです。
 
-|Name |Type|Description|
-|----|----|----|
-|id|string|Peer ID|
+|Type|Description|
+|----|----|
+|MediaConnection|MediaConnectionのインスタンスです。|
 
 ### close
 
+Peerに対する全ての接続を終了したときのイベントです。
+
 ### connection
+
+接続先のPeerからDataChannelの接続を受信したときのイベントです。
+
+|Type|Description|
+|----|----|
+|DataConnection|DataConnectionのインスタンスです。|
 
 ### disconnected
 
+シグナリングサーバから切断したときのイベントです。
+
+|Type|Description|
+|----|----|
+|string|Peer ID|
+
+### expiresin
+
+|Type|Description|
+|----|----|
+|number|クレデンシャルが失効するまでの時間(秒)です。|
+
 ### error
 
-|Name|Type|Description|
-|----|----|----|
-|open|MediaConnection|全てのルームを保持するオブジェクトです。|
-|call|Da|全てのコネクションを保持するオブジェクトです。|
-|close|string|ユーザーが指定したPeer ID、もしくはサーバが生成したPeer IDです。|
-|connection|boolean|シグナリングサーバへの接続状況を保持します。|
-|disconnected|object|全てのルームを保持するオブジェクトです。|
-|error|object|全てのルームを保持するオブジェクトです。|
+エラーが発生した場合のイベントです。
 
+|Type|Description|
+|----|----|
+|room-error|ルーム名が指定されていません|
+||ルームタイプが異なります。(メッシュルームとして作成した部屋に、SFUルーム指定で参加した場合)|
+||SFU機能が該当のAPIキーでDisabledです。利用するには、Dashboardからenableにしてください。|
+||不明なエラーが発生しました。少し待って、リトライしてください。|
+||ルームログ取得時にエラーが発生しました。少し待って、リトライしてください。|
+|authentication|指定されたクレデンシャルを用いた認証に失敗しました。|
+|permission|該当のルームの利用が許可されてません。|
+|list-error|APIキーのREST APIが許可されてません。|
+|disconnected|SkyWayのシグナリングサーバに接続されていません。|
+|socket-error|SkyWayのシグナリングサーバとの接続が失われました。|
+|invalid-id|IDが不正です。|
+|invalid-key|APIキーが無効です。|
+|server-error|SkyWayのシグナリングサーバからPeer一覧を取得できませんでした。|
+|TBDサーバ側のエラー色々|TBD(サーバ側のメッセージから起こす必要があるので後で)|
+
+#### Sample
+
+```js
+// 仮にRoom名を指定せずにjoinRoomを呼んだ場合
+peer.on('error', error => {
+  console.log(`${error.type}: ${error.message}`);
+  // => room-error: Room name must be defined.
+});
+```
