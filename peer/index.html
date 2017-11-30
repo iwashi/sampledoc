@@ -155,8 +155,8 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
-      Home
+    <a href=".." title="Introduction" class="md-nav__link">
+      Introduction
     </a>
   </li>
 
@@ -647,6 +647,54 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../mediaconnection/" title="MediaConnection" class="md-nav__link">
+      MediaConnection
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../dataconnection/" title="DataConnection" class="md-nav__link">
+      DataConnection
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../meshroom/" title="MeshRoom" class="md-nav__link">
+      MeshRoom
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../sfuroom/" title="SFURoom" class="md-nav__link">
+      SFURoom
+    </a>
   </li>
 
     
@@ -1530,36 +1578,36 @@
 <td>stream</td>
 <td>MediaStream</td>
 <td>✔</td>
-<td>ユーザーが送信するメディアストリームです。</td>
 <td></td>
+<td>ユーザーが送信するメディアストリームです。</td>
 </tr>
 <tr>
 <td>videoBandwidth</td>
 <td>number</td>
 <td>✔</td>
-<td>映像の最大帯域幅(kbps)です。</td>
 <td></td>
+<td>映像の最大帯域幅(kbps)です。メッシュ接続のみ使用可能です。</td>
 </tr>
 <tr>
 <td>audioBandwidth</td>
 <td>number</td>
 <td>✔</td>
-<td>音声の最大帯域幅(kbps)です。</td>
 <td></td>
+<td>音声の最大帯域幅(kbps)です。 メッシュ接続のみ使用可能です。</td>
 </tr>
 <tr>
 <td>videoCodec</td>
 <td>string</td>
 <td>✔</td>
-<td>'H264'などの映像コーデックです。</td>
 <td></td>
+<td>'H264'などの映像コーデックです。 メッシュ接続のみ使用可能です。</td>
 </tr>
 <tr>
 <td>audioCodec</td>
 <td>string</td>
 <td>✔</td>
-<td>'PCMU'などの音声コーデックです。</td>
 <td></td>
+<td>'PCMU'などの音声コーデックです。メッシュ接続のみ使用可能です。</td>
 </tr>
 </tbody>
 </table>
@@ -1728,6 +1776,20 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 </tbody>
 </table>
 <h3 id="expiresin">expiresin</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td>クレデンシャルが失効するまでの時間(秒)です。</td>
+</tr>
+</tbody>
+</table>
 <h3 id="error">error</h3>
 <p>エラーが発生した場合のイベントです。</p>
 <table>
@@ -1740,7 +1802,31 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 <tbody>
 <tr>
 <td>room-error</td>
-<td>ルーム名が指定されていません。</td>
+<td>ルーム名が指定されていません</td>
+</tr>
+<tr>
+<td></td>
+<td>ルームタイプが異なります。(メッシュルームとして作成した部屋に、SFUルーム指定で参加した場合)</td>
+</tr>
+<tr>
+<td></td>
+<td>SFU機能が該当のAPIキーでDisabledです。利用するには、Dashboardからenableにしてください。</td>
+</tr>
+<tr>
+<td></td>
+<td>不明なエラーが発生しました。少し待って、リトライしてください。</td>
+</tr>
+<tr>
+<td></td>
+<td>ルームログ取得時にエラーが発生しました。少し待って、リトライしてください。</td>
+</tr>
+<tr>
+<td>authentication</td>
+<td>指定されたクレデンシャルを用いた認証に失敗しました。</td>
+</tr>
+<tr>
+<td>permission</td>
+<td>該当のルームの利用が許可されてません。</td>
 </tr>
 <tr>
 <td>list-error</td>
@@ -1797,7 +1883,7 @@ peer.on('error', error =&gt; {
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href=".." title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1806,11 +1892,25 @@ peer.on('error', error =&gt; {
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                Home
+                Introduction
               </span>
             </div>
           </a>
         
+        
+          <a href="../mediaconnection/" title="MediaConnection" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                MediaConnection
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
