@@ -1335,7 +1335,7 @@
                 
                   <h1>Peer</h1>
                 
-                <p>P2P接続およびルーム接続機能を操作するためのクラスです。SkyWayの利用するために、最初に生成が必要です。</p>
+                <p>P2P接続およびルーム接続機能を操作するためのクラスです。SkyWayを利用するために、最初にPeerインスタンス生成が必要です。</p>
 <h2 id="constructor">Constructor</h2>
 <p>新規にPeerインスタンスを生成します。
 <code>new Peer()</code> により、SkyWayのシグナリングサーバと接続します。</p>
@@ -1733,7 +1733,7 @@ peer.connect('peerId', {
 });
 </code></pre>
 
-<pre><code class="js">// 信頼性無モードでDataChannelを接続する場合
+<pre><code class="js">// 信頼性無しモードでDataChannelを接続する場合
 peer.connect('peerId', {
   dcInit: {
     // 最大2回、再送する
