@@ -4,49 +4,41 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-12-01</lastmod>
+     <lastmod>2017-12-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
+        
     <url>
-     <loc>/peer/</loc>
-     <lastmod>2017-12-01</lastmod>
+     <loc>/ja/</loc>
+     <lastmod>2017-12-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
+        
     <url>
-     <loc>/mediaconnection/</loc>
-     <lastmod>2017-12-01</lastmod>
+     <loc>/en/</loc>
+     <lastmod>2017-12-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
-     <loc>/dataconnection/</loc>
-     <lastmod>2017-12-01</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-    <url>
-     <loc>/meshroom/</loc>
-     <lastmod>2017-12-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/sfuroom/</loc>
-     <lastmod>2017-12-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
+        
     
 
 </urlset>

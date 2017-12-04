@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html>
-<html lang="ja" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -13,26 +13,26 @@
       
       
       
-        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
       
-        <meta name="lang:clipboard.copied" content="コピーしました">
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
       
         <meta name="lang:search.language" content="jp">
       
-        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+        <meta name="lang:search.result.none" content="No matching documents">
       
-        <meta name="lang:search.result.one" content="1件見つかりました">
+        <meta name="lang:search.result.one" content="1 matching document">
       
-        <meta name="lang:search.result.other" content="#件見つかりました">
+        <meta name="lang:search.result.other" content="# matching documents">
       
-        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="./assets/images/favicon.png">
       <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.0">
     
     
       
-        <title>SkyWay JS SDK APIリファレンス</title>
+        <title>SkyWay JS SDK API Reference</title>
       
     
     
@@ -49,6 +49,8 @@
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+    
+      <link rel="stylesheet" href="./css/custom.css">
     
     
   </head>
@@ -69,7 +71,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="." title="SkyWay JS SDK APIリファレンス" class="md-header-nav__button md-logo">
+        <a href="." title="SkyWay JS SDK API Reference" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -83,10 +85,10 @@
           
             
               <span class="md-header-nav__topic">
-                SkyWay JS SDK APIリファレンス
+                SkyWay JS SDK API Reference
               </span>
               <span class="md-header-nav__topic">
-                Introduction
+                Home
               </span>
             
           
@@ -101,7 +103,7 @@
   <label class="md-search__overlay" for="search"></label>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
     </form>
@@ -109,7 +111,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta">
-            検索キーワードを入力してください
+            Type to start searching
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -144,7 +146,7 @@
         <i class="md-icon"></i>
       
     </span>
-    SkyWay JS SDK APIリファレンス
+    SkyWay JS SDK API Reference
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -160,39 +162,10 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
     
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Introduction
-      </label>
-    
-    <a href="." title="Introduction" class="md-nav__link md-nav__link--active">
-      Introduction
+    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+      Home
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="参考" class="md-nav__link">
-    参考
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -202,46 +175,118 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      日本語
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        日本語
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="peer/" title="Peer" class="md-nav__link">
+    <a href="ja/" title="はじめに" class="md-nav__link">
+      はじめに
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      クラス
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-2">
+        クラス
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ja/peer/" title="Peer" class="md-nav__link">
       Peer
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="mediaconnection/" title="MediaConnection" class="md-nav__link">
+    <a href="ja/mediaconnection/" title="MediaConnection" class="md-nav__link">
       MediaConnection
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="dataconnection/" title="DataConnection" class="md-nav__link">
+    <a href="ja/dataconnection/" title="DataConnection" class="md-nav__link">
       DataConnection
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="meshroom/" title="MeshRoom" class="md-nav__link">
+    <a href="ja/meshroom/" title="MeshRoom" class="md-nav__link">
       MeshRoom
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="ja/sfuroom/" title="SFURoom" class="md-nav__link">
+      SFURoom
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -250,10 +295,118 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      English
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        English
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="sfuroom/" title="SFURoom" class="md-nav__link">
+    <a href="en/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Class
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2">
+        Class
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="en/peer/" title="Peer" class="md-nav__link">
+      Peer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="en/mediaconnection/" title="MediaConnection" class="md-nav__link">
+      MediaConnection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="en/dataconnection/" title="DataConnection" class="md-nav__link">
+      DataConnection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="en/meshroom/" title="MeshRoom" class="md-nav__link">
+      MeshRoom
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="en/sfuroom/" title="SFURoom" class="md-nav__link">
       SFURoom
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -264,52 +417,16 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="参考" class="md-nav__link">
-    参考
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                <h1 id="_1">はじめに</h1>
-<p>本ドキュメントは、SkyWay JavaScript SDKのAPIリファレンスです。
-各種APIは、左側のクラス名を参考にご利用ください。</p>
-<p>SkyWayを使った開発が初めての場合は、SkyWayの<a href="#">通信モデル</a>を先に確認いただいた上で、
-本ドキュメントを参照していただけますと、理解が容易になります。</p>
-<h2 id="_2">参考</h2>
-<p>(要議論：ここにスライド入れちゃっても十分わかりやすい気がします)</p>
-<p>JavaScript SDK の使い方の概要を知りたい場合は、以下の資料が参考になります:</p>
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/xuUXu3NGqjETbc" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-
-<p><div style="margin-bottom:5px"></div></p>
+                  <h1>Home</h1>
+                
+                <p>本ドキュメントは、SkyWay JavaScript SDKのAPIリファレンスです。日本語のドキュメントは<a href="ja/">こちら</a>から。</p>
+<p>This document is SkyWay JavaSCript SDK API Reference. See English version from <a href="en/">here</a>.</p>
                 
                   
                 
@@ -329,13 +446,13 @@
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="peer/" title="Peer" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="ja/" title="はじめに" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  次
+                  Next
                 </span>
-                Peer
+                はじめに
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
