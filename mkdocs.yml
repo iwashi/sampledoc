@@ -1,14 +1,24 @@
-site_name: SkyWay JS SDK APIリファレンス
+site_name: SkyWay JS SDK API Reference
 pages:
     - Introduction: index.md
-    - Peer: peer.md
-    - MediaConnection: mediaconnection.md
-    - DataConnection: dataconnection.md
-    - MeshRoom: meshroom.md
-    - SFURoom: sfuroom.md
+    - 日本語:
+        - Peer: ja/peer.md
+        - MediaConnection: ja/mediaconnection.md
+        - DataConnection: ja/dataconnection.md
+        - MeshRoom: ja/meshroom.md
+        - SFURoom: ja/sfuroom.md
+    - English:
+        - Peer: en/peer.md
+        - MediaConnection: en/mediaconnection.md
+        - DataConnection: en/dataconnection.md
+        - MeshRoom: en/meshroom.md
+        - SFURoom: en/sfuroom.md
 theme:
-  name: 'material'
-  language: 'ja'
+    name: 'material'
+    language: 'en'
+    custom_dir: custom_theme
 extra:
-  search:
-    language: 'jp'
+    search:
+        language: 'jp'
+extra_css:
+    - 'css/custom.css'
