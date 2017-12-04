@@ -1,4 +1,4 @@
-P2P接続およびルーム接続機能を操作するためのクラスです。SkyWayの利用するために、最初に生成が必要です。
+P2P接続およびルーム接続機能を操作するためのクラスです。SkyWayを利用するために、最初にPeerインスタンス生成が必要です。
 
 ## Constructor
 
@@ -27,7 +27,7 @@ P2P接続およびルーム接続機能を操作するためのクラスです�
 |Name|Type|Required|Default|Description|
 |----|----|----|----|----|
 |timestamp|number|||現在のUNIXタイムスタンプです。|
-|ttl|string|||Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。|
+|ttl|number|||Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。|
 |authToken|string||Default|HMACを利用して生成する認証用トークンです。|
 
 #### Default RTCConfiguration object
@@ -173,7 +173,7 @@ peer.connect('peerId', {
 ```
 
 ```js
-// 信頼性無モードでDataChannelを接続する場合
+// 信頼性無しモードでDataChannelを接続する場合
 peer.connect('peerId', {
   dcInit: {
     // 最大2回、再送する
@@ -300,7 +300,7 @@ TTLを延長するための更新リクエストの送付します。
 |Name|Type|Optional|Default|Description|
 |----|----|----|----|----|
 |timestamp|number|✔||現在のUNIXタイムスタンプです。|
-|ttl|string|✔||Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。|
+|ttl|number|✔||Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。|
 |authToken|string|✔|Default|HMACを利用して生成する認証用トークンです。|
 
 #### Return value 
