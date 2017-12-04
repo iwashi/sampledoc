@@ -157,8 +157,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
-      Home
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
     </a>
   </li>
 
@@ -180,39 +180,6 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         日本語
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../" title="はじめに" class="md-nav__link">
-      はじめに
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
-    
-    <label class="md-nav__link" for="nav-2-2">
-      クラス
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-2">
-        クラス
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -777,11 +744,6 @@
     </nav>
   </li>
 
-        
-      </ul>
-    </nav>
-  </li>
-
     
       
       
@@ -798,37 +760,6 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
         English
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../en/" title="Introduction" class="md-nav__link">
-      Introduction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
-    
-    <label class="md-nav__link" for="nav-3-2">
-      Class
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-2">
-        Class
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -890,11 +821,6 @@
     <a href="../../en/sfuroom/" title="SFURoom" class="md-nav__link">
       SFURoom
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -1409,7 +1335,7 @@
                 
                   <h1>Peer</h1>
                 
-                <p>P2P接続およびルーム接続機能を操作するためのクラスです。</p>
+                <p>P2P接続およびルーム接続機能を操作するためのクラスです。SkyWayの利用するために、最初に生成が必要です。</p>
 <h2 id="constructor">Constructor</h2>
 <p>新規にPeerインスタンスを生成します。
 <code>new Peer()</code> により、SkyWayのシグナリングサーバと接続します。</p>
@@ -1483,7 +1409,7 @@
 </tr>
 <tr>
 <td>config</td>
-<td>RTCConfiguration object</td>
+<td><a href="https://w3c.github.io/webrtc-pc/#rtcconfiguration-dictionary">RTCConfiguration object</a></td>
 <td></td>
 <td><a href="#default-rtcconfiguration-object">Default RTCConfiguration object</a></td>
 <td><a href="https://w3c.github.io/webrtc-pc/#rtcconfiguration-dictionary">RTCPeerConnectionに渡されるオブジェクト</a>です。発展的なオプションのため、内容を理解している場合のみご利用ください。</td>
@@ -1536,9 +1462,20 @@
 </code></pre>
 
 <h3 id="sample">Sample</h3>
-<pre><code class="js">const peer = new Peer({
-    key:   &quot;&lt;YOUR-API-KEY&gt;&quot;
-    debug: 3,
+<pre><code class="js">// デバッグ情報を最大(3)にして接続する場合
+const peer = new Peer({
+  key:   &quot;&lt;YOUR-API-KEY&gt;&quot;
+  debug: 3,
+});
+</code></pre>
+
+<pre><code class="js">// TURNサーバを強制利用する場合
+const peer = new Peer({
+  key:   &quot;&lt;YOUR-API-KEY&gt;&quot;
+  debug: 3,
+  config: {
+    iceTransportPolicy: 'relay',
+  },
 });
 </code></pre>
 
@@ -1576,7 +1513,7 @@
 </table>
 <h2 id="methods">Methods</h2>
 <h3 id="call">call</h3>
-<p>指定したPeerにメディアチャネルで接続して、MediaConnectionを作成します。 オプションを指定することで、帯域幅・コーデックを指定できます。</p>
+<p>指定したPeerにメディアチャネル(音声・映像)で接続して、MediaConnectionを作成します。 オプションを指定することで、帯域幅・コーデックを指定できます。</p>
 <h4 id="parameters">Parameters</h4>
 <table>
 <thead>
@@ -1601,7 +1538,7 @@
 <td>MediaStream</td>
 <td></td>
 <td></td>
-<td>リモートのPeerへ送るメディアストリームです。 設定されていない場合は、受信のみモードで発信します。</td>
+<td>接続先のPeerへ送るメディアストリームです。 設定されていない場合は、受信のみモードで発信します。</td>
 </tr>
 <tr>
 <td>options</td>
@@ -1625,11 +1562,11 @@
 </thead>
 <tbody>
 <tr>
-<td>label</td>
-<td>string</td>
+<td>metadata</td>
+<td>object</td>
 <td></td>
 <td></td>
-<td>接続先のPeer IDを識別するのに利用するラベルです。</td>
+<td>コネクションに関連付けされる任意のメタデータで、接続先のPeerに渡されます。</td>
 </tr>
 <tr>
 <td>videoBandwidth</td>
@@ -1673,6 +1610,13 @@
 <td></td>
 <td>音声を受信のみで使う場合のフラグです。</td>
 </tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td><strong>Deprecated!</strong> 接続先のPeer IDを識別するのに利用するラベルです。</td>
+</tr>
 </tbody>
 </table>
 <h4 id="return-value">Return value</h4>
@@ -1680,13 +1624,23 @@
 <h4 id="sample_1">Sample</h4>
 <pre><code class="js">// 自身のlocalStreamを設定して、相手に発信する場合
 const call = peer.call('peerID', localStream);
+</code></pre>
 
-// 映像コーデックとしてH264を利用する場合
+<pre><code class="js">// 自身のlocalStreamおよびmetadataを設定して、相手に発信する場合
+const call = peer.call('peerID', localStream, {
+  metadata: {
+    foo: 'bar',
+  }
+});
+</code></pre>
+
+<pre><code class="js">// 映像コーデックとしてH264を利用する場合
 const call = peer.call('peerID', localStream, {
   videoCodec: 'H264',
 });
+</code></pre>
 
-// 音声のみ接続先から受信する設定で、相手に発信する場合
+<pre><code class="js">// 音声のみ接続先から受信する設定で、相手に発信する場合
 const call = peer.call('peerID', localStream, {
   audioReceiveEnabled: true,
 });
@@ -1701,6 +1655,7 @@ const call = peer.call('peerID', localStream, {
 <th>Name</th>
 <th>Type</th>
 <th>Required</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1709,11 +1664,13 @@ const call = peer.call('peerID', localStream, {
 <td>peerId</td>
 <td>string</td>
 <td>✔</td>
+<td></td>
 <td>接続先のPeer IDです。</td>
 </tr>
 <tr>
 <td>options</td>
 <td><a href="#connect-options-object">connect options object</a></td>
+<td></td>
 <td></td>
 <td>接続時に付与するオプションです。</td>
 </tr>
@@ -1726,25 +1683,22 @@ const call = peer.call('peerID', localStream, {
 <th>Name</th>
 <th>Type</th>
 <th>Required</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>label</td>
-<td>string</td>
-<td></td>
-<td>接続先のPeer IDを識別するのに利用するラベルです。</td>
-</tr>
-<tr>
 <td>metadata</td>
-<td>string</td>
+<td>object</td>
 <td></td>
-<td>コネクションに関連付けされるメタデータで、コネクションを開始したpeerに渡されます。</td>
+<td></td>
+<td>コネクションに関連付けされる任意のメタデータで、接続先のPeerに渡されます。</td>
 </tr>
 <tr>
 <td>serialization</td>
 <td>string</td>
+<td></td>
 <td></td>
 <td>送信時のシリアライズ方法を指定します。'binary'、'json'、'none'のいずれか、となります。</td>
 </tr>
@@ -1752,7 +1706,15 @@ const call = peer.call('peerID', localStream, {
 <td>dcInit</td>
 <td><a href="https://www.w3.org/TR/webrtc/#dom-rtcdatachannelinit">RTCDataChannelInit Object</a></td>
 <td></td>
+<td></td>
 <td>DataChannel利用時に信頼性の有無を指定するためのオプションです。デフォルトでは信頼性有で動作します。なお、chromeは、<code>maxPacketLifetime</code> の代わりに、<code>maxRetransmitTime</code> を利用します。</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td><strong>Deprecated!</strong> 接続先のPeer IDを識別するのに利用するラベルです。</td>
 </tr>
 </tbody>
 </table>
@@ -1761,15 +1723,17 @@ const call = peer.call('peerID', localStream, {
 <h4 id="sample_2">Sample</h4>
 <pre><code class="js">// 単にDataChannelを接続する場合(デフォルトで信頼性有り)
 peer.connect('peerId');
+</code></pre>
 
-// metadata付きでconnectする場合
+<pre><code class="js">// metadata付きでconnectする場合
 peer.connect('peerId', {
   metadata: {
     hoge: &quot;foobar&quot;,
   }
 });
+</code></pre>
 
-// 信頼性無モードでDataChannelを接続する場合
+<pre><code class="js">// 信頼性無モードでDataChannelを接続する場合
 peer.connect('peerId', {
   dcInit: {
     // 最大2回、再送する
@@ -1899,15 +1863,16 @@ peer.connect('peerId', {
 </tbody>
 </table>
 <h4 id="return-value_4">Return value</h4>
-<p>SFURoomまたはMeshRoomのインスタンス</p>
+<p><a href="../sfuroom">SFURoom</a> または <a href="../meshroom">MeshRoom</a> のインスタンス</p>
 <h4 id="sample_5">Sample</h4>
 <pre><code class="js">// Mesh接続を利用する場合
 const room = peer.joinRoom(&quot;roomName&quot;, {
   mode: 'mesh', 
   stream: localStream,
 });
+</code></pre>
 
-// SFU接続を利用する場合
+<pre><code class="js">// SFU接続を利用する場合
 const room = peer.joinRoom(&quot;roomName&quot;, {
   mode: 'sfu', 
   stream: localStream,
@@ -2011,7 +1976,7 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 </code></pre>
 
 <h3 id="call_1">call</h3>
-<p>接続先のPeerからMediaChannelの接続を受信したときのイベントです。</p>
+<p>接続先のPeerからメディアチャネル(音声・映像)の接続を受信したときのイベントです。</p>
 <table>
 <thead>
 <tr>
@@ -2021,7 +1986,7 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 </thead>
 <tbody>
 <tr>
-<td>MediaConnection</td>
+<td><a href="../mediaconnection">MediaConnection</a></td>
 <td>MediaConnectionのインスタンスです。</td>
 </tr>
 </tbody>
@@ -2046,7 +2011,7 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 </thead>
 <tbody>
 <tr>
-<td>DataConnection</td>
+<td><a href="../dataconnection">DataConnection</a></td>
 <td>DataConnectionのインスタンスです。</td>
 </tr>
 </tbody>
@@ -2178,7 +2143,7 @@ peer.on('error', error =&gt; {
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../" title="はじめに" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../.." title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2187,7 +2152,7 @@ peer.on('error', error =&gt; {
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                はじめに
+                Introduction
               </span>
             </div>
           </a>

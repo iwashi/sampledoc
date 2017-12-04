@@ -157,8 +157,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
-      Home
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
     </a>
   </li>
 
@@ -180,39 +180,6 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         日本語
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../" title="はじめに" class="md-nav__link">
-      はじめに
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
-    
-    <label class="md-nav__link" for="nav-2-2">
-      クラス
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-2">
-        クラス
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -374,13 +341,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fires" title="Fires" class="md-nav__link">
-    Fires
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sample_3" title="Sample" class="md-nav__link">
     Sample
   </a>
@@ -474,11 +434,6 @@
     </nav>
   </li>
 
-        
-      </ul>
-    </nav>
-  </li>
-
     
       
       
@@ -495,37 +450,6 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
         English
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../en/" title="Introduction" class="md-nav__link">
-      Introduction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
-    
-    <label class="md-nav__link" for="nav-3-2">
-      Class
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-2">
-        Class
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -587,11 +511,6 @@
     <a href="../../en/sfuroom/" title="SFURoom" class="md-nav__link">
       SFURoom
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -723,13 +642,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fires" title="Fires" class="md-nav__link">
-    Fires
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sample_3" title="Sample" class="md-nav__link">
     Sample
   </a>
@@ -805,9 +717,16 @@
                 
                 <p>接続先Peerへのデータチャネル接続を管理するクラスです。</p>
 <h2 id="constructor">Constructor</h2>
-<p>(SDK内部の利用のみ) DataConnectionは、<code>connect()</code> および <code>Peer.on('connection')</code> で生成されます。</p>
+<p>SDK内部の利用のみで、コンストラクタは通常利用しません。 
+DataConnectionは、<code>connect()</code> および <code>peer.on('connection')</code> で生成されます。</p>
 <h3 id="sample">Sample</h3>
-<pre><code class="js">dataConnection = peer.connect('peerID');
+<pre><code class="js">// 発信側
+dataConnection = peer.connect('peerID');
+
+// 着信側
+peer.on('connection', connection =&gt; {
+  console.log(connection);
+});
 </code></pre>
 
 <h2 id="members">Members</h2>
@@ -821,19 +740,9 @@
 </thead>
 <tbody>
 <tr>
-<td>SERIALIZATION</td>
-<td>enum</td>
-<td>コネクションを一意に識別するためのID。</td>
-</tr>
-<tr>
-<td>id</td>
-<td>string</td>
-<td>コネクションを一意に識別するためのIDです。</td>
-</tr>
-<tr>
 <td>metadata</td>
 <td>object</td>
-<td>任意の情報を格納するオブジェクトです。<a href="#">サンプル</a></td>
+<td>任意の情報を格納するオブジェクトです。</td>
 </tr>
 <tr>
 <td>open</td>
@@ -884,11 +793,17 @@ peer.on('connection', connection =&gt; {
 </tr>
 </tbody>
 </table>
-<p>Todo: 行きと帰りで違うことを追記</p>
 <h4 id="return-value">Return value</h4>
 <p><code>undefined</code></p>
 <h4 id="sample_2">Sample</h4>
-<pre><code class="js">dataConnection.send('sample');
+<pre><code class="js">// 'hello world'という文字列を送付します。 
+dataConnection.send('hello world');
+
+// 受信側では、次のように発火します。
+dataConnection.on('data', data =&gt; {
+  console.log('hello world');
+  // =&gt; 'hello world'
+});
 </code></pre>
 
 <h3 id="close">close</h3>
@@ -897,11 +812,6 @@ peer.on('connection', connection =&gt; {
 <p>None</p>
 <h4 id="return-value_1">Return value</h4>
 <p><code>undefined</code></p>
-<h4 id="fires">Fires</h4>
-<ul>
-<li>Connection#event:close
-(Todo: もっと良い文字に書き直す)</li>
-</ul>
 <h4 id="sample_3">Sample</h4>
 <pre><code class="js">call.close();
 </code></pre>
@@ -909,12 +819,24 @@ peer.on('connection', connection =&gt; {
 <h2 id="events">Events</h2>
 <h3 id="open">open</h3>
 <p>DataConnectionが接続されたときに発生します。</p>
-<p>| Type | Description |
-| --- | --- | --- | --- |
-| object | 受信したデータです。|</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>object</td>
+<td>受信したデータです。</td>
+</tr>
+</tbody>
+</table>
 <h4 id="sample_4">Sample</h4>
 <pre><code class="js">dataConnection.on('data', data =&gt; {
-  // dataに対する任意の処理
+  console.log('hello world');
+  // =&gt; 'hello world'
 });
 </code></pre>
 

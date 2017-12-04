@@ -157,8 +157,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
-      Home
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
     </a>
   </li>
 
@@ -180,39 +180,6 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         日本語
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../" title="はじめに" class="md-nav__link">
-      はじめに
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
-    
-    <label class="md-nav__link" for="nav-2-2">
-      クラス
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-2">
-        クラス
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -375,13 +342,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fires" title="Fires" class="md-nav__link">
-    Fires
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sample_3" title="Sample" class="md-nav__link">
     Sample
   </a>
@@ -528,11 +488,6 @@
     </nav>
   </li>
 
-        
-      </ul>
-    </nav>
-  </li>
-
     
       
       
@@ -549,37 +504,6 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
         English
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../en/" title="Introduction" class="md-nav__link">
-      Introduction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
-    
-    <label class="md-nav__link" for="nav-3-2">
-      Class
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-2">
-        Class
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -641,11 +565,6 @@
     <a href="../../en/sfuroom/" title="SFURoom" class="md-nav__link">
       SFURoom
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -790,13 +709,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fires" title="Fires" class="md-nav__link">
-    Fires
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sample_3" title="Sample" class="md-nav__link">
     Sample
   </a>
@@ -911,11 +823,19 @@
                 
                   <h1>MediaConnection</h1>
                 
-                <p>接続先Peerへのメディアチャネル接続を管理するクラスです。</p>
+                <p>接続先Peerへのメディアチャネル(音声・映像)接続を管理するクラスです。</p>
 <h2 id="constructor">Constructor</h2>
-<p>(SDK内部の利用のみ) MediaConnectionは、<code>call</code> および <code>Peer.on('call')</code> で生成されます。</p>
+<p>SDK内部の利用のみで、コンストラクタは通常利用しません。 
+MediaConnectionは、<code>call</code> および <code>peer.on('call')</code> で生成されます。</p>
 <h3 id="sample">Sample</h3>
-<pre><code class="js">mediaConnection = peer.call('peerID', mediaStream);
+<pre><code class="js">// 発信側
+mediaConnection = peer1.call('peerID', mediaStream);
+
+// 着信側
+peer2.on('call', call =&gt; {
+  // peer2の持つメディアストリームで応答する
+  call.answer(mediaStream2)
+});
 </code></pre>
 
 <h2 id="members">Members</h2>
@@ -929,14 +849,9 @@
 </thead>
 <tbody>
 <tr>
-<td>id</td>
-<td>string</td>
-<td>コネクションを一意に識別するためのIDです。</td>
-</tr>
-<tr>
 <td>metadata</td>
 <td>object</td>
-<td>任意の情報を格納するオブジェクトです。<a href="#">サンプル</a></td>
+<td>任意の情報を格納するオブジェクトです。</td>
 </tr>
 <tr>
 <td>open</td>
@@ -956,12 +871,16 @@
 </tbody>
 </table>
 <h4 id="sample_1">Sample</h4>
-<pre><code class="js">// metadataのサンプルをここに
+<pre><code class="js">// 接続元が metadata: { foo: 'bar' } を設定した場合
+peer.on('call', call =&gt; {
+  console.log(call.metadata);
+  // =&gt; {foo: &quot;bar&quot;}
+});
 </code></pre>
 
 <h2 id="methods">Methods</h2>
 <h3 id="answer">answer</h3>
-<p>相手からの接続要求に対してに応答します。</p>
+<p>接続相手からの接続要求に対して応答します。</p>
 <h4 id="parameters">Parameters</h4>
 <table>
 <thead>
@@ -990,7 +909,6 @@
 </tr>
 </tbody>
 </table>
-<p>Todo: 行きと帰りで違うことを追記</p>
 <h5 id="answer-options-object">answer options object</h5>
 <table>
 <thead>
@@ -1008,14 +926,14 @@
 <td>number</td>
 <td></td>
 <td></td>
-<td>映像の最大帯域幅(kbps)です。</td>
+<td>接続先から受信する映像の最大帯域幅(kbps)です。</td>
 </tr>
 <tr>
 <td>audioBandwidth</td>
 <td>number</td>
 <td></td>
 <td></td>
-<td>音声の最大帯域幅(kbps)です。</td>
+<td>接続先から受信する音声の最大帯域幅(kbps)です。</td>
 </tr>
 <tr>
 <td>videoCodec</td>
@@ -1048,11 +966,6 @@ peer.on('call', call =&gt; {
 <p>None</p>
 <h4 id="return-value_1">Return value</h4>
 <p><code>undefined</code></p>
-<h4 id="fires">Fires</h4>
-<ul>
-<li>Connection#event:close
-(Todo: もっと良い文字に書き直す)</li>
-</ul>
 <h4 id="sample_3">Sample</h4>
 <pre><code class="js">call.close();
 </code></pre>
@@ -1077,7 +990,7 @@ peer.on('call', call =&gt; {
 <td>MediaStream</td>
 <td></td>
 <td></td>
-<td>交換対象となる新しいMediaStreamです</td>
+<td>交換対象となる新しいMediaStreamです。</td>
 </tr>
 </tbody>
 </table>
@@ -1106,8 +1019,9 @@ call.replaceStream(newStream);
 </tbody>
 </table>
 <h4 id="sample_5">Sample</h4>
-<pre><code class="js">mediaConnection.on('stream')
-
+<pre><code class="js">call.on('stream', stream =&gt; {
+  console.log(stream);
+});
 </code></pre>
 
 <h3 id="close_1">close</h3>

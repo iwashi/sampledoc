@@ -157,8 +157,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
-      Home
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
     </a>
   </li>
 
@@ -180,39 +180,6 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         日本語
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../" title="はじめに" class="md-nav__link">
-      はじめに
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
-    
-    <label class="md-nav__link" for="nav-2-2">
-      クラス
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-2">
-        クラス
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -569,11 +536,6 @@
     </nav>
   </li>
 
-        
-      </ul>
-    </nav>
-  </li>
-
     
       
       
@@ -590,37 +552,6 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
         English
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../en/" title="Introduction" class="md-nav__link">
-      Introduction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
-    
-    <label class="md-nav__link" for="nav-3-2">
-      Class
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-2">
-        Class
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -682,11 +613,6 @@
     <a href="../../en/sfuroom/" title="SFURoom" class="md-nav__link">
       SFURoom
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -995,7 +921,8 @@
                 
                 <p>メッシュ接続でのルームを管理するクラスです。</p>
 <h2 id="constructor">Constructor</h2>
-<p>(SDK内部の利用のみ) MeshRoomのインスタンスは、<code>joinRoom()</code> で生成されます。</p>
+<p>SDK内部の利用のみで、コンストラクタは通常利用しません。 
+MeshRoomのインスタンスは、<code>joinRoom()</code> で生成されます。</p>
 <h3 id="sample">Sample</h3>
 <pre><code class="js">meshRoom = peer.joinRoom('roomName');
 </code></pre>
@@ -1050,7 +977,7 @@
 <p><code>undefined</code></p>
 <h4 id="sample_3">Sample</h4>
 <pre><code class="js">// newStream
-call.replaceStream(newStream);
+meshRoom.replaceStream(newStream);
 </code></pre>
 
 <h3 id="send">send</h3>
@@ -1178,7 +1105,7 @@ call.replaceStream(newStream);
 <tr>
 <td>src</td>
 <td>string</td>
-<td>MediaStreamのインスタンスです。</td>
+<td>データを送信したPeerのIDです。</td>
 </tr>
 <tr>
 <td>data</td>
@@ -1206,7 +1133,7 @@ call.replaceStream(newStream);
 </tbody>
 </table>
 <h4 id="sample_5">Sample</h4>
-<pre><code class="js">room.on('removeStream', stream =&gt; {
+<pre><code class="js">meshRoom.on('removeStream', stream =&gt; {
   // 削除されたストリームを持つPeerIDを取得
   const peerId = stream.peerId;
 }

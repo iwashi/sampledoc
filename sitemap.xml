@@ -12,14 +12,32 @@
     
         
     <url>
-     <loc>/ja/</loc>
+     <loc>/ja/peer/</loc>
      <lastmod>2017-12-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/ja/mediaconnection/</loc>
+     <lastmod>2017-12-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ja/dataconnection/</loc>
+     <lastmod>2017-12-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ja/meshroom/</loc>
+     <lastmod>2017-12-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ja/sfuroom/</loc>
+     <lastmod>2017-12-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -28,14 +46,32 @@
     
         
     <url>
-     <loc>/en/</loc>
+     <loc>/en/peer/</loc>
      <lastmod>2017-12-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/en/mediaconnection/</loc>
+     <lastmod>2017-12-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/en/dataconnection/</loc>
+     <lastmod>2017-12-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/en/meshroom/</loc>
+     <lastmod>2017-12-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/en/sfuroom/</loc>
+     <lastmod>2017-12-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
