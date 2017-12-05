@@ -1,4 +1,7 @@
 site_name: SkyWay JS SDK API Reference
+site_description: Document for SkyWay JavaScript SDK
+site_author: NTT Communications
+copyright: '© NTT Communications Corporation All Rights Reserved.'
 pages:
     - Introduction: index.md
     - 日本語:
