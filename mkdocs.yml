@@ -16,8 +16,13 @@ pages:
 theme:
     name: 'material'
     language: 'en'
+    logo: 'images/skyway-symbol.svg'
 extra:
     search:
         language: 'jp'
 extra_css:
     - 'css/custom.css'
+markdown_extensions:
+    - codehilite
+    - toc:
+        permalink: true
