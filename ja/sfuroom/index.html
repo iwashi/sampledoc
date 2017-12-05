@@ -73,7 +73,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../.." title="SkyWay JS SDK API Reference" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img src="../../images/skyway-symbol.svg" width="24" height="24">
           
         </a>
       </div>
@@ -143,7 +143,7 @@
   <label class="md-nav__title md-nav__title--site" for="drawer">
     <span class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img src="../../images/skyway-symbol.svg" width="24" height="24">
       
     </span>
     SkyWay JS SDK API Reference
@@ -920,39 +920,42 @@
                   <h1>SFURoom</h1>
                 
                 <p>SFU接続でのルームを管理するクラスです。</p>
-<h2 id="constructor">Constructor</h2>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
 <p>SDK内部の利用のみで、コンストラクタは通常利用しません。
 SFURoomのインスタンスは、<code>joinRoom()</code> で生成されます。</p>
-<h3 id="sample">Sample</h3>
-<pre><code class="js">sfuRoom = peer.joinRoom('roomName', {mode: 'sfu', stream: localStream});
-</code></pre>
+<h3 id="sample">Sample<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nx">sfuRoom</span> <span class="o">=</span> <span class="nx">peer</span><span class="p">.</span><span class="nx">joinRoom</span><span class="p">(</span><span class="s1">&#39;roomName&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;sfu&#39;</span><span class="p">,</span> <span class="nx">stream</span><span class="o">:</span> <span class="nx">localStream</span><span class="p">});</span>
+</pre></div>
 
-<h2 id="methods">Methods</h2>
-<h3 id="close">close</h3>
+
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<h3 id="close">close<a class="headerlink" href="#close" title="Permanent link">&para;</a></h3>
 <p>ルームを退出し、ルーム内のすべてのユーザーとのコネクションをcloseします</p>
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <p>None</p>
-<h4 id="return-value">Return value</h4>
+<h4 id="return-value">Return value<a class="headerlink" href="#return-value" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h4 id="sample_1">Sample</h4>
-<pre><code class="js">room.close();
-</code></pre>
+<h4 id="sample_1">Sample<a class="headerlink" href="#sample_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">room</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</pre></div>
 
-<h3 id="getlog">getLog</h3>
+
+<h3 id="getlog">getLog<a class="headerlink" href="#getlog" title="Permanent link">&para;</a></h3>
 <p>シグナリングサーバにルームのログ取得を要求します。
 シグナリングサーバからログを受信すると、<code>log</code>イベントが発火します。</p>
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <p>None</p>
-<h4 id="return-value_1">Return value</h4>
+<h4 id="return-value_1">Return value<a class="headerlink" href="#return-value_1" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h4 id="sample_2">Sample</h4>
-<pre><code class="js">call.close();
-</code></pre>
+<h4 id="sample_2">Sample<a class="headerlink" href="#sample_2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">call</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</pre></div>
 
-<h3 id="replacestream">replaceStream</h3>
+
+<h3 id="replacestream">replaceStream<a class="headerlink" href="#replacestream" title="Permanent link">&para;</a></h3>
 <p>送信しているMediaStreamを更新します。受信のみモードから双方向に切り替えできます。
 また、音声のみのストリームから、音声＋映像のストリームへの変更もできます。</p>
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -973,16 +976,17 @@ SFURoomのインスタンスは、<code>joinRoom()</code> で生成されます�
 </tr>
 </tbody>
 </table>
-<h4 id="return-value_2">Return value</h4>
+<h4 id="return-value_2">Return value<a class="headerlink" href="#return-value_2" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h4 id="sample_3">Sample</h4>
-<pre><code class="js">// newStream
-sfuRoom.replaceStream(newStream);
-</code></pre>
+<h4 id="sample_3">Sample<a class="headerlink" href="#sample_3" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1">// newStream</span>
+<span class="nx">sfuRoom</span><span class="p">.</span><span class="nx">replaceStream</span><span class="p">(</span><span class="nx">newStream</span><span class="p">);</span>
+</pre></div>
 
-<h3 id="send">send</h3>
+
+<h3 id="send">send<a class="headerlink" href="#send" title="Permanent link">&para;</a></h3>
 <p>WebSocketを使用してルーム内の全てのユーザーにデータを送信します。</p>
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1003,10 +1007,10 @@ sfuRoom.replaceStream(newStream);
 </tr>
 </tbody>
 </table>
-<h2 id="events">Events</h2>
-<h3 id="open">open</h3>
+<h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
+<h3 id="open">open<a class="headerlink" href="#open" title="Permanent link">&para;</a></h3>
 <p>新規にPeerがルームへ入室したときに発生します。</p>
-<h3 id="peerjoin">peerJoin</h3>
+<h3 id="peerjoin">peerJoin<a class="headerlink" href="#peerjoin" title="Permanent link">&para;</a></h3>
 <p>ルームに新しいPeerが参加したときに発生します。</p>
 <table>
 <thead>
@@ -1022,7 +1026,7 @@ sfuRoom.replaceStream(newStream);
 </tr>
 </tbody>
 </table>
-<h3 id="peerleave">peerLeave</h3>
+<h3 id="peerleave">peerLeave<a class="headerlink" href="#peerleave" title="Permanent link">&para;</a></h3>
 <p>新規にPeerがルームを退出したときに発生します。</p>
 <table>
 <thead>
@@ -1038,7 +1042,7 @@ sfuRoom.replaceStream(newStream);
 </tr>
 </tbody>
 </table>
-<h3 id="log">log</h3>
+<h3 id="log">log<a class="headerlink" href="#log" title="Permanent link">&para;</a></h3>
 <p>ルームのログを受信したときに発生します。</p>
 <table>
 <thead>
@@ -1054,7 +1058,7 @@ sfuRoom.replaceStream(newStream);
 </tr>
 </tbody>
 </table>
-<h3 id="stream">stream</h3>
+<h3 id="stream">stream<a class="headerlink" href="#stream" title="Permanent link">&para;</a></h3>
 <p>ルームにJoinしている他のユーザのストリームを受信した時に発生します。ストリーム送信元のpeerIdは stream.peerId で取得できます。</p>
 <table>
 <thead>
@@ -1070,13 +1074,14 @@ sfuRoom.replaceStream(newStream);
 </tr>
 </tbody>
 </table>
-<h4 id="sample_4">Sample</h4>
-<pre><code class="js">room.on('stream', stream =&gt;{
-  // Streamをvideoタグに設定など
-});
-</code></pre>
+<h4 id="sample_4">Sample<a class="headerlink" href="#sample_4" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">room</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;stream&#39;</span><span class="p">,</span> <span class="nx">stream</span> <span class="p">=&gt;{</span>
+  <span class="c1">// Streamをvideoタグに設定など</span>
+<span class="p">});</span>
+</pre></div>
 
-<h3 id="data">data</h3>
+
+<h3 id="data">data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h3>
 <p>他のユーザーから送信されたデータを受信した時に発生します。</p>
 <table>
 <thead>
@@ -1092,7 +1097,7 @@ sfuRoom.replaceStream(newStream);
 </tr>
 </tbody>
 </table>
-<h4 id="data-object">data object</h4>
+<h4 id="data-object">data object<a class="headerlink" href="#data-object" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1114,9 +1119,9 @@ sfuRoom.replaceStream(newStream);
 </tr>
 </tbody>
 </table>
-<h3 id="close_1">close</h3>
+<h3 id="close_1">close<a class="headerlink" href="#close_1" title="Permanent link">&para;</a></h3>
 <p>ルームをcloseしたときに発生します。</p>
-<h3 id="removestream">removeStream</h3>
+<h3 id="removestream">removeStream<a class="headerlink" href="#removestream" title="Permanent link">&para;</a></h3>
 <p>ルームから<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream">MediaStream</a>が削除されたときに発生します。</p>
 <table>
 <thead>
@@ -1132,12 +1137,12 @@ sfuRoom.replaceStream(newStream);
 </tr>
 </tbody>
 </table>
-<h4 id="sample_5">Sample</h4>
-<pre><code class="js">sfuRoom.on('removeStream', stream =&gt; {
-  // 削除されたストリームを持つPeerIDを取得
-  const peerId = stream.peerId;
-}
-</code></pre>
+<h4 id="sample_5">Sample<a class="headerlink" href="#sample_5" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">sfuRoom</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;removeStream&#39;</span><span class="p">,</span> <span class="nx">stream</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 削除されたストリームを持つPeerIDを取得</span>
+  <span class="kr">const</span> <span class="nx">peerId</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">.</span><span class="nx">peerId</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 

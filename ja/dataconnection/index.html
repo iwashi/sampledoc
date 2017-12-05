@@ -73,7 +73,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../.." title="SkyWay JS SDK API Reference" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img src="../../images/skyway-symbol.svg" width="24" height="24">
           
         </a>
       </div>
@@ -143,7 +143,7 @@
   <label class="md-nav__title md-nav__title--site" for="drawer">
     <span class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img src="../../images/skyway-symbol.svg" width="24" height="24">
       
     </span>
     SkyWay JS SDK API Reference
@@ -716,20 +716,21 @@
                   <h1>DataConnection</h1>
                 
                 <p>接続先Peerへのデータチャネル接続を管理するクラスです。</p>
-<h2 id="constructor">Constructor</h2>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
 <p>SDK内部の利用のみで、コンストラクタは通常利用しません。 
 DataConnectionは、<code>connect()</code> および <code>peer.on('connection')</code> で生成されます。</p>
-<h3 id="sample">Sample</h3>
-<pre><code class="js">// 発信側
-dataConnection = peer.connect('peerID');
+<h3 id="sample">Sample<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1">// 発信側</span>
+<span class="nx">dataConnection</span> <span class="o">=</span> <span class="nx">peer</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;peerID&#39;</span><span class="p">);</span>
 
-// 着信側
-peer.on('connection', connection =&gt; {
-  console.log(connection);
-});
-</code></pre>
+<span class="c1">// 着信側</span>
+<span class="nx">peer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<h2 id="members">Members</h2>
+
+<h2 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -761,18 +762,19 @@ peer.on('connection', connection =&gt; {
 </tr>
 </tbody>
 </table>
-<h4 id="sample_1">Sample</h4>
-<pre><code class="js">peer.on('connection', connection =&gt; {
-  // metadataが付与されていた場合
-  console.log(connection.metadata);
-  // =&gt; connect時に付与した、metadataを参照する
-});
-</code></pre>
+<h4 id="sample_1">Sample<a class="headerlink" href="#sample_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">peer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// metadataが付与されていた場合</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">connection</span><span class="p">.</span><span class="nx">metadata</span><span class="p">);</span>
+  <span class="c1">// =&gt; connect時に付与した、metadataを参照する</span>
+<span class="p">});</span>
+</pre></div>
 
-<h2 id="methods">Methods</h2>
-<h3 id="send">send</h3>
+
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<h3 id="send">send<a class="headerlink" href="#send" title="Permanent link">&para;</a></h3>
 <p>接続先のPeerにデータを送信します。シリアライズ方法が'binary'である場合は、送信前に分割します。</p>
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -793,31 +795,33 @@ peer.on('connection', connection =&gt; {
 </tr>
 </tbody>
 </table>
-<h4 id="return-value">Return value</h4>
+<h4 id="return-value">Return value<a class="headerlink" href="#return-value" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h4 id="sample_2">Sample</h4>
-<pre><code class="js">// 'hello world'という文字列を送付します。 
-dataConnection.send('hello world');
+<h4 id="sample_2">Sample<a class="headerlink" href="#sample_2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1">// &#39;hello world&#39;という文字列を送付します。 </span>
+<span class="nx">dataConnection</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">);</span>
 
-// 受信側では、次のように発火します。
-dataConnection.on('data', data =&gt; {
-  console.log('hello world');
-  // =&gt; 'hello world'
-});
-</code></pre>
+<span class="c1">// 受信側では、次のように発火します。</span>
+<span class="nx">dataConnection</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">);</span>
+  <span class="c1">// =&gt; &#39;hello world&#39;</span>
+<span class="p">});</span>
+</pre></div>
 
-<h3 id="close">close</h3>
+
+<h3 id="close">close<a class="headerlink" href="#close" title="Permanent link">&para;</a></h3>
 <p>接続先PeerとのMediaConnectionを接続を切断します。</p>
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <p>None</p>
-<h4 id="return-value_1">Return value</h4>
+<h4 id="return-value_1">Return value<a class="headerlink" href="#return-value_1" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h4 id="sample_3">Sample</h4>
-<pre><code class="js">call.close();
-</code></pre>
+<h4 id="sample_3">Sample<a class="headerlink" href="#sample_3" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">call</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</pre></div>
 
-<h2 id="events">Events</h2>
-<h3 id="data">data</h3>
+
+<h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
+<h3 id="data">data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h3>
 <p>データを受信したときに発生します。</p>
 <table>
 <thead>
@@ -833,14 +837,15 @@ dataConnection.on('data', data =&gt; {
 </tr>
 </tbody>
 </table>
-<h4 id="sample_4">Sample</h4>
-<pre><code class="js">dataConnection.on('data', data =&gt; {
-  console.log('hello world');
-  // =&gt; 'hello world'
-});
-</code></pre>
+<h4 id="sample_4">Sample<a class="headerlink" href="#sample_4" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">dataConnection</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">);</span>
+  <span class="c1">// =&gt; &#39;hello world&#39;</span>
+<span class="p">});</span>
+</pre></div>
 
-<h3 id="close_1">close</h3>
+
+<h3 id="close_1">close<a class="headerlink" href="#close_1" title="Permanent link">&para;</a></h3>
 <p>DataConnectionが切断されたときに発生します。</p>
                 
                   

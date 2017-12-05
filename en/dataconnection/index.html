@@ -73,7 +73,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../.." title="SkyWay JS SDK API Reference" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img src="../../images/skyway-symbol.svg" width="24" height="24">
           
         </a>
       </div>
@@ -143,7 +143,7 @@
   <label class="md-nav__title md-nav__title--site" for="drawer">
     <span class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img src="../../images/skyway-symbol.svg" width="24" height="24">
       
     </span>
     SkyWay JS SDK API Reference
@@ -716,20 +716,21 @@
                   <h1>DataConnection</h1>
                 
                 <p>Class that manages data connections to other peers.</p>
-<h2 id="constructor">Constructor</h2>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
 <p>Constructor should not be used. Instead, it is used used in only SDK.
 MediaConnection instance can be created <code>connect</code> and <code>peer.on('connection')</code>.</p>
-<h3 id="sample">Sample</h3>
-<pre><code class="js">// Calling party
-dataConnection = peer.connect('peerID');
+<h3 id="sample">Sample<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1">// Calling party</span>
+<span class="nx">dataConnection</span> <span class="o">=</span> <span class="nx">peer</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;peerID&#39;</span><span class="p">);</span>
 
-// Called party
-peer.on('connection', connection =&gt; {
-  console.log(connection);
-});
-</code></pre>
+<span class="c1">// Called party</span>
+<span class="nx">peer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<h2 id="members">Members</h2>
+
+<h2 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -761,17 +762,18 @@ peer.on('connection', connection =&gt; {
 </tr>
 </tbody>
 </table>
-<h4 id="sample_1">Sample</h4>
-<pre><code class="js">peer.on('connection', connection =&gt; {
-  console.log(connection.metadata);
-  // =&gt; Show metadata which calling party added
-});
-</code></pre>
+<h4 id="sample_1">Sample<a class="headerlink" href="#sample_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">peer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">connection</span><span class="p">.</span><span class="nx">metadata</span><span class="p">);</span>
+  <span class="c1">// =&gt; Show metadata which calling party added</span>
+<span class="p">});</span>
+</pre></div>
 
-<h2 id="methods">Methods</h2>
-<h3 id="send">send</h3>
+
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<h3 id="send">send<a class="headerlink" href="#send" title="Permanent link">&para;</a></h3>
 <p>Send data to peer. If serialization is 'binary', it will chunk it before sending.</p>
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -792,31 +794,33 @@ peer.on('connection', connection =&gt; {
 </tr>
 </tbody>
 </table>
-<h4 id="return-value">Return value</h4>
+<h4 id="return-value">Return value<a class="headerlink" href="#return-value" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h4 id="sample_2">Sample</h4>
-<pre><code class="js">// Send 'hello world' string.
-dataConnection.send('hello world');
+<h4 id="sample_2">Sample<a class="headerlink" href="#sample_2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1">// Send &#39;hello world&#39; string.</span>
+<span class="nx">dataConnection</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">);</span>
 
-// 'data' events fires on received side
-dataConnection.on('data', data =&gt; {
-  console.log('hello world');
-  // =&gt; 'hello world'
-});
-</code></pre>
+<span class="c1">// &#39;data&#39; events fires on received side</span>
+<span class="nx">dataConnection</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">);</span>
+  <span class="c1">// =&gt; &#39;hello world&#39;</span>
+<span class="p">});</span>
+</pre></div>
 
-<h3 id="close">close</h3>
+
+<h3 id="close">close<a class="headerlink" href="#close" title="Permanent link">&para;</a></h3>
 <p>Disconnect from remote peer.</p>
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <p>None</p>
-<h4 id="return-value_1">Return value</h4>
+<h4 id="return-value_1">Return value<a class="headerlink" href="#return-value_1" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h4 id="sample_3">Sample</h4>
-<pre><code class="js">call.close();
-</code></pre>
+<h4 id="sample_3">Sample<a class="headerlink" href="#sample_3" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">call</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</pre></div>
 
-<h2 id="events">Events</h2>
-<h3 id="data">data</h3>
+
+<h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
+<h3 id="data">data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h3>
 <p>Received data event.</p>
 <table>
 <thead>
@@ -832,14 +836,15 @@ dataConnection.on('data', data =&gt; {
 </tr>
 </tbody>
 </table>
-<h4 id="sample_4">Sample</h4>
-<pre><code class="js">dataConnection.on('data', data =&gt; {
-  console.log('hello world');
-  // =&gt; 'hello world'
-});
-</code></pre>
+<h4 id="sample_4">Sample<a class="headerlink" href="#sample_4" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">dataConnection</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">);</span>
+  <span class="c1">// =&gt; &#39;hello world&#39;</span>
+<span class="p">});</span>
+</pre></div>
 
-<h3 id="close_1">close</h3>
+
+<h3 id="close_1">close<a class="headerlink" href="#close_1" title="Permanent link">&para;</a></h3>
 <p>Connection closed event.</p>
                 
                   

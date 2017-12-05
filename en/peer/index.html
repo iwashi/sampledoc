@@ -73,7 +73,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="../.." title="SkyWay JS SDK API Reference" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img src="../../images/skyway-symbol.svg" width="24" height="24">
           
         </a>
       </div>
@@ -143,7 +143,7 @@
   <label class="md-nav__title md-nav__title--site" for="drawer">
     <span class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img src="../../images/skyway-symbol.svg" width="24" height="24">
       
     </span>
     SkyWay JS SDK API Reference
@@ -1336,9 +1336,9 @@
                   <h1>Peer</h1>
                 
                 <p>Class that manages all p2p connections and rooms. Peer instance must be generated when using SkyWay.</p>
-<h2 id="constructor">Constructor</h2>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
 <p><code>new Peer</code> creates new Peer instance and connects to the signaling server.</p>
-<h3 id="parameter">Parameter</h3>
+<h3 id="parameter">Parameter<a class="headerlink" href="#parameter" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1366,7 +1366,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="options-object">options object</h4>
+<h4 id="options-object">options object<a class="headerlink" href="#options-object" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1415,7 +1415,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="credential-object">credential object</h4>
+<h4 id="credential-object">credential object<a class="headerlink" href="#credential-object" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1450,35 +1450,38 @@
 </tr>
 </tbody>
 </table>
-<h4 id="default-rtcconfiguration-object">Default RTCConfiguration object</h4>
-<pre><code class="js">const defaultConfig = {
-  iceServers: [{
-    urls: 'stun:stun.webrtc.ecl.ntt.com:3478',
-    url:  'stun:stun.webrtc.ecl.ntt.com:3478',
-  }],
-  iceTransportPolicy: 'all',
-};
-</code></pre>
+<h4 id="default-rtcconfiguration-object">Default RTCConfiguration object<a class="headerlink" href="#default-rtcconfiguration-object" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">defaultConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">iceServers</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">urls</span><span class="o">:</span> <span class="s1">&#39;stun:stun.webrtc.ecl.ntt.com:3478&#39;</span><span class="p">,</span>
+    <span class="nx">url</span><span class="o">:</span>  <span class="s1">&#39;stun:stun.webrtc.ecl.ntt.com:3478&#39;</span><span class="p">,</span>
+  <span class="p">}],</span>
+  <span class="nx">iceTransportPolicy</span><span class="o">:</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
 
-<h3 id="sample">Sample</h3>
-<pre><code class="js">// Connect SkyWay signaling server with full debug option.
-const peer = new Peer({
-  key:   &quot;&lt;YOUR-API-KEY&gt;&quot;
-  debug: 3,
-});
-</code></pre>
 
-<pre><code class="js">// Force turn server
-const peer = new Peer({
-  key:   &quot;&lt;YOUR-API-KEY&gt;&quot;
-  debug: 3,
-  config: {
-    iceTransportPolicy: 'relay',
-  },
-});
-</code></pre>
+<h3 id="sample">Sample<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1">// Connect SkyWay signaling server with full debug option.</span>
+<span class="kr">const</span> <span class="nx">peer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Peer</span><span class="p">({</span>
+  <span class="nx">key</span><span class="o">:</span>   <span class="s2">&quot;&lt;YOUR-API-KEY&gt;&quot;</span>
+  <span class="nx">debug</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
 
-<h2 id="members">Members</h2>
+
+<div class="codehilite"><pre><span></span><span class="c1">// Force turn server</span>
+<span class="kr">const</span> <span class="nx">peer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Peer</span><span class="p">({</span>
+  <span class="nx">key</span><span class="o">:</span>   <span class="s2">&quot;&lt;YOUR-API-KEY&gt;&quot;</span>
+  <span class="nx">debug</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">iceTransportPolicy</span><span class="o">:</span> <span class="s1">&#39;relay&#39;</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h2 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1510,11 +1513,11 @@ const peer = new Peer({
 </tr>
 </tbody>
 </table>
-<h2 id="methods">Methods</h2>
-<h3 id="call">call</h3>
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<h3 id="call">call<a class="headerlink" href="#call" title="Permanent link">&para;</a></h3>
 <p>Calls the designated Peer and creates new MediaConnection.
 With options, the bandwidth or/and codec can be specified.</p>
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1549,7 +1552,7 @@ With options, the bandwidth or/and codec can be specified.</p>
 </tr>
 </tbody>
 </table>
-<h5 id="call-options-object">call options object</h5>
+<h5 id="call-options-object">call options object<a class="headerlink" href="#call-options-object" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -1619,36 +1622,40 @@ With options, the bandwidth or/and codec can be specified.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="return-value">Return value</h4>
+<h4 id="return-value">Return value<a class="headerlink" href="#return-value" title="Permanent link">&para;</a></h4>
 <p><a href="../mediaconnection">MediaConnection</a> instance</p>
-<h4 id="sample_1">Sample</h4>
-<pre><code class="js">// Call a peer, providing our mediaStream
-const call = peer.call('peerID', localStream);
-</code></pre>
+<h4 id="sample_1">Sample<a class="headerlink" href="#sample_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1">// Call a peer, providing our mediaStream</span>
+<span class="kr">const</span> <span class="nx">call</span> <span class="o">=</span> <span class="nx">peer</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;peerID&#39;</span><span class="p">,</span> <span class="nx">localStream</span><span class="p">);</span>
+</pre></div>
 
-<pre><code class="js">// Call a peer, providing our mediaStream and metadata
-const call = peer.call('peerID', localStream, {
-  metadata: {
-    foo: 'bar',
-  }
-});
-</code></pre>
 
-<pre><code class="js">// Call a peer, providing our mediaStream with H264(video codec)
-const call = peer.call('peerID', localStream, {
-  videoCodec: 'H264',
-});
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">// Call a peer, providing our mediaStream and metadata</span>
+<span class="kr">const</span> <span class="nx">call</span> <span class="o">=</span> <span class="nx">peer</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;peerID&#39;</span><span class="p">,</span> <span class="nx">localStream</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">metadata</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="js">// Call a peer, and just want to receive audio
-const call = peer.call('peerID', {
-  audioReceiveEnabled: true,
-});
-</code></pre>
 
-<h3 id="connect">connect</h3>
+<div class="codehilite"><pre><span></span><span class="c1">// Call a peer, providing our mediaStream with H264(video codec)</span>
+<span class="kr">const</span> <span class="nx">call</span> <span class="o">=</span> <span class="nx">peer</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;peerID&#39;</span><span class="p">,</span> <span class="nx">localStream</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">videoCodec</span><span class="o">:</span> <span class="s1">&#39;H264&#39;</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1">// Call a peer, and just want to receive audio</span>
+<span class="kr">const</span> <span class="nx">call</span> <span class="o">=</span> <span class="nx">peer</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;peerID&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">audioReceiveEnabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h3 id="connect">connect<a class="headerlink" href="#connect" title="Permanent link">&para;</a></h3>
 <p>Connects to the designated Peer and creates new DataConnection.</p>
-<h4 id="parameters_1">Parameters</h4>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1676,7 +1683,7 @@ const call = peer.call('peerID', {
 </tr>
 </tbody>
 </table>
-<h5 id="connect-options-object">connect options object</h5>
+<h5 id="connect-options-object">connect options object<a class="headerlink" href="#connect-options-object" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -1718,52 +1725,57 @@ const call = peer.call('peerID', {
 </tr>
 </tbody>
 </table>
-<h4 id="return-value_1">Return value</h4>
+<h4 id="return-value_1">Return value<a class="headerlink" href="#return-value_1" title="Permanent link">&para;</a></h4>
 <p><a href="../dataconnection">DataConnection</a> instance</p>
-<h4 id="sample_2">Sample</h4>
-<pre><code class="js">// connect with data channel and with reliable mode(default)
-peer.connect('peerId');
-</code></pre>
+<h4 id="sample_2">Sample<a class="headerlink" href="#sample_2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1">// connect with data channel and with reliable mode(default)</span>
+<span class="nx">peer</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;peerId&#39;</span><span class="p">);</span>
+</pre></div>
 
-<pre><code class="js">// with metadata
-peer.connect('peerId', {
-  metadata: {
-    hoge: &quot;foobar&quot;,
-  }
-});
-</code></pre>
 
-<pre><code class="js">// connect with data channel and with unreliable mode
-peer.connect('peerId', {
-  dcInit: {
-    maxRetransmits: 2,
-  },
-});
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">// with metadata</span>
+<span class="nx">peer</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;peerId&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">metadata</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">hoge</span><span class="o">:</span> <span class="s2">&quot;foobar&quot;</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
 
-<h3 id="destroy">destroy</h3>
+
+<div class="codehilite"><pre><span></span><span class="c1">// connect with data channel and with unreliable mode</span>
+<span class="nx">peer</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;peerId&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">dcInit</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">maxRetransmits</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h3 id="destroy">destroy<a class="headerlink" href="#destroy" title="Permanent link">&para;</a></h3>
 <p>Close all connections and disconnect socket.</p>
-<h4 id="parameters_2">Parameters</h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <p>None</p>
-<h4 id="return-value_2">Return value</h4>
+<h4 id="return-value_2">Return value<a class="headerlink" href="#return-value_2" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h4 id="sample_3">Sample</h4>
-<pre><code class="js">peer.destroy();
-</code></pre>
+<h4 id="sample_3">Sample<a class="headerlink" href="#sample_3" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">peer</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+</pre></div>
 
-<h3 id="disconnect">disconnect</h3>
+
+<h3 id="disconnect">disconnect<a class="headerlink" href="#disconnect" title="Permanent link">&para;</a></h3>
 <p>Close socket and clean up some properties, then emit disconnect event.</p>
-<h4 id="parameters_3">Parameters</h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <p>None</p>
-<h4 id="return-value_3">Return value</h4>
+<h4 id="return-value_3">Return value<a class="headerlink" href="#return-value_3" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h4 id="sample_4">Sample</h4>
-<pre><code class="js">peer.disconnect();
-</code></pre>
+<h4 id="sample_4">Sample<a class="headerlink" href="#sample_4" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">peer</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">();</span>
+</pre></div>
 
-<h3 id="joinroom">joinRoom</h3>
+
+<h3 id="joinroom">joinRoom<a class="headerlink" href="#joinroom" title="Permanent link">&para;</a></h3>
 <p>Join fullmesh type or SFU type room that two or more users can join.</p>
-<h4 id="parameters_4">Parameters</h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1791,7 +1803,7 @@ peer.connect('peerId', {
 </tr>
 </tbody>
 </table>
-<h5 id="roomoptions-object">roomOptions object</h5>
+<h5 id="roomoptions-object">roomOptions object<a class="headerlink" href="#roomoptions-object" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -1861,37 +1873,40 @@ peer.connect('peerId', {
 </tr>
 </tbody>
 </table>
-<h4 id="return-value_4">Return value</h4>
+<h4 id="return-value_4">Return value<a class="headerlink" href="#return-value_4" title="Permanent link">&para;</a></h4>
 <p>Instance of <a href="../sfuroom">SFURoom</a> or <a href="../meshroom">MeshRoom</a></p>
-<h4 id="sample_5">Sample</h4>
-<pre><code class="js">const room = peer.joinRoom(&quot;roomName&quot;, {
-  mode: 'mesh', 
-  stream: localStream,
-});
-</code></pre>
+<h4 id="sample_5">Sample<a class="headerlink" href="#sample_5" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">room</span> <span class="o">=</span> <span class="nx">peer</span><span class="p">.</span><span class="nx">joinRoom</span><span class="p">(</span><span class="s2">&quot;roomName&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;mesh&#39;</span><span class="p">,</span> 
+  <span class="nx">stream</span><span class="o">:</span> <span class="nx">localStream</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="js">const room = peer.joinRoom(&quot;roomName&quot;, {
-  mode: 'sfu', 
-  stream: localStream,
-});
-</code></pre>
 
-<h3 id="listallpeers">listAllPeers</h3>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">room</span> <span class="o">=</span> <span class="nx">peer</span><span class="p">.</span><span class="nx">joinRoom</span><span class="p">(</span><span class="s2">&quot;roomName&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;sfu&#39;</span><span class="p">,</span> 
+  <span class="nx">stream</span><span class="o">:</span> <span class="nx">localStream</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h3 id="listallpeers">listAllPeers<a class="headerlink" href="#listallpeers" title="Permanent link">&para;</a></h3>
 <p>Call Rest API and get the list of peerIds assciated with API key.</p>
-<h4 id="parameters_5">Parameters</h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <p>None</p>
-<h4 id="return-value_5">Return value</h4>
+<h4 id="return-value_5">Return value<a class="headerlink" href="#return-value_5" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h4 id="sample_6">Sample</h4>
-<pre><code class="js">peer.listAllPeers(peers =&gt; {
-  console.log(peers)
-  // =&gt; [&quot;yNtQkNyjAojJNGrt&quot;, &quot;EzAmgFhCKBQMzKw9&quot;]
-});
-</code></pre>
+<h4 id="sample_6">Sample<a class="headerlink" href="#sample_6" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">peer</span><span class="p">.</span><span class="nx">listAllPeers</span><span class="p">(</span><span class="nx">peers</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">peers</span><span class="p">)</span>
+  <span class="c1">// =&gt; [&quot;yNtQkNyjAojJNGrt&quot;, &quot;EzAmgFhCKBQMzKw9&quot;]</span>
+<span class="p">});</span>
+</pre></div>
 
-<h3 id="updatecredential">updateCredential</h3>
+
+<h3 id="updatecredential">updateCredential<a class="headerlink" href="#updatecredential" title="Permanent link">&para;</a></h3>
 <p>Update server-side credential by sending a request in order to extend TTL.</p>
-<h4 id="parameters_6">Parameters</h4>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1912,7 +1927,7 @@ peer.connect('peerId', {
 </tr>
 </tbody>
 </table>
-<h5 id="newcredential-object">newCredential object</h5>
+<h5 id="newcredential-object">newCredential object<a class="headerlink" href="#newcredential-object" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
 <tr>
@@ -1947,10 +1962,10 @@ peer.connect('peerId', {
 </tr>
 </tbody>
 </table>
-<h4 id="return-value_6">Return value</h4>
+<h4 id="return-value_6">Return value<a class="headerlink" href="#return-value_6" title="Permanent link">&para;</a></h4>
 <p><code>undefined</code></p>
-<h2 id="events">Events</h2>
-<h3 id="open">open</h3>
+<h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
+<h3 id="open">open<a class="headerlink" href="#open" title="Permanent link">&para;</a></h3>
 <p>Successfully connected to signaling server.</p>
 <table>
 <thead>
@@ -1966,13 +1981,14 @@ peer.connect('peerId', {
 </tr>
 </tbody>
 </table>
-<h4 id="sample_7">Sample</h4>
-<pre><code class="js">peer.on('open', id =&gt; {
-  console.log(id);
-})
-</code></pre>
+<h4 id="sample_7">Sample<a class="headerlink" href="#sample_7" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">peer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="nx">id</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+<span class="p">})</span>
+</pre></div>
 
-<h3 id="call_1">call</h3>
+
+<h3 id="call_1">call<a class="headerlink" href="#call_1" title="Permanent link">&para;</a></h3>
 <p>Received a call with Media channel(audio and/or video) from peer.</p>
 <table>
 <thead>
@@ -1988,16 +2004,17 @@ peer.connect('peerId', {
 </tr>
 </tbody>
 </table>
-<h4 id="sample_8">Sample</h4>
-<pre><code class="js">peer.on('call', call =&gt; {
-  // answer with media stream
-  call.answer(mediaStream);
-});
-</code></pre>
+<h4 id="sample_8">Sample<a class="headerlink" href="#sample_8" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">peer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;call&#39;</span><span class="p">,</span> <span class="nx">call</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// answer with media stream</span>
+  <span class="nx">call</span><span class="p">.</span><span class="nx">answer</span><span class="p">(</span><span class="nx">mediaStream</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<h3 id="close">close</h3>
+
+<h3 id="close">close<a class="headerlink" href="#close" title="Permanent link">&para;</a></h3>
 <p>Finished closing all connections to peers.</p>
-<h3 id="connection">connection</h3>
+<h3 id="connection">connection<a class="headerlink" href="#connection" title="Permanent link">&para;</a></h3>
 <p>Received a connection from peer.</p>
 <table>
 <thead>
@@ -2013,13 +2030,14 @@ peer.connect('peerId', {
 </tr>
 </tbody>
 </table>
-<h4 id="sample_9">sample</h4>
-<pre><code class="js">peer.on('connection', connection =&gt; {
-  console.log(connection);
-});
-</code></pre>
+<h4 id="sample_9">sample<a class="headerlink" href="#sample_9" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">peer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<h3 id="disconnected">disconnected</h3>
+
+<h3 id="disconnected">disconnected<a class="headerlink" href="#disconnected" title="Permanent link">&para;</a></h3>
 <p>Disconnected from the signalling server.</p>
 <table>
 <thead>
@@ -2035,7 +2053,7 @@ peer.connect('peerId', {
 </tr>
 </tbody>
 </table>
-<h3 id="expiresin">expiresin</h3>
+<h3 id="expiresin">expiresin<a class="headerlink" href="#expiresin" title="Permanent link">&para;</a></h3>
 <p>The event occurs before credential expired.</p>
 <table>
 <thead>
@@ -2051,7 +2069,7 @@ peer.connect('peerId', {
 </tr>
 </tbody>
 </table>
-<h3 id="error">error</h3>
+<h3 id="error">error<a class="headerlink" href="#error" title="Permanent link">&para;</a></h3>
 <p>Events when error occur.</p>
 <table>
 <thead>
@@ -2115,13 +2133,13 @@ peer.connect('peerId', {
 </tr>
 </tbody>
 </table>
-<h4 id="sample_10">Sample</h4>
-<pre><code class="js">// When calling joinRoom() without room name
-peer.on('error', error =&gt; {
-  console.log(`${error.type}: ${error.message}`);
-  // =&gt; room-error: Room name must be defined.
-});
-</code></pre>
+<h4 id="sample_10">Sample<a class="headerlink" href="#sample_10" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1">// When calling joinRoom() without room name</span>
+<span class="nx">peer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">error</span><span class="p">.</span><span class="nx">type</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+  <span class="c1">// =&gt; room-error: Room name must be defined.</span>
+<span class="p">});</span>
+</pre></div>
                 
                   
                 
