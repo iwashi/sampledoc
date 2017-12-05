@@ -1,54 +1,63 @@
-接続先Peerへのメディアチャネル接続を管理するクラスです。
+Class that manages media connections to other peers.
 
 ## Constructor
 
-(SDK内部の利用のみ) MediaConnectionは、`call` および `Peer.on('call')` で生成されます。
+Constructor should not be used. Instead, it is used used in only SDK.
+MediaConnection instance can be created `call` and `peer.on('call')`.
 
 ### Sample
 
 ```js
-mediaConnection = peer.call('peerID', mediaStream);
+// Calling party
+mediaConnection = peer1.call('peerID', mediaStream);
+
+// Called party
+peer2.on('call', call => {
+  // answer with called party's media stream.
+  call.answer(mediaStream2)
+});
 ```
 
 ## Members
 
 |Name|Type|Description|
 |----|----|----|
-|id|string|コネクションを一意に識別するためのIDです。|
-|metadata|object|任意の情報を格納するオブジェクトです。[サンプル](#)|
-|open|boolean|コネクションがオープンしているかどうかを示します。|
-|remoteId|string|接続先のPeerIDです。|
-|peer|string|*Deprecated* 接続先のPeerIDです。remoteIdを使ってください。|
+|metadata|object|Any additional information to send to the peer.|
+|open|boolean|Whether the Connection has been opened or not.|
+|remoteId|string|PeerId of the peer this connection is connected to.|
+|peer|string|*Deprecated* The remote peerId. Use `remoteId` instead.|
 
 #### Sample
 
 ```js
-// metadataのサンプルをここに
+// When calling party set `metadata: { foo: 'bar' }`
+peer.on('call', call => {
+  console.log(call.metadata);
+  // => {foo: "bar"}
+});
 ```
 
 ## Methods
 
 ### answer
 
-相手からの接続要求に対してに応答します。
+Create and send an answer message.
 
 #### Parameters
 
 | Name | Type | Require | Default | Description |
 | --- | --- | --- | --- | --- |
-| stream | MediaStream | ★ | | リモートのPeerへ送るメディアストリームです。|
-| options | [answer options object](#answer-options-object) | | |応答時に付与するオプションです。帯域幅・コーデックを指定します。 |
-
-Todo: 行きと帰りで違うことを追記
+| stream | MediaStream | ★ | | The stream to send to the peer. |
+| options | [answer options object](#answer-options-object) | | | Optional arguments for the connection. |
 
 ##### answer options object
 
 | Name | Type | Required | Default | Description |
 | --- | --- | --- | --- | --- |
-| videoBandwidth | number | | | 映像の最大帯域幅(kbps)です。 |
-| audioBandwidth | number | | | 音声の最大帯域幅(kbps)です。 |
-| videoCodec | string | | | 'H264'などの映像コーデックです。 |
-| audioCodec | string | | | 'PCMU'などの音声コーデックです。 |
+| videoBandwidth | number | | | A max video bandwidth(kbps) |
+| audioBandwidth | number | | | A max audio bandwidth(kbps) |
+| videoCodec | string | | | A video codec like 'H264' |
+| audioCodec | string | | | A video codec like 'PCMU' |
 
 #### Return value 
 
@@ -57,7 +66,6 @@ Todo: 行きと帰りで違うことを追記
 #### Sample
 
 ```js
-// 相手から発信を受けて
 peer.on('call', call => {
   call.answer(mediaStream);
 });
@@ -65,7 +73,7 @@ peer.on('call', call => {
 
 ### close
 
-接続先PeerとのMediaConnectionを接続を切断します。
+Disconnect from remote peer.
 
 #### Parameters
 
@@ -75,11 +83,6 @@ None
 
 `undefined`
 
-#### Fires
-
-- Connection#event:close
-(Todo: もっと良い文字に書き直す)
-
 #### Sample
 
 ```js
@@ -88,14 +91,14 @@ call.close();
 
 ### replaceStream
 
-送信しているMediaStreamを更新します。受信のみモードから双方向に切り替えできます。
-また、音声のみのストリームから、音声＋映像のストリームへの変更もできます。
+Replace the stream being sent with a new one.
+The new one can be audio only stream, or both audio and video stream.
 
 #### Parameters
 
 | Name | Type | Optional | Default | Description |
 | --- | --- | --- | --- | --- |
-| stream | MediaStream | | | 交換対象となる新しいMediaStreamです |
+| stream | MediaStream | | | The stream to replace the old stream with. |
 
 #### Return value 
 
@@ -112,28 +115,30 @@ call.replaceStream(newStream);
 
 ### stream 
 
-MediaStreamを受信したときに発生します。
+MediaStream received from peer.
 
 |Type|Description|
 |----|----|
-|MediaStream|MediaStreamのインスタンスです。|
+|MediaStream|MediaStream instance|
 
 #### Sample
 
 ```js
-mediaConnection.on('stream')
-
+call.on('stream', stream => {
+  console.log(stream);
+});
 ```
 
 ### close
 
-MediaConnectionが切断されたときに発生します。
+Connection closed event.
 
 ### removeStream
 
-[MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)が削除されたときに発生します。
+[MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream) from peer was removed.
+
 
 |Type|Description|
 |----|----|
-|MediaStream|MediaStreamのインスタンスです。|
+|MediaStream|MediaStream instance|
 

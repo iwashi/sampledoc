@@ -29,8 +29,8 @@ peer.on('connection', connection => {
 #### Sample
 
 ```js
-// metadataのサンプルをここに
 peer.on('connection', connection => {
+  // metadataが付与されていた場合
   console.log(connection.metadata);
   // => connect時に付与した、metadataを参照する
 });
@@ -85,13 +85,13 @@ call.close();
 
 ## Events
 
-### open
+### data
 
-DataConnectionが接続されたときに発生します。
+データを受信したときに発生します。
 
 | Type | Description |
 | --- | --- | 
-| object | 受信したデータです。|
+| * | 受信したデータです。|
 
 #### Sample
 

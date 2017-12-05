@@ -1,45 +1,51 @@
-接続先Peerへのデータチャネル接続を管理するクラスです。
+Class that manages data connections to other peers.
 
 ## Constructor
 
-(SDK内部の利用のみ) DataConnectionは、`connect()` および `Peer.on('connection')` で生成されます。
+Constructor should not be used. Instead, it is used used in only SDK.
+MediaConnection instance can be created `connect` and `peer.on('connection')`.
 
 ### Sample
 
 ```js
-dataConnection = peer.connect/('peerID');
+// Calling party
+dataConnection = peer.connect('peerID');
+
+// Called party
+peer.on('connection', connection => {
+  console.log(connection);
+});
 ```
 
 ## Members
 
 |Name|Type|Description|
 |----|----|----|
-|SERIALIZATION|enum|コネクションを一意に識別するためのID。|
-|id|string|コネクションを一意に識別するためのIDです。|
-|metadata|object|任意の情報を格納するオブジェクトです。[サンプル](#)|
-|open|boolean|コネクションがオープンしているかどうかを示します。|
-|remoteId|string|接続先のPeerIDです。|
-|peer|string|*Deprecated* 接続先のPeerIDです。remoteIdを使ってください。|
+|metadata|object|Any additional information to send to the peer.|
+|open|boolean|Whether the Connection has been opened or not.|
+|remoteId|string|PeerId of the peer this connection is connected to.|
+|peer|string|*Deprecated* The remote peerId. use `remoteId` instead.|
 
 #### Sample
 
 ```js
-// metadataのサンプルをここに
+peer.on('connection', connection => {
+  console.log(connection.metadata);
+  // => Show metadata which calling party added
+});
 ```
 
 ## Methods
 
 ### send
 
-接続先のPeerにデータを送信します。シリアライズ方法が'binary'である場合は、送信前に分割します。
+Send data to peer. If serialization is 'binary', it will chunk it before sending.
 
 #### Parameters
 
 | Name | Type | Required | Default | Description |
 | --- | --- | --- | --- | --- |
-| data | * | ✔ | | 接続先のPeerに送るデータです。|
-
-Todo: 行きと帰りで違うことを追記
+| data | * | ✔ | | The data to send to the peer. |
 
 #### Return value 
 
@@ -48,12 +54,19 @@ Todo: 行きと帰りで違うことを追記
 #### Sample
 
 ```js
-dataConnection.send('sample');
+// Send 'hello world' string.
+dataConnection.send('hello world');
+
+// 'data' events fires on received side
+dataConnection.on('data', data => {
+  console.log('hello world');
+  // => 'hello world'
+});
 ```
 
 ### close
 
-接続先PeerとのMediaConnectionを接続を切断します。
+Disconnect from remote peer.
 
 #### Parameters
 
@@ -63,64 +76,31 @@ None
 
 `undefined`
 
-#### Fires
-
-- Connection#event:close
-(Todo: もっと良い文字に書き直す)
-
 #### Sample
 
 ```js
 call.close();
 ```
 
-### replaceStream
-
-送信しているMediaStreamを更新します。受信のみモードから双方向に切り替えできます。
-また、音声のみのストリームから、音声＋映像のストリームへの変更もできます。
-
-#### Parameters
-
-| Name | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
-| stream | MediaStream | | | 交換対象となる新しいMediaStreamです |
-
-#### Return value 
-
-`undefined`
-
-#### Sample
-
-```js
-// newStream
-call.replaceStream(newStream);
-```
-
 ## Events
 
-### stream 
+### data
 
-MediaStreamを受信したときに発生します。
+Received data event.
 
-|Type|Description|
-|----|----|
-|MediaStream|MediaStreamのインスタンスです。|
+| Type | Description |
+| --- | --- | 
+| * | Received data |
 
 #### Sample
 
 ```js
-mediaConnection.on('stream')
-
+dataConnection.on('data', data => {
+  console.log('hello world');
+  // => 'hello world'
+});
 ```
 
 ### close
 
-MediaConnectionが切断されたときに発生します。
-
-### removeStream
-
-[MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)が削除されたときに発生します。
-
-|Type|Description|
-|----|----|
-|MediaStream|(現行のドキュメントバグでは？)|
+Connection closed event.

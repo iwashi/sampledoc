@@ -1,4 +1,4 @@
-接続先Peerへのメディアチャネル(音声・映像)接続を管理するクラスです。
+Class that manages fullmesh type room.
 
 ## Constructor
 

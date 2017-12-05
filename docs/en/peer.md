@@ -1,33 +1,35 @@
-P2P接続およびルーム接続機能を操作するためのクラスです。
+Class that manages all p2p connections and rooms. Peer instance must be generated when using SkyWay.
 
 ## Constructor
+
+`new Peer` creates new Peer instance and connects to the signaling server.
 
 ### Parameter
 
 |Name|Type|Required|Default|Description|
 |----|----|----|----|----|
-|id|string|||ユーザのPeer IDです。|
-|options|[options object](options-object)|✔||接続に関するパラメータを指定するオプションです。|
+|id|string|||User's peerId.|
+|options|[options object](#options-object)|✔||Optional arguments for the connection.|
 
 #### options object
 
 |Name|Type|Required|Default|Description|
 |----|----|----|----|----|
-|key|string|✔||SkyWayのAPIキーです。|
-|debug|number|||ログレベル： NONE:0、 ERROR:1、 WARN:2、 FULL:3 から選択できます。|
-|turn|boolean|||SkyWayで提供するTURNを使うかどうかのフラグです。|
-|credential|[credential object](#credential-object)|||Peerを認証するためのクレデンシャルです。次のプロパティを含みます。|
-|config|RTCConfiguration object||[RTCConfiguration object](#rtcconfiguration-object)|[応用] [RTCPeerConnectionに渡されるオブジェクト](https://w3c.github.io/webrtc-pc/#rtcconfiguration-dictionary)です。|
+|key|string|✔||ECLWebRTC API key.|
+|debug|number|||Log level. NONE:0, ERROR:1, WARN:2, FULL:3.|
+|turn|boolean|||Whether using ECLWebRTC's TURN or not.|
+|credential|[credential object](#credential-object)|||The credential used to authenticate peer and can be used when authentication is enabled. Check [authentication repository](https://github.com/skyway/skyway-peer-authentication-samples) to see datails.|
+|config|[RTCConfiguration object](https://w3c.github.io/webrtc-pc/#rtcconfiguration-dictionary)||[Default RTCConfiguration object](#default-rtcconfiguration-object)|[The object passed to RTCPeerConnection](https://w3c.github.io/webrtc-pc/#rtcconfiguration-dictionary). This is advanced option.|
 
 #### credential object
 
 |Name|Type|Required|Default|Description|
 |----|----|----|----|----|
-|timestamp|number|||現在のUNIXタイムスタンプです。|
-|ttl|string|||Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。|
-|authToken|string||Default|HMACを利用して生成する認証用トークンです。|
+|timestamp|number|||Current UNIX timestamp.|
+|ttl|number|||Time to live; The credential expires at timestamp + ttl.|
+|authToken|string||Default|Credential token calculated with HMAC.|
 
-#### RTCConfiguration object
+#### Default RTCConfiguration object
 
 ```js
 const defaultConfig = {
@@ -41,9 +43,21 @@ const defaultConfig = {
 ### Sample
 
 ```js
+// Connect SkyWay signaling server with full debug option.
 const peer = new Peer({
-    key:   "<YOUR-API-KEY>"
-    debug: 3,
+  key:   "<YOUR-API-KEY>"
+  debug: 3,
+});
+```
+
+```js
+// Force turn server
+const peer = new Peer({
+  key:   "<YOUR-API-KEY>"
+  debug: 3,
+  config: {
+    iceTransportPolicy: 'relay',
+  },
 });
 ```
 
@@ -51,82 +65,117 @@ const peer = new Peer({
 
 |Name|Type|Description|
 |----|----|----|
-|connections|Object|全てのコネクションを保持するオブジェクトです。|
-|id|string|ユーザーが指定したPeer ID、もしくはサーバが生成したPeer IDです。|
-|open|boolean|シグナリングサーバへの接続状況を保持します。|
-|rooms|object|全てのルームを保持するオブジェクトです。|
+|connections|Object|Object contains all connections.|
+|id|string|The Peer ID specified by a user or randomly assigned Peer ID by the signaling server.|
+|open|boolean|Whether the socket is connecting to the signalling server or not.|
+|rooms|object|Object contains all rooms.|
 
 ## Methods
 
 ### call
 
-指定したPeerにメディアチャネルで接続して、MediaConnectionを作成します。 オプションを指定することで、帯域幅・コーデックを指定できます。
-
+Calls the designated Peer and creates new MediaConnection.
+With options, the bandwidth or/and codec can be specified.
 
 #### Parameters
 
 | Name | Type | Required | Default | Description |
 | --- | --- | --- | --- | --- |
-| peerId | string | ✔ | | 接続先のPeer IDです。 |
-| stream | MediaStream | | | リモートのPeerへ送るメディアストリームです。 設定されていない場合は、受信のみモードで発信します。 |
-| options | [call options object](#call-options-object) | | |発信時に付与するオプションです。帯域幅・コーデックを指定します。 |
+| peerId | string | ✔ | | The peerId of the peer you are calling. |
+| stream | MediaStream | | | The MediaStream to send to the remote peer. If not set, the caller creates offer SDP with `recvonly` attribute. |
+| options | [call options object](#call-options-object) | | | Optional arguments for the connection. |
 
 ##### call options object
 
 | Name | Type | Required | Default | Description |
 | --- | --- | --- | --- | --- |
-| label | string | | | 接続先のPeer IDを識別するのに利用するラベルです。 |
-| videoBandwidth | number | | | 映像の最大帯域幅(kbps)です。 |
-| audioBandwidth | number | | | 音声の最大帯域幅(kbps)です。 |
-| videoCodec | string | | | 'H264'などの映像コーデックです。 |
-| audioCodec | string | | | 'PCMU'などの音声コーデックです。 |
-| videoReceiveEnabled | boolean | | | 映像を受信のみで使う場合のフラグです。|
-| audioReceiveEnabled | boolean | | | 音声を受信のみで使う場合のフラグです。|
+| metadata | object | | | Any additional information to send to the peer. |
+| videoBandwidth | number | | | A max video bandwidth(kbps) |
+| audioBandwidth | number | | | A max audio bandwidth(kbps) |
+| videoCodec | string | | | A video codec like 'H264' |
+| audioCodec | string | | | A video codec like 'PCMU' |
+| videoReceiveEnabled | boolean | | | Set to `true` when the user wants to receive video |
+| audioReceiveEnabled | boolean | | | Set to `true` when the user wants to receive audio |
+| label | string | | | **Deprecated!** Label to easily identify the connection on either peer. |
 
 #### Return value 
 
-[MediaConnection]()のインスタンス
+[MediaConnection](mediaconnection) instance
 
 #### Sample
 
 ```js
+// Call a peer, providing our mediaStream
 const call = peer.call('peerID', localStream);
+```
+
+```js
+// Call a peer, providing our mediaStream and metadata
+const call = peer.call('peerID', localStream, {
+  metadata: {
+    foo: 'bar',
+  }
+});
+```
+
+```js
+// Call a peer, providing our mediaStream with H264(video codec)
+const call = peer.call('peerID', localStream, {
+  videoCodec: 'H264',
+});
+```
+
+```js
+// Call a peer, and just want to receive audio
+const call = peer.call('peerID', {
+  audioReceiveEnabled: true,
+});
 ```
 
 ### connect
 
-指定したPeerにデータチャネルで接続して、DataConnectionインスタンスを生成します。
+Connects to the designated Peer and creates new DataConnection.
 
 #### Parameters
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| peerId | string | ✔ |   接続先のPeer IDです。|
-| options | [connect options object](#connect-options-object) | | 接続時に付与するオプションです。 |
+| Name | Type | Required | Default | Description |
+| --- | --- | --- | --- |  --- |
+| peerId | string | ✔ | |  User's peerId.|
+| options | [connect options object](#connect-options-object) | | | Optional arguments for DataConnection. |
 
 ##### connect options object
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| label | string | | 接続先のPeer IDを識別するのに利用するラベルです。 |
-| metadata | string | | コネクションに関連付けされるメタデータで、コネクションを開始したpeerに渡されます。 |
-| serialization | string | | 送信時のシリアライズ方法を指定します。'binary'、'json'、'none'のいずれか、となります。 |
-| dcInit | [RTCDataChannelInit Object](https://www.w3.org/TR/webrtc/#dom-rtcdatachannelinit) | | DataChannel利用時に信頼性の有無を指定するためのオプションです。デフォルトでは信頼性有で動作します。なお、chromeは、`maxPacketLifetime` の代わりに、`maxRetransmitTime` を利用します。 |
+| Name | Type | Required | Default |  Description |
+| --- | --- | --- | --- | --- |
+| metadata | object | | | Any additional information to send to the peer. |
+| serialization | string | | | How to serialize data when sending. One of 'binary', 'json' or 'none'. |
+| dcInit | [RTCDataChannelInit Object](https://www.w3.org/TR/webrtc/#dom-rtcdatachannelinit) | | | Options passed to createDataChannel() as a RTCDataChannelInit. |
+| label | string | | | **Deprecated!** Label to easily identify the connection on either peer. |
 
 #### Return value 
 
-DataConnectionのインスタンス
+[DataConnection](dataconnection) instance
 
 #### Sample
 
 ```js
-// 単にDataChannelを接続する場合(デフォルトで信頼性有り)
+// connect with data channel and with reliable mode(default)
 peer.connect('peerId');
+```
 
-// 信頼性無モードでDataChannelを接続する場合
+```js
+// with metadata
+peer.connect('peerId', {
+  metadata: {
+    hoge: "foobar",
+  }
+});
+```
+
+```js
+// connect with data channel and with unreliable mode
 peer.connect('peerId', {
   dcInit: {
-    // 最大2回、再送する
     maxRetransmits: 2,
   },
 });
@@ -134,7 +183,7 @@ peer.connect('peerId', {
 
 ### destroy
 
-全てのコネクションを閉じ、シグナリングサーバへの接続を切断します。
+Close all connections and disconnect socket.
 
 #### Parameters
 
@@ -147,12 +196,12 @@ None
 #### Sample
 
 ```js
-TBD
+peer.destroy();
 ```
 
 ### disconnect
 
-シグナリングサーバへの接続を閉じ、disconnectedイベントを送出します。
+Close socket and clean up some properties, then emit disconnect event.
 
 #### Parameters
 
@@ -165,41 +214,40 @@ None
 #### Sample
 
 ```js
-TBD
+peer.disconnect();
 ```
 
 ### joinRoom
 
-メッシュ接続のルーム、またはSFU接続のルームに参加します。
+Join fullmesh type or SFU type room that two or more users can join.
 
 #### Parameters
 
 | Name | Type | Rquired| Default | Description |
 | --- | --- | --- | --- | --- |
-| roomName | string | ✔ | | 参加先のルームの名前です。|
-| roomOptions | [roomOptions object](#roomoptions-object) | | 接続時に選択・付与するオプションです。|
+| roomName | string | ✔ | | The name of the room user is joining to. |
+| roomOptions | [roomOptions object](#roomoptions-object) | | Options to configure connection. |
 
 ##### roomOptions object
 
 | Name | Type | Required | Default | Description |
 | --- | --- | --- | --- | --- |
-| mode | string | | 'mesh' | 'sfu'または'mesh'を指定します。 |
-| stream | MediaStream | | | ユーザーが送信するメディアストリームです。 |
-| videoBandwidth | number | | | 映像の最大帯域幅(kbps)です。メッシュ接続のみ使用可能です。 |
-| audioBandwidth | number | | | 音声の最大帯域幅(kbps)です。 メッシュ接続のみ使用可能です。|
-| videoCodec | string | | | 'H264'などの映像コーデックです。 メッシュ接続のみ使用可能です。|
-| audioCodec | string | | | 'PCMU'などの音声コーデックです。メッシュ接続のみ使用可能です。 |
-| videoReceiveEnabled | boolean | | | 映像を受信のみで使う場合のフラグです。メッシュ接続のみ使用可能です。 |
-| audioReceiveEnabled | boolean | | | 音声を受信のみで使う場合のフラグです。メッシュ接続のみ使用可能です。 |
+| mode | string | | 'mesh' | One of 'sfu' or 'mesh'. |
+| stream | MediaStream | | | Media stream user wants to emit. |
+| videoBandwidth | number | | | A max video bandwidth(kbps). Used only in mesh mode.|
+| audioBandwidth | number | | | A max audio bandwidth(kbps). Used only in mesh mode.|
+| videoCodec | string | | | A video codec like 'H264'. Used only in mesh mode.|
+| audioCodec | string | | | A video codec like 'PCMU'. Used only in mesh mode.|
+| videoReceiveEnabled | boolean | | | Set to `true` when the user wants to receive video. |
+| audioReceiveEnabled | boolean | | | Set to `true` when the user wants to receive video. |
 
 #### Return value 
 
-SFURoomまたはMeshRoomのインスタンス
+Instance of [SFURoom](sfuroom) or [MeshRoom](meshroom)
 
 #### Sample
 
 ```js
-// Mesh接続を利用する場合
 const room = peer.joinRoom("roomName", {
   mode: 'mesh', 
   stream: localStream,
@@ -207,7 +255,6 @@ const room = peer.joinRoom("roomName", {
 ```
 
 ```js
-// SFU接続を利用する場合
 const room = peer.joinRoom("roomName", {
   mode: 'sfu', 
   stream: localStream,
@@ -216,7 +263,7 @@ const room = peer.joinRoom("roomName", {
 
 ### listAllPeers
 
-REST APIを利用して、APIキーに紐づくPeerID一覧を取得します。
+Call Rest API and get the list of peerIds assciated with API key.
 
 #### Parameters
 
@@ -229,42 +276,39 @@ None
 #### Sample
 
 ```js
-TBD
+peer.listAllPeers(peers => {
+  console.log(peers)
+  // => ["yNtQkNyjAojJNGrt", "EzAmgFhCKBQMzKw9"]
+});
 ```
 
 ### updateCredential
 
-TTLを延長するための更新リクエストの送付します。
+Update server-side credential by sending a request in order to extend TTL.
 
 #### Parameters
 
 | Name | Type | Required | Default | Description |
 | --- | --- | --- | --- | --- |
-| mode | [credential object](#credential-object)| ✔ | |   ユーザー側で作成する新しいクレデンシャルです。 |
+| mode | [credential object](#credential-object)| ✔ | | The new credential generated by user. |
 
 ##### newCredential object
 
 |Name|Type|Optional|Default|Description|
 |----|----|----|----|----|
-|timestamp|number|✔||現在のUNIXタイムスタンプです。|
-|ttl|string|✔||Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。|
-|authToken|string|✔|Default|HMACを利用して生成する認証用トークンです。|
+|timestamp|number|✔||Current UNIX timestamp.|
+|ttl|number|✔||Time to live; The credential expires at timestamp + ttl.|
+|authToken|string|✔|Default|Credential token calculated with HMAC.|
 
 #### Return value 
 
 `undefined`
 
-#### Sample
-
-```js
-TBD
-```
-
 ## Events
 
 ### open
 
-シグナリングサーバへ正常に接続できたときのイベントです。
+Successfully connected to signaling server.
 
 |Type|Description|
 |----|----|
@@ -280,27 +324,44 @@ peer.on('open', id => {
 
 ### call
 
-接続先のPeerからMediaChannelの接続を受信したときのイベントです。
+Received a call with Media channel(audio and/or video) from peer.
 
 |Type|Description|
 |----|----|
-|MediaConnection|MediaConnectionのインスタンスです。|
+|[MediaConnection](mediaconnection)|MediaConnection instance.|
+
+#### Sample
+
+```js
+peer.on('call', call => {
+  // answer with media stream
+  call.answer(mediaStream);
+});
+```
 
 ### close
 
-Peerに対する全ての接続を終了したときのイベントです。
+Finished closing all connections to peers.
 
 ### connection
 
-接続先のPeerからDataChannelの接続を受信したときのイベントです。
+Received a connection from peer.
 
 |Type|Description|
 |----|----|
-|DataConnection|DataConnectionのインスタンスです。|
+|[DataConnection](dataconnection)|DataConnection instance.|
+
+#### sample
+
+```js
+peer.on('connection', connection => {
+  console.log(connection);
+});
+```
 
 ### disconnected
 
-シグナリングサーバから切断したときのイベントです。
+Disconnected from the signalling server.
 
 |Type|Description|
 |----|----|
@@ -308,35 +369,36 @@ Peerに対する全ての接続を終了したときのイベントです。
 
 ### expiresin
 
+The event occurs before credential expired.
+
 |Type|Description|
 |----|----|
-|number|クレデンシャルが失効するまでの時間(秒)です。|
+|number|The second before credential expires|
 
 ### error
 
-エラーが発生した場合のイベントです。
+Events when error occur.
 
 |Type|Description|
 |----|----|
-|room-error|ルーム名が指定されていません|
+|room-error|Room name must be defined.|
 ||ルームタイプが異なります。(メッシュルームとして作成した部屋に、SFUルーム指定で参加した場合)|
 ||SFU機能が該当のAPIキーでDisabledです。利用するには、Dashboardからenableにしてください。|
 ||不明なエラーが発生しました。少し待って、リトライしてください。|
 ||ルームログ取得時にエラーが発生しました。少し待って、リトライしてください。|
 |authentication|指定されたクレデンシャルを用いた認証に失敗しました。|
 |permission|該当のルームの利用が許可されてません。|
-|list-error|APIキーのREST APIが許可されてません。|
-|disconnected|SkyWayのシグナリングサーバに接続されていません。|
-|socket-error|SkyWayのシグナリングサーバとの接続が失われました。|
+|list-error|Look like you have permission to list peers IDs. Please enable the SkyWay REST API on dashboard.|
+|disconnected|Cannot connect to new Peer before connecting to SkyWay server or after disconnecting from the server.|
+|socket-error|Lost connection to server|
 |invalid-id|IDが不正です。|
 |invalid-key|APIキーが無効です。|
-|server-error|SkyWayのシグナリングサーバからPeer一覧を取得できませんでした。|
-|TBDサーバ側のエラー色々|TBD(サーバ側のメッセージから起こす必要があるので後で)|
+|server-error|Could not get peers from the server.|
 
 #### Sample
 
 ```js
-// 仮にRoom名を指定せずにjoinRoomを呼んだ場合
+// When calling joinRoom() without room name
 peer.on('error', error => {
   console.log(`${error.type}: ${error.message}`);
   // => room-error: Room name must be defined.
