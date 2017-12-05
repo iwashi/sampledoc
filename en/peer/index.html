@@ -327,8 +327,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rtcconfiguration-object" title="RTCConfiguration object" class="md-nav__link">
-    RTCConfiguration object
+  <a href="#default-rtcconfiguration-object" title="Default RTCConfiguration object" class="md-nav__link">
+    Default RTCConfiguration object
   </a>
   
 </li>
@@ -643,13 +643,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#sample_7" title="Sample" class="md-nav__link">
-    Sample
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -677,7 +670,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sample_8" title="Sample" class="md-nav__link">
+  <a href="#sample_7" title="Sample" class="md-nav__link">
     Sample
   </a>
   
@@ -693,6 +686,19 @@
     call
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_8" title="Sample" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -706,6 +712,19 @@
   <a href="#connection" title="connection" class="md-nav__link">
     connection
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_9" title="sample" class="md-nav__link">
+    sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -732,7 +751,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sample_9" title="Sample" class="md-nav__link">
+  <a href="#sample_10" title="Sample" class="md-nav__link">
     Sample
   </a>
   
@@ -859,8 +878,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rtcconfiguration-object" title="RTCConfiguration object" class="md-nav__link">
-    RTCConfiguration object
+  <a href="#default-rtcconfiguration-object" title="Default RTCConfiguration object" class="md-nav__link">
+    Default RTCConfiguration object
   </a>
   
 </li>
@@ -1175,13 +1194,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#sample_7" title="Sample" class="md-nav__link">
-    Sample
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1209,7 +1221,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sample_8" title="Sample" class="md-nav__link">
+  <a href="#sample_7" title="Sample" class="md-nav__link">
     Sample
   </a>
   
@@ -1225,6 +1237,19 @@
     call
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_8" title="Sample" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1238,6 +1263,19 @@
   <a href="#connection" title="connection" class="md-nav__link">
     connection
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_9" title="sample" class="md-nav__link">
+    sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1264,7 +1302,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sample_9" title="Sample" class="md-nav__link">
+  <a href="#sample_10" title="Sample" class="md-nav__link">
     Sample
   </a>
   
@@ -1297,8 +1335,9 @@
                 
                   <h1>Peer</h1>
                 
-                <p>P2P接続およびルーム接続機能を操作するためのクラスです。</p>
+                <p>Class that manages all p2p connections and rooms. Peer instance must be generated when using SkyWay.</p>
 <h2 id="constructor">Constructor</h2>
+<p><code>new Peer</code> creates new Peer instance and connects to the signaling server.</p>
 <h3 id="parameter">Parameter</h3>
 <table>
 <thead>
@@ -1316,14 +1355,14 @@
 <td>string</td>
 <td></td>
 <td></td>
-<td>ユーザのPeer IDです。</td>
+<td>User's peerId.</td>
 </tr>
 <tr>
 <td>options</td>
-<td><a href="../options-object">options object</a></td>
+<td><a href="#options-object">options object</a></td>
 <td>✔</td>
 <td></td>
-<td>接続に関するパラメータを指定するオプションです。</td>
+<td>Optional arguments for the connection.</td>
 </tr>
 </tbody>
 </table>
@@ -1344,35 +1383,35 @@
 <td>string</td>
 <td>✔</td>
 <td></td>
-<td>SkyWayのAPIキーです。</td>
+<td>ECLWebRTC API key.</td>
 </tr>
 <tr>
 <td>debug</td>
 <td>number</td>
 <td></td>
 <td></td>
-<td>ログレベル： NONE:0、 ERROR:1、 WARN:2、 FULL:3 から選択できます。</td>
+<td>Log level. NONE:0, ERROR:1, WARN:2, FULL:3.</td>
 </tr>
 <tr>
 <td>turn</td>
 <td>boolean</td>
 <td></td>
 <td></td>
-<td>SkyWayで提供するTURNを使うかどうかのフラグです。</td>
+<td>Whether using ECLWebRTC's TURN or not.</td>
 </tr>
 <tr>
 <td>credential</td>
 <td><a href="#credential-object">credential object</a></td>
 <td></td>
 <td></td>
-<td>Peerを認証するためのクレデンシャルです。次のプロパティを含みます。</td>
+<td>The credential used to authenticate peer and can be used when authentication is enabled. Check <a href="https://github.com/skyway/skyway-peer-authentication-samples">authentication repository</a> to see datails.</td>
 </tr>
 <tr>
 <td>config</td>
-<td>RTCConfiguration object</td>
+<td><a href="https://w3c.github.io/webrtc-pc/#rtcconfiguration-dictionary">RTCConfiguration object</a></td>
 <td></td>
-<td><a href="#rtcconfiguration-object">RTCConfiguration object</a></td>
-<td>[応用] <a href="https://w3c.github.io/webrtc-pc/#rtcconfiguration-dictionary">RTCPeerConnectionに渡されるオブジェクト</a>です。</td>
+<td><a href="#default-rtcconfiguration-object">Default RTCConfiguration object</a></td>
+<td><a href="https://w3c.github.io/webrtc-pc/#rtcconfiguration-dictionary">The object passed to RTCPeerConnection</a>. This is advanced option.</td>
 </tr>
 </tbody>
 </table>
@@ -1393,25 +1432,25 @@
 <td>number</td>
 <td></td>
 <td></td>
-<td>現在のUNIXタイムスタンプです。</td>
+<td>Current UNIX timestamp.</td>
 </tr>
 <tr>
 <td>ttl</td>
-<td>string</td>
+<td>number</td>
 <td></td>
 <td></td>
-<td>Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。</td>
+<td>Time to live; The credential expires at timestamp + ttl.</td>
 </tr>
 <tr>
 <td>authToken</td>
 <td>string</td>
 <td></td>
 <td>Default</td>
-<td>HMACを利用して生成する認証用トークンです。</td>
+<td>Credential token calculated with HMAC.</td>
 </tr>
 </tbody>
 </table>
-<h4 id="rtcconfiguration-object">RTCConfiguration object</h4>
+<h4 id="default-rtcconfiguration-object">Default RTCConfiguration object</h4>
 <pre><code class="js">const defaultConfig = {
   iceServers: [{
     urls: 'stun:stun.webrtc.ecl.ntt.com:3478',
@@ -1422,9 +1461,20 @@
 </code></pre>
 
 <h3 id="sample">Sample</h3>
-<pre><code class="js">const peer = new Peer({
-    key:   &quot;&lt;YOUR-API-KEY&gt;&quot;
-    debug: 3,
+<pre><code class="js">// Connect SkyWay signaling server with full debug option.
+const peer = new Peer({
+  key:   &quot;&lt;YOUR-API-KEY&gt;&quot;
+  debug: 3,
+});
+</code></pre>
+
+<pre><code class="js">// Force turn server
+const peer = new Peer({
+  key:   &quot;&lt;YOUR-API-KEY&gt;&quot;
+  debug: 3,
+  config: {
+    iceTransportPolicy: 'relay',
+  },
 });
 </code></pre>
 
@@ -1441,28 +1491,29 @@
 <tr>
 <td>connections</td>
 <td>Object</td>
-<td>全てのコネクションを保持するオブジェクトです。</td>
+<td>Object contains all connections.</td>
 </tr>
 <tr>
 <td>id</td>
 <td>string</td>
-<td>ユーザーが指定したPeer ID、もしくはサーバが生成したPeer IDです。</td>
+<td>The Peer ID specified by a user or randomly assigned Peer ID by the signaling server.</td>
 </tr>
 <tr>
 <td>open</td>
 <td>boolean</td>
-<td>シグナリングサーバへの接続状況を保持します。</td>
+<td>Whether the socket is connecting to the signalling server or not.</td>
 </tr>
 <tr>
 <td>rooms</td>
 <td>object</td>
-<td>全てのルームを保持するオブジェクトです。</td>
+<td>Object contains all rooms.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="methods">Methods</h2>
 <h3 id="call">call</h3>
-<p>指定したPeerにメディアチャネルで接続して、MediaConnectionを作成します。 オプションを指定することで、帯域幅・コーデックを指定できます。</p>
+<p>Calls the designated Peer and creates new MediaConnection.
+With options, the bandwidth or/and codec can be specified.</p>
 <h4 id="parameters">Parameters</h4>
 <table>
 <thead>
@@ -1480,21 +1531,21 @@
 <td>string</td>
 <td>✔</td>
 <td></td>
-<td>接続先のPeer IDです。</td>
+<td>The peerId of the peer you are calling.</td>
 </tr>
 <tr>
 <td>stream</td>
 <td>MediaStream</td>
 <td></td>
 <td></td>
-<td>リモートのPeerへ送るメディアストリームです。 設定されていない場合は、受信のみモードで発信します。</td>
+<td>The MediaStream to send to the remote peer. If not set, the caller creates offer SDP with <code>recvonly</code> attribute.</td>
 </tr>
 <tr>
 <td>options</td>
 <td><a href="#call-options-object">call options object</a></td>
 <td></td>
 <td></td>
-<td>発信時に付与するオプションです。帯域幅・コーデックを指定します。</td>
+<td>Optional arguments for the connection.</td>
 </tr>
 </tbody>
 </table>
@@ -1511,64 +1562,92 @@
 </thead>
 <tbody>
 <tr>
-<td>label</td>
-<td>string</td>
+<td>metadata</td>
+<td>object</td>
 <td></td>
 <td></td>
-<td>接続先のPeer IDを識別するのに利用するラベルです。</td>
+<td>Any additional information to send to the peer.</td>
 </tr>
 <tr>
 <td>videoBandwidth</td>
 <td>number</td>
 <td></td>
 <td></td>
-<td>映像の最大帯域幅(kbps)です。</td>
+<td>A max video bandwidth(kbps)</td>
 </tr>
 <tr>
 <td>audioBandwidth</td>
 <td>number</td>
 <td></td>
 <td></td>
-<td>音声の最大帯域幅(kbps)です。</td>
+<td>A max audio bandwidth(kbps)</td>
 </tr>
 <tr>
 <td>videoCodec</td>
 <td>string</td>
 <td></td>
 <td></td>
-<td>'H264'などの映像コーデックです。</td>
+<td>A video codec like 'H264'</td>
 </tr>
 <tr>
 <td>audioCodec</td>
 <td>string</td>
 <td></td>
 <td></td>
-<td>'PCMU'などの音声コーデックです。</td>
+<td>A video codec like 'PCMU'</td>
 </tr>
 <tr>
 <td>videoReceiveEnabled</td>
 <td>boolean</td>
 <td></td>
 <td></td>
-<td>映像を受信のみで使う場合のフラグです。</td>
+<td>Set to <code>true</code> when the user wants to receive video</td>
 </tr>
 <tr>
 <td>audioReceiveEnabled</td>
 <td>boolean</td>
 <td></td>
 <td></td>
-<td>音声を受信のみで使う場合のフラグです。</td>
+<td>Set to <code>true</code> when the user wants to receive audio</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td><strong>Deprecated!</strong> Label to easily identify the connection on either peer.</td>
 </tr>
 </tbody>
 </table>
 <h4 id="return-value">Return value</h4>
-<p><a href="">MediaConnection</a>のインスタンス</p>
+<p><a href="../mediaconnection">MediaConnection</a> instance</p>
 <h4 id="sample_1">Sample</h4>
-<pre><code class="js">const call = peer.call('peerID', localStream);
+<pre><code class="js">// Call a peer, providing our mediaStream
+const call = peer.call('peerID', localStream);
+</code></pre>
+
+<pre><code class="js">// Call a peer, providing our mediaStream and metadata
+const call = peer.call('peerID', localStream, {
+  metadata: {
+    foo: 'bar',
+  }
+});
+</code></pre>
+
+<pre><code class="js">// Call a peer, providing our mediaStream with H264(video codec)
+const call = peer.call('peerID', localStream, {
+  videoCodec: 'H264',
+});
+</code></pre>
+
+<pre><code class="js">// Call a peer, and just want to receive audio
+const call = peer.call('peerID', {
+  audioReceiveEnabled: true,
+});
 </code></pre>
 
 <h3 id="connect">connect</h3>
-<p>指定したPeerにデータチャネルで接続して、DataConnectionインスタンスを生成します。</p>
+<p>Connects to the designated Peer and creates new DataConnection.</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
 <thead>
@@ -1576,6 +1655,7 @@
 <th>Name</th>
 <th>Type</th>
 <th>Required</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1584,13 +1664,15 @@
 <td>peerId</td>
 <td>string</td>
 <td>✔</td>
-<td>接続先のPeer IDです。</td>
+<td></td>
+<td>User's peerId.</td>
 </tr>
 <tr>
 <td>options</td>
 <td><a href="#connect-options-object">connect options object</a></td>
 <td></td>
-<td>接続時に付与するオプションです。</td>
+<td></td>
+<td>Optional arguments for DataConnection.</td>
 </tr>
 </tbody>
 </table>
@@ -1601,73 +1683,86 @@
 <th>Name</th>
 <th>Type</th>
 <th>Required</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>label</td>
-<td>string</td>
-<td></td>
-<td>接続先のPeer IDを識別するのに利用するラベルです。</td>
-</tr>
-<tr>
 <td>metadata</td>
-<td>string</td>
+<td>object</td>
 <td></td>
-<td>コネクションに関連付けされるメタデータで、コネクションを開始したpeerに渡されます。</td>
+<td></td>
+<td>Any additional information to send to the peer.</td>
 </tr>
 <tr>
 <td>serialization</td>
 <td>string</td>
 <td></td>
-<td>送信時のシリアライズ方法を指定します。'binary'、'json'、'none'のいずれか、となります。</td>
+<td></td>
+<td>How to serialize data when sending. One of 'binary', 'json' or 'none'.</td>
 </tr>
 <tr>
 <td>dcInit</td>
 <td><a href="https://www.w3.org/TR/webrtc/#dom-rtcdatachannelinit">RTCDataChannelInit Object</a></td>
 <td></td>
-<td>DataChannel利用時に信頼性の有無を指定するためのオプションです。デフォルトでは信頼性有で動作します。なお、chromeは、<code>maxPacketLifetime</code> の代わりに、<code>maxRetransmitTime</code> を利用します。</td>
+<td></td>
+<td>Options passed to createDataChannel() as a RTCDataChannelInit.</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td><strong>Deprecated!</strong> Label to easily identify the connection on either peer.</td>
 </tr>
 </tbody>
 </table>
 <h4 id="return-value_1">Return value</h4>
-<p>DataConnectionのインスタンス</p>
+<p><a href="../dataconnection">DataConnection</a> instance</p>
 <h4 id="sample_2">Sample</h4>
-<pre><code class="js">// 単にDataChannelを接続する場合(デフォルトで信頼性有り)
+<pre><code class="js">// connect with data channel and with reliable mode(default)
 peer.connect('peerId');
+</code></pre>
 
-// 信頼性無モードでDataChannelを接続する場合
+<pre><code class="js">// with metadata
+peer.connect('peerId', {
+  metadata: {
+    hoge: &quot;foobar&quot;,
+  }
+});
+</code></pre>
+
+<pre><code class="js">// connect with data channel and with unreliable mode
 peer.connect('peerId', {
   dcInit: {
-    // 最大2回、再送する
     maxRetransmits: 2,
   },
 });
 </code></pre>
 
 <h3 id="destroy">destroy</h3>
-<p>全てのコネクションを閉じ、シグナリングサーバへの接続を切断します。</p>
+<p>Close all connections and disconnect socket.</p>
 <h4 id="parameters_2">Parameters</h4>
 <p>None</p>
 <h4 id="return-value_2">Return value</h4>
 <p><code>undefined</code></p>
 <h4 id="sample_3">Sample</h4>
-<pre><code class="js">TBD
+<pre><code class="js">peer.destroy();
 </code></pre>
 
 <h3 id="disconnect">disconnect</h3>
-<p>シグナリングサーバへの接続を閉じ、disconnectedイベントを送出します。</p>
+<p>Close socket and clean up some properties, then emit disconnect event.</p>
 <h4 id="parameters_3">Parameters</h4>
 <p>None</p>
 <h4 id="return-value_3">Return value</h4>
 <p><code>undefined</code></p>
 <h4 id="sample_4">Sample</h4>
-<pre><code class="js">TBD
+<pre><code class="js">peer.disconnect();
 </code></pre>
 
 <h3 id="joinroom">joinRoom</h3>
-<p>メッシュ接続のルーム、またはSFU接続のルームに参加します。</p>
+<p>Join fullmesh type or SFU type room that two or more users can join.</p>
 <h4 id="parameters_4">Parameters</h4>
 <table>
 <thead>
@@ -1685,13 +1780,13 @@ peer.connect('peerId', {
 <td>string</td>
 <td>✔</td>
 <td></td>
-<td>参加先のルームの名前です。</td>
+<td>The name of the room user is joining to.</td>
 </tr>
 <tr>
 <td>roomOptions</td>
 <td><a href="#roomoptions-object">roomOptions object</a></td>
 <td></td>
-<td>接続時に選択・付与するオプションです。</td>
+<td>Options to configure connection.</td>
 <td></td>
 </tr>
 </tbody>
@@ -1713,88 +1808,89 @@ peer.connect('peerId', {
 <td>string</td>
 <td></td>
 <td>'mesh'</td>
-<td>'sfu'または'mesh'を指定します。</td>
+<td>One of 'sfu' or 'mesh'.</td>
 </tr>
 <tr>
 <td>stream</td>
 <td>MediaStream</td>
 <td></td>
 <td></td>
-<td>ユーザーが送信するメディアストリームです。</td>
+<td>Media stream user wants to emit.</td>
 </tr>
 <tr>
 <td>videoBandwidth</td>
 <td>number</td>
 <td></td>
 <td></td>
-<td>映像の最大帯域幅(kbps)です。メッシュ接続のみ使用可能です。</td>
+<td>A max video bandwidth(kbps). Used only in mesh mode.</td>
 </tr>
 <tr>
 <td>audioBandwidth</td>
 <td>number</td>
 <td></td>
 <td></td>
-<td>音声の最大帯域幅(kbps)です。 メッシュ接続のみ使用可能です。</td>
+<td>A max audio bandwidth(kbps). Used only in mesh mode.</td>
 </tr>
 <tr>
 <td>videoCodec</td>
 <td>string</td>
 <td></td>
 <td></td>
-<td>'H264'などの映像コーデックです。 メッシュ接続のみ使用可能です。</td>
+<td>A video codec like 'H264'. Used only in mesh mode.</td>
 </tr>
 <tr>
 <td>audioCodec</td>
 <td>string</td>
 <td></td>
 <td></td>
-<td>'PCMU'などの音声コーデックです。メッシュ接続のみ使用可能です。</td>
+<td>A video codec like 'PCMU'. Used only in mesh mode.</td>
 </tr>
 <tr>
 <td>videoReceiveEnabled</td>
 <td>boolean</td>
 <td></td>
 <td></td>
-<td>映像を受信のみで使う場合のフラグです。メッシュ接続のみ使用可能です。</td>
+<td>Set to <code>true</code> when the user wants to receive video.</td>
 </tr>
 <tr>
 <td>audioReceiveEnabled</td>
 <td>boolean</td>
 <td></td>
 <td></td>
-<td>音声を受信のみで使う場合のフラグです。メッシュ接続のみ使用可能です。</td>
+<td>Set to <code>true</code> when the user wants to receive video.</td>
 </tr>
 </tbody>
 </table>
 <h4 id="return-value_4">Return value</h4>
-<p>SFURoomまたはMeshRoomのインスタンス</p>
+<p>Instance of <a href="../sfuroom">SFURoom</a> or <a href="../meshroom">MeshRoom</a></p>
 <h4 id="sample_5">Sample</h4>
-<pre><code class="js">// Mesh接続を利用する場合
-const room = peer.joinRoom(&quot;roomName&quot;, {
+<pre><code class="js">const room = peer.joinRoom(&quot;roomName&quot;, {
   mode: 'mesh', 
   stream: localStream,
 });
 </code></pre>
 
-<pre><code class="js">// SFU接続を利用する場合
-const room = peer.joinRoom(&quot;roomName&quot;, {
+<pre><code class="js">const room = peer.joinRoom(&quot;roomName&quot;, {
   mode: 'sfu', 
   stream: localStream,
 });
 </code></pre>
 
 <h3 id="listallpeers">listAllPeers</h3>
-<p>REST APIを利用して、APIキーに紐づくPeerID一覧を取得します。</p>
+<p>Call Rest API and get the list of peerIds assciated with API key.</p>
 <h4 id="parameters_5">Parameters</h4>
 <p>None</p>
 <h4 id="return-value_5">Return value</h4>
 <p><code>undefined</code></p>
 <h4 id="sample_6">Sample</h4>
-<pre><code class="js">TBD
+<pre><code class="js">peer.listAllPeers(peers =&gt; {
+  console.log(peers)
+  // =&gt; [&quot;yNtQkNyjAojJNGrt&quot;, &quot;EzAmgFhCKBQMzKw9&quot;]
+});
 </code></pre>
 
 <h3 id="updatecredential">updateCredential</h3>
-<p>TTLを延長するための更新リクエストの送付します。</p>
+<p>Update server-side credential by sending a request in order to extend TTL.</p>
 <h4 id="parameters_6">Parameters</h4>
 <table>
 <thead>
@@ -1812,7 +1908,7 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 <td><a href="#credential-object">credential object</a></td>
 <td>✔</td>
 <td></td>
-<td>ユーザー側で作成する新しいクレデンシャルです。</td>
+<td>The new credential generated by user.</td>
 </tr>
 </tbody>
 </table>
@@ -1833,33 +1929,29 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 <td>number</td>
 <td>✔</td>
 <td></td>
-<td>現在のUNIXタイムスタンプです。</td>
+<td>Current UNIX timestamp.</td>
 </tr>
 <tr>
 <td>ttl</td>
-<td>string</td>
+<td>number</td>
 <td>✔</td>
 <td></td>
-<td>Time to live(ttl)。タイムスタンプ + ttl の時間でクレデンシャルが失効します。</td>
+<td>Time to live; The credential expires at timestamp + ttl.</td>
 </tr>
 <tr>
 <td>authToken</td>
 <td>string</td>
 <td>✔</td>
 <td>Default</td>
-<td>HMACを利用して生成する認証用トークンです。</td>
+<td>Credential token calculated with HMAC.</td>
 </tr>
 </tbody>
 </table>
 <h4 id="return-value_6">Return value</h4>
 <p><code>undefined</code></p>
-<h4 id="sample_7">Sample</h4>
-<pre><code class="js">TBD
-</code></pre>
-
 <h2 id="events">Events</h2>
 <h3 id="open">open</h3>
-<p>シグナリングサーバへ正常に接続できたときのイベントです。</p>
+<p>Successfully connected to signaling server.</p>
 <table>
 <thead>
 <tr>
@@ -1874,14 +1966,14 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 </tr>
 </tbody>
 </table>
-<h4 id="sample_8">Sample</h4>
+<h4 id="sample_7">Sample</h4>
 <pre><code class="js">peer.on('open', id =&gt; {
   console.log(id);
 })
 </code></pre>
 
 <h3 id="call_1">call</h3>
-<p>接続先のPeerからMediaChannelの接続を受信したときのイベントです。</p>
+<p>Received a call with Media channel(audio and/or video) from peer.</p>
 <table>
 <thead>
 <tr>
@@ -1891,15 +1983,22 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 </thead>
 <tbody>
 <tr>
-<td>MediaConnection</td>
-<td>MediaConnectionのインスタンスです。</td>
+<td><a href="../mediaconnection">MediaConnection</a></td>
+<td>MediaConnection instance.</td>
 </tr>
 </tbody>
 </table>
+<h4 id="sample_8">Sample</h4>
+<pre><code class="js">peer.on('call', call =&gt; {
+  // answer with media stream
+  call.answer(mediaStream);
+});
+</code></pre>
+
 <h3 id="close">close</h3>
-<p>Peerに対する全ての接続を終了したときのイベントです。</p>
+<p>Finished closing all connections to peers.</p>
 <h3 id="connection">connection</h3>
-<p>接続先のPeerからDataChannelの接続を受信したときのイベントです。</p>
+<p>Received a connection from peer.</p>
 <table>
 <thead>
 <tr>
@@ -1909,13 +2008,19 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 </thead>
 <tbody>
 <tr>
-<td>DataConnection</td>
-<td>DataConnectionのインスタンスです。</td>
+<td><a href="../dataconnection">DataConnection</a></td>
+<td>DataConnection instance.</td>
 </tr>
 </tbody>
 </table>
+<h4 id="sample_9">sample</h4>
+<pre><code class="js">peer.on('connection', connection =&gt; {
+  console.log(connection);
+});
+</code></pre>
+
 <h3 id="disconnected">disconnected</h3>
-<p>シグナリングサーバから切断したときのイベントです。</p>
+<p>Disconnected from the signalling server.</p>
 <table>
 <thead>
 <tr>
@@ -1931,6 +2036,7 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 </tbody>
 </table>
 <h3 id="expiresin">expiresin</h3>
+<p>The event occurs before credential expired.</p>
 <table>
 <thead>
 <tr>
@@ -1941,12 +2047,12 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 <tbody>
 <tr>
 <td>number</td>
-<td>クレデンシャルが失効するまでの時間(秒)です。</td>
+<td>The second before credential expires</td>
 </tr>
 </tbody>
 </table>
 <h3 id="error">error</h3>
-<p>エラーが発生した場合のイベントです。</p>
+<p>Events when error occur.</p>
 <table>
 <thead>
 <tr>
@@ -1957,7 +2063,7 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 <tbody>
 <tr>
 <td>room-error</td>
-<td>ルーム名が指定されていません</td>
+<td>Room name must be defined.</td>
 </tr>
 <tr>
 <td></td>
@@ -1985,15 +2091,15 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 </tr>
 <tr>
 <td>list-error</td>
-<td>APIキーのREST APIが許可されてません。</td>
+<td>Look like you have permission to list peers IDs. Please enable the SkyWay REST API on dashboard.</td>
 </tr>
 <tr>
 <td>disconnected</td>
-<td>SkyWayのシグナリングサーバに接続されていません。</td>
+<td>Cannot connect to new Peer before connecting to SkyWay server or after disconnecting from the server.</td>
 </tr>
 <tr>
 <td>socket-error</td>
-<td>SkyWayのシグナリングサーバとの接続が失われました。</td>
+<td>Lost connection to server</td>
 </tr>
 <tr>
 <td>invalid-id</td>
@@ -2005,16 +2111,12 @@ const room = peer.joinRoom(&quot;roomName&quot;, {
 </tr>
 <tr>
 <td>server-error</td>
-<td>SkyWayのシグナリングサーバからPeer一覧を取得できませんでした。</td>
-</tr>
-<tr>
-<td>TBDサーバ側のエラー色々</td>
-<td>TBD(サーバ側のメッセージから起こす必要があるので後で)</td>
+<td>Could not get peers from the server.</td>
 </tr>
 </tbody>
 </table>
-<h4 id="sample_9">Sample</h4>
-<pre><code class="js">// 仮にRoom名を指定せずにjoinRoomを呼んだ場合
+<h4 id="sample_10">Sample</h4>
+<pre><code class="js">// When calling joinRoom() without room name
 peer.on('error', error =&gt; {
   console.log(`${error.type}: ${error.message}`);
   // =&gt; room-error: Room name must be defined.

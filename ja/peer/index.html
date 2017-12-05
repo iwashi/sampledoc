@@ -1620,7 +1620,7 @@ const peer = new Peer({
 </tbody>
 </table>
 <h4 id="return-value">Return value</h4>
-<p><a href="">MediaConnection</a>のインスタンス</p>
+<p><a href="../mediaconnection">MediaConnection</a>のインスタンス</p>
 <h4 id="sample_1">Sample</h4>
 <pre><code class="js">// 自身のlocalStreamを設定して、相手に発信する場合
 const call = peer.call('peerID', localStream);
@@ -1641,7 +1641,7 @@ const call = peer.call('peerID', localStream, {
 </code></pre>
 
 <pre><code class="js">// 音声のみ接続先から受信する設定で、相手に発信する場合
-const call = peer.call('peerID', localStream, {
+const call = peer.call('peerID', {
   audioReceiveEnabled: true,
 });
 </code></pre>
@@ -1719,7 +1719,7 @@ const call = peer.call('peerID', localStream, {
 </tbody>
 </table>
 <h4 id="return-value_1">Return value</h4>
-<p>DataConnectionのインスタンス</p>
+<p><a href="../dataconnection">DataConnection</a>のインスタンス</p>
 <h4 id="sample_2">Sample</h4>
 <pre><code class="js">// 単にDataChannelを接続する場合(デフォルトで信頼性有り)
 peer.connect('peerId');

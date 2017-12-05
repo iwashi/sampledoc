@@ -366,8 +366,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#open" title="open" class="md-nav__link">
-    open
+  <a href="#data" title="data" class="md-nav__link">
+    data
   </a>
   
     <nav class="md-nav">
@@ -667,8 +667,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#open" title="open" class="md-nav__link">
-    open
+  <a href="#data" title="data" class="md-nav__link">
+    data
   </a>
   
     <nav class="md-nav">
@@ -762,8 +762,8 @@ peer.on('connection', connection =&gt; {
 </tbody>
 </table>
 <h4 id="sample_1">Sample</h4>
-<pre><code class="js">// metadataのサンプルをここに
-peer.on('connection', connection =&gt; {
+<pre><code class="js">peer.on('connection', connection =&gt; {
+  // metadataが付与されていた場合
   console.log(connection.metadata);
   // =&gt; connect時に付与した、metadataを参照する
 });
@@ -817,8 +817,8 @@ dataConnection.on('data', data =&gt; {
 </code></pre>
 
 <h2 id="events">Events</h2>
-<h3 id="open">open</h3>
-<p>DataConnectionが接続されたときに発生します。</p>
+<h3 id="data">data</h3>
+<p>データを受信したときに発生します。</p>
 <table>
 <thead>
 <tr>
@@ -828,7 +828,7 @@ dataConnection.on('data', data =&gt; {
 </thead>
 <tbody>
 <tr>
-<td>object</td>
+<td>*</td>
 <td>受信したデータです。</td>
 </tr>
 </tbody>

@@ -426,13 +426,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fires" title="Fires" class="md-nav__link">
-    Fires
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sample_3" title="Sample" class="md-nav__link">
     Sample
   </a>
@@ -716,13 +709,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fires" title="Fires" class="md-nav__link">
-    Fires
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sample_3" title="Sample" class="md-nav__link">
     Sample
   </a>
@@ -837,11 +823,19 @@
                 
                   <h1>MediaConnection</h1>
                 
-                <p>接続先Peerへのメディアチャネル接続を管理するクラスです。</p>
+                <p>Class that manages media connections to other peers.</p>
 <h2 id="constructor">Constructor</h2>
-<p>(SDK内部の利用のみ) MediaConnectionは、<code>call</code> および <code>Peer.on('call')</code> で生成されます。</p>
+<p>Constructor should not be used. Instead, it is used used in only SDK.
+MediaConnection instance can be created <code>call</code> and <code>peer.on('call')</code>.</p>
 <h3 id="sample">Sample</h3>
-<pre><code class="js">mediaConnection = peer.call('peerID', mediaStream);
+<pre><code class="js">// Calling party
+mediaConnection = peer1.call('peerID', mediaStream);
+
+// Called party
+peer2.on('call', call =&gt; {
+  // answer with called party's media stream.
+  call.answer(mediaStream2)
+});
 </code></pre>
 
 <h2 id="members">Members</h2>
@@ -855,39 +849,38 @@
 </thead>
 <tbody>
 <tr>
-<td>id</td>
-<td>string</td>
-<td>コネクションを一意に識別するためのIDです。</td>
-</tr>
-<tr>
 <td>metadata</td>
 <td>object</td>
-<td>任意の情報を格納するオブジェクトです。<a href="#">サンプル</a></td>
+<td>Any additional information to send to the peer.</td>
 </tr>
 <tr>
 <td>open</td>
 <td>boolean</td>
-<td>コネクションがオープンしているかどうかを示します。</td>
+<td>Whether the Connection has been opened or not.</td>
 </tr>
 <tr>
 <td>remoteId</td>
 <td>string</td>
-<td>接続先のPeerIDです。</td>
+<td>PeerId of the peer this connection is connected to.</td>
 </tr>
 <tr>
 <td>peer</td>
 <td>string</td>
-<td><em>Deprecated</em> 接続先のPeerIDです。remoteIdを使ってください。</td>
+<td><em>Deprecated</em> The remote peerId. Use <code>remoteId</code> instead.</td>
 </tr>
 </tbody>
 </table>
 <h4 id="sample_1">Sample</h4>
-<pre><code class="js">// metadataのサンプルをここに
+<pre><code class="js">// When calling party set `metadata: { foo: 'bar' }`
+peer.on('call', call =&gt; {
+  console.log(call.metadata);
+  // =&gt; {foo: &quot;bar&quot;}
+});
 </code></pre>
 
 <h2 id="methods">Methods</h2>
 <h3 id="answer">answer</h3>
-<p>相手からの接続要求に対してに応答します。</p>
+<p>Create and send an answer message.</p>
 <h4 id="parameters">Parameters</h4>
 <table>
 <thead>
@@ -905,18 +898,17 @@
 <td>MediaStream</td>
 <td>★</td>
 <td></td>
-<td>リモートのPeerへ送るメディアストリームです。</td>
+<td>The stream to send to the peer.</td>
 </tr>
 <tr>
 <td>options</td>
 <td><a href="#answer-options-object">answer options object</a></td>
 <td></td>
 <td></td>
-<td>応答時に付与するオプションです。帯域幅・コーデックを指定します。</td>
+<td>Optional arguments for the connection.</td>
 </tr>
 </tbody>
 </table>
-<p>Todo: 行きと帰りで違うことを追記</p>
 <h5 id="answer-options-object">answer options object</h5>
 <table>
 <thead>
@@ -934,58 +926,52 @@
 <td>number</td>
 <td></td>
 <td></td>
-<td>映像の最大帯域幅(kbps)です。</td>
+<td>A max video bandwidth(kbps)</td>
 </tr>
 <tr>
 <td>audioBandwidth</td>
 <td>number</td>
 <td></td>
 <td></td>
-<td>音声の最大帯域幅(kbps)です。</td>
+<td>A max audio bandwidth(kbps)</td>
 </tr>
 <tr>
 <td>videoCodec</td>
 <td>string</td>
 <td></td>
 <td></td>
-<td>'H264'などの映像コーデックです。</td>
+<td>A video codec like 'H264'</td>
 </tr>
 <tr>
 <td>audioCodec</td>
 <td>string</td>
 <td></td>
 <td></td>
-<td>'PCMU'などの音声コーデックです。</td>
+<td>A video codec like 'PCMU'</td>
 </tr>
 </tbody>
 </table>
 <h4 id="return-value">Return value</h4>
 <p><code>undefined</code></p>
 <h4 id="sample_2">Sample</h4>
-<pre><code class="js">// 相手から発信を受けて
-peer.on('call', call =&gt; {
+<pre><code class="js">peer.on('call', call =&gt; {
   call.answer(mediaStream);
 });
 </code></pre>
 
 <h3 id="close">close</h3>
-<p>接続先PeerとのMediaConnectionを接続を切断します。</p>
+<p>Disconnect from remote peer.</p>
 <h4 id="parameters_1">Parameters</h4>
 <p>None</p>
 <h4 id="return-value_1">Return value</h4>
 <p><code>undefined</code></p>
-<h4 id="fires">Fires</h4>
-<ul>
-<li>Connection#event:close
-(Todo: もっと良い文字に書き直す)</li>
-</ul>
 <h4 id="sample_3">Sample</h4>
 <pre><code class="js">call.close();
 </code></pre>
 
 <h3 id="replacestream">replaceStream</h3>
-<p>送信しているMediaStreamを更新します。受信のみモードから双方向に切り替えできます。
-また、音声のみのストリームから、音声＋映像のストリームへの変更もできます。</p>
+<p>Replace the stream being sent with a new one.
+The new one can be audio only stream, or both audio and video stream.</p>
 <h4 id="parameters_2">Parameters</h4>
 <table>
 <thead>
@@ -1003,7 +989,7 @@ peer.on('call', call =&gt; {
 <td>MediaStream</td>
 <td></td>
 <td></td>
-<td>交換対象となる新しいMediaStreamです</td>
+<td>The stream to replace the old stream with.</td>
 </tr>
 </tbody>
 </table>
@@ -1016,7 +1002,7 @@ call.replaceStream(newStream);
 
 <h2 id="events">Events</h2>
 <h3 id="stream">stream</h3>
-<p>MediaStreamを受信したときに発生します。</p>
+<p>MediaStream received from peer.</p>
 <table>
 <thead>
 <tr>
@@ -1027,19 +1013,20 @@ call.replaceStream(newStream);
 <tbody>
 <tr>
 <td>MediaStream</td>
-<td>MediaStreamのインスタンスです。</td>
+<td>MediaStream instance</td>
 </tr>
 </tbody>
 </table>
 <h4 id="sample_5">Sample</h4>
-<pre><code class="js">mediaConnection.on('stream')
-
+<pre><code class="js">call.on('stream', stream =&gt; {
+  console.log(stream);
+});
 </code></pre>
 
 <h3 id="close_1">close</h3>
-<p>MediaConnectionが切断されたときに発生します。</p>
+<p>Connection closed event.</p>
 <h3 id="removestream">removeStream</h3>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream">MediaStream</a>が削除されたときに発生します。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream">MediaStream</a> from peer was removed.</p>
 <table>
 <thead>
 <tr>
@@ -1050,7 +1037,7 @@ call.replaceStream(newStream);
 <tbody>
 <tr>
 <td>MediaStream</td>
-<td>MediaStreamのインスタンスです。</td>
+<td>MediaStream instance</td>
 </tr>
 </tbody>
 </table>

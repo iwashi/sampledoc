@@ -425,48 +425,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fires" title="Fires" class="md-nav__link">
-    Fires
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sample_3" title="Sample" class="md-nav__link">
-    Sample
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#replacestream" title="replaceStream" class="md-nav__link">
-    replaceStream
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameters_2" title="Parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#return-value_2" title="Return value" class="md-nav__link">
-    Return value
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sample_4" title="Sample" class="md-nav__link">
     Sample
   </a>
   
@@ -491,15 +450,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stream" title="stream" class="md-nav__link">
-    stream
+  <a href="#data" title="data" class="md-nav__link">
+    data
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sample_5" title="Sample" class="md-nav__link">
+  <a href="#sample_4" title="Sample" class="md-nav__link">
     Sample
   </a>
   
@@ -513,13 +472,6 @@
           <li class="md-nav__item">
   <a href="#close_1" title="close" class="md-nav__link">
     close
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#removestream" title="removeStream" class="md-nav__link">
-    removeStream
   </a>
   
 </li>
@@ -690,48 +642,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fires" title="Fires" class="md-nav__link">
-    Fires
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sample_3" title="Sample" class="md-nav__link">
-    Sample
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#replacestream" title="replaceStream" class="md-nav__link">
-    replaceStream
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameters_2" title="Parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#return-value_2" title="Return value" class="md-nav__link">
-    Return value
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sample_4" title="Sample" class="md-nav__link">
     Sample
   </a>
   
@@ -756,15 +667,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stream" title="stream" class="md-nav__link">
-    stream
+  <a href="#data" title="data" class="md-nav__link">
+    data
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sample_5" title="Sample" class="md-nav__link">
+  <a href="#sample_4" title="Sample" class="md-nav__link">
     Sample
   </a>
   
@@ -778,13 +689,6 @@
           <li class="md-nav__item">
   <a href="#close_1" title="close" class="md-nav__link">
     close
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#removestream" title="removeStream" class="md-nav__link">
-    removeStream
   </a>
   
 </li>
@@ -811,11 +715,18 @@
                 
                   <h1>DataConnection</h1>
                 
-                <p>接続先Peerへのデータチャネル接続を管理するクラスです。</p>
+                <p>Class that manages data connections to other peers.</p>
 <h2 id="constructor">Constructor</h2>
-<p>(SDK内部の利用のみ) DataConnectionは、<code>connect()</code> および <code>Peer.on('connection')</code> で生成されます。</p>
+<p>Constructor should not be used. Instead, it is used used in only SDK.
+MediaConnection instance can be created <code>connect</code> and <code>peer.on('connection')</code>.</p>
 <h3 id="sample">Sample</h3>
-<pre><code class="js">dataConnection = peer.connect/('peerID');
+<pre><code class="js">// Calling party
+dataConnection = peer.connect('peerID');
+
+// Called party
+peer.on('connection', connection =&gt; {
+  console.log(connection);
+});
 </code></pre>
 
 <h2 id="members">Members</h2>
@@ -829,44 +740,37 @@
 </thead>
 <tbody>
 <tr>
-<td>SERIALIZATION</td>
-<td>enum</td>
-<td>コネクションを一意に識別するためのID。</td>
-</tr>
-<tr>
-<td>id</td>
-<td>string</td>
-<td>コネクションを一意に識別するためのIDです。</td>
-</tr>
-<tr>
 <td>metadata</td>
 <td>object</td>
-<td>任意の情報を格納するオブジェクトです。<a href="#">サンプル</a></td>
+<td>Any additional information to send to the peer.</td>
 </tr>
 <tr>
 <td>open</td>
 <td>boolean</td>
-<td>コネクションがオープンしているかどうかを示します。</td>
+<td>Whether the Connection has been opened or not.</td>
 </tr>
 <tr>
 <td>remoteId</td>
 <td>string</td>
-<td>接続先のPeerIDです。</td>
+<td>PeerId of the peer this connection is connected to.</td>
 </tr>
 <tr>
 <td>peer</td>
 <td>string</td>
-<td><em>Deprecated</em> 接続先のPeerIDです。remoteIdを使ってください。</td>
+<td><em>Deprecated</em> The remote peerId. use <code>remoteId</code> instead.</td>
 </tr>
 </tbody>
 </table>
 <h4 id="sample_1">Sample</h4>
-<pre><code class="js">// metadataのサンプルをここに
+<pre><code class="js">peer.on('connection', connection =&gt; {
+  console.log(connection.metadata);
+  // =&gt; Show metadata which calling party added
+});
 </code></pre>
 
 <h2 id="methods">Methods</h2>
 <h3 id="send">send</h3>
-<p>接続先のPeerにデータを送信します。シリアライズ方法が'binary'である場合は、送信前に分割します。</p>
+<p>Send data to peer. If serialization is 'binary', it will chunk it before sending.</p>
 <h4 id="parameters">Parameters</h4>
 <table>
 <thead>
@@ -884,66 +788,36 @@
 <td>*</td>
 <td>✔</td>
 <td></td>
-<td>接続先のPeerに送るデータです。</td>
+<td>The data to send to the peer.</td>
 </tr>
 </tbody>
 </table>
-<p>Todo: 行きと帰りで違うことを追記</p>
 <h4 id="return-value">Return value</h4>
 <p><code>undefined</code></p>
 <h4 id="sample_2">Sample</h4>
-<pre><code class="js">dataConnection.send('sample');
+<pre><code class="js">// Send 'hello world' string.
+dataConnection.send('hello world');
+
+// 'data' events fires on received side
+dataConnection.on('data', data =&gt; {
+  console.log('hello world');
+  // =&gt; 'hello world'
+});
 </code></pre>
 
 <h3 id="close">close</h3>
-<p>接続先PeerとのMediaConnectionを接続を切断します。</p>
+<p>Disconnect from remote peer.</p>
 <h4 id="parameters_1">Parameters</h4>
 <p>None</p>
 <h4 id="return-value_1">Return value</h4>
 <p><code>undefined</code></p>
-<h4 id="fires">Fires</h4>
-<ul>
-<li>Connection#event:close
-(Todo: もっと良い文字に書き直す)</li>
-</ul>
 <h4 id="sample_3">Sample</h4>
 <pre><code class="js">call.close();
 </code></pre>
 
-<h3 id="replacestream">replaceStream</h3>
-<p>送信しているMediaStreamを更新します。受信のみモードから双方向に切り替えできます。
-また、音声のみのストリームから、音声＋映像のストリームへの変更もできます。</p>
-<h4 id="parameters_2">Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>stream</td>
-<td>MediaStream</td>
-<td></td>
-<td></td>
-<td>交換対象となる新しいMediaStreamです</td>
-</tr>
-</tbody>
-</table>
-<h4 id="return-value_2">Return value</h4>
-<p><code>undefined</code></p>
-<h4 id="sample_4">Sample</h4>
-<pre><code class="js">// newStream
-call.replaceStream(newStream);
-</code></pre>
-
 <h2 id="events">Events</h2>
-<h3 id="stream">stream</h3>
-<p>MediaStreamを受信したときに発生します。</p>
+<h3 id="data">data</h3>
+<p>Received data event.</p>
 <table>
 <thead>
 <tr>
@@ -953,34 +827,20 @@ call.replaceStream(newStream);
 </thead>
 <tbody>
 <tr>
-<td>MediaStream</td>
-<td>MediaStreamのインスタンスです。</td>
+<td>*</td>
+<td>Received data</td>
 </tr>
 </tbody>
 </table>
-<h4 id="sample_5">Sample</h4>
-<pre><code class="js">mediaConnection.on('stream')
-
+<h4 id="sample_4">Sample</h4>
+<pre><code class="js">dataConnection.on('data', data =&gt; {
+  console.log('hello world');
+  // =&gt; 'hello world'
+});
 </code></pre>
 
 <h3 id="close_1">close</h3>
-<p>MediaConnectionが切断されたときに発生します。</p>
-<h3 id="removestream">removeStream</h3>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream">MediaStream</a>が削除されたときに発生します。</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MediaStream</td>
-<td>(現行のドキュメントバグでは？)</td>
-</tr>
-</tbody>
-</table>
+<p>Connection closed event.</p>
                 
                   
                 

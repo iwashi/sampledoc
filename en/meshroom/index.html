@@ -919,16 +919,17 @@
                 
                   <h1>MeshRoom</h1>
                 
-                <p>メッシュ接続でのルームを管理するクラスです。</p>
+                <p>Class that manages fullmesh type room.</p>
 <h2 id="constructor">Constructor</h2>
-<p>(SDK内部の利用のみ) MeshRoomのインスタンスは、<code>joinRoom()</code> で生成されます。</p>
+<p>Constructor should not be used. Instead, it is used used in only SDK.
+Meshroom instance is created by <code>joinRoom()</code>.</p>
 <h3 id="sample">Sample</h3>
 <pre><code class="js">meshRoom = peer.joinRoom('roomName');
 </code></pre>
 
 <h2 id="methods">Methods</h2>
 <h3 id="close">close</h3>
-<p>ルームを退出し、ルーム内のすべてのユーザーとのコネクションをcloseします</p>
+<p>Close all connections in the room.</p>
 <h4 id="parameters">Parameters</h4>
 <p>None</p>
 <h4 id="return-value">Return value</h4>
@@ -938,8 +939,8 @@
 </code></pre>
 
 <h3 id="getlog">getLog</h3>
-<p>シグナリングサーバにルームのログ取得を要求します。
-シグナリングサーバからログを受信すると、<code>log</code>イベントが発火します。</p>
+<p>Start getting room's logs from signaling server.
+When fetching logs succeeds, <code>log</code> event fires.</p>
 <h4 id="parameters_1">Parameters</h4>
 <p>None</p>
 <h4 id="return-value_1">Return value</h4>
@@ -949,8 +950,9 @@
 </code></pre>
 
 <h3 id="replacestream">replaceStream</h3>
-<p>送信しているMediaStreamを更新します。受信のみモードから双方向に切り替えできます。
-また、音声のみのストリームから、音声＋映像のストリームへの変更もできます。</p>
+<p>Replace the stream being sent on all MediaConnections with a new one.
+You may change receive only mode to both send and receive mode.
+Also, changing audio only stream to both audio and video stream is supported.</p>
 <h4 id="parameters_2">Parameters</h4>
 <table>
 <thead>
@@ -968,7 +970,7 @@
 <td>MediaStream</td>
 <td></td>
 <td></td>
-<td>交換対象となる新しいMediaStreamです。</td>
+<td>The stream to replace the old stream with.</td>
 </tr>
 </tbody>
 </table>
@@ -976,11 +978,11 @@
 <p><code>undefined</code></p>
 <h4 id="sample_3">Sample</h4>
 <pre><code class="js">// newStream
-call.replaceStream(newStream);
+meshRoom.replaceStream(newStream);
 </code></pre>
 
 <h3 id="send">send</h3>
-<p>WebSocketを使用してルーム内の全てのユーザーにデータを送信します。</p>
+<p>Send data to all participants in the room with WebSocket. It emits broadcast event.</p>
 <h4 id="parameters_3">Parameters</h4>
 <table>
 <thead>
@@ -998,15 +1000,15 @@ call.replaceStream(newStream);
 <td>*</td>
 <td>✔</td>
 <td></td>
-<td>送信するデータです。</td>
+<td>The data to send.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="events">Events</h2>
 <h3 id="open">open</h3>
-<p>新規にPeerがルームへ入室したときに発生します。</p>
+<p>Room is ready.</p>
 <h3 id="peerjoin">peerJoin</h3>
-<p>ルームに新しいPeerが参加したときに発生します。</p>
+<p>New peer has joined.</p>
 <table>
 <thead>
 <tr>
@@ -1017,12 +1019,12 @@ call.replaceStream(newStream);
 <tbody>
 <tr>
 <td>string</td>
-<td>参加したPeerID</td>
+<td>Newly joined Peer ID</td>
 </tr>
 </tbody>
 </table>
 <h3 id="peerleave">peerLeave</h3>
-<p>新規にPeerがルームを退出したときに発生します。</p>
+<p>A peer has left.</p>
 <table>
 <thead>
 <tr>
@@ -1033,12 +1035,12 @@ call.replaceStream(newStream);
 <tbody>
 <tr>
 <td>string</td>
-<td>退出したPeerID</td>
+<td>The left Peer ID</td>
 </tr>
 </tbody>
 </table>
 <h3 id="log">log</h3>
-<p>ルームのログを受信したときに発生します。</p>
+<p>Room's log received.</p>
 <table>
 <thead>
 <tr>
@@ -1049,12 +1051,13 @@ call.replaceStream(newStream);
 <tbody>
 <tr>
 <td>Array</td>
-<td>ログの配列です</td>
+<td>logs</td>
 </tr>
 </tbody>
 </table>
 <h3 id="stream">stream</h3>
-<p>ルームにJoinしている他のユーザのストリームを受信した時に発生します。ストリーム送信元のpeerIdは stream.peerId で取得できます。</p>
+<p>MediaStream received from peer in the room.
+The Peer ID of stream origin can be obtained via <code>stream.peerId</code>.</p>
 <table>
 <thead>
 <tr>
@@ -1065,18 +1068,18 @@ call.replaceStream(newStream);
 <tbody>
 <tr>
 <td>MediaStream</td>
-<td>MediaStreamのインスタンスです。</td>
+<td>MediaStream instance</td>
 </tr>
 </tbody>
 </table>
 <h4 id="sample_4">Sample</h4>
 <pre><code class="js">room.on('stream', stream =&gt;{
-  // Streamをvideoタグに設定など
+    // e.g. setting stream to &lt;video&gt;
 });
 </code></pre>
 
 <h3 id="data">data</h3>
-<p>他のユーザーから送信されたデータを受信した時に発生します。</p>
+<p>Data received from peer.</p>
 <table>
 <thead>
 <tr>
@@ -1087,7 +1090,7 @@ call.replaceStream(newStream);
 <tbody>
 <tr>
 <td>object</td>
-<td><a href="#data-object">data object</a>形式のオブジェクトです。</td>
+<td><a href="#data-object">data object</a></td>
 </tr>
 </tbody>
 </table>
@@ -1104,19 +1107,19 @@ call.replaceStream(newStream);
 <tr>
 <td>src</td>
 <td>string</td>
-<td>MediaStreamのインスタンスです。</td>
+<td>The peerId of the peer who sent the data.</td>
 </tr>
 <tr>
 <td>data</td>
 <td>*</td>
-<td>受信したデータです。</td>
+<td>The data that a peer sent in the room.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="close_1">close</h3>
-<p>ルームをcloseしたときに発生します。</p>
+<p>All connections in the room has closed.</p>
 <h3 id="removestream">removeStream</h3>
-<p>ルームから<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream">MediaStream</a>が削除されたときに発生します。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream">MediaStream</a> is removed from the room.</p>
 <table>
 <thead>
 <tr>
@@ -1127,13 +1130,13 @@ call.replaceStream(newStream);
 <tbody>
 <tr>
 <td>MediaStream</td>
-<td>MediaStreamのインスタンスです。</td>
+<td>MediaStream instance</td>
 </tr>
 </tbody>
 </table>
 <h4 id="sample_5">Sample</h4>
-<pre><code class="js">room.on('removeStream', stream =&gt; {
-  // 削除されたストリームを持つPeerIDを取得
+<pre><code class="js">meshRoom.on('removeStream', stream =&gt; {
+    // e.g. getting the peer ID who removed stream
   const peerId = stream.peerId;
 }
 </code></pre>
